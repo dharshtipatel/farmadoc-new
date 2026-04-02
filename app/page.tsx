@@ -76,13 +76,13 @@ const pharmacies = [
 ];
 
 const brands = [
-  { id: 1, image: "/images/Brand1.png", alt: "Cipla", showBadge: true },
-  { id: 2, image: "/images/Brand2.png", alt: "Pfizer", showBadge: true },
+  { id: 1, image: "/images/brand1.png", alt: "Cipla", showBadge: true },
+  { id: 2, image: "/images/brand2.png", alt: "Pfizer", showBadge: true },
   { id: 3, image: "/images/BrandCard.png", alt: "Lupin", showBadge: true },
-  { id: 4, image: "/images/Brand1.png", alt: "Sun Pharma", showBadge: true },
-  { id: 5, image: "/images/Brand2.png", alt: "Dr Reddy", showBadge: false },
-  { id: 6, image: "/images/Brand1.png", alt: "GSK", showBadge: false },
-  { id: 7, image: "/images/Brand2.png", alt: "GSK", showBadge: true },
+  { id: 4, image: "/images/brand1.png", alt: "Sun Pharma", showBadge: true },
+  { id: 5, image: "/images/brand2.png", alt: "Dr Reddy", showBadge: false },
+  { id: 6, image: "/images/brand1.png", alt: "GSK", showBadge: false },
+  { id: 7, image: "/images/brand2.png", alt: "GSK", showBadge: true },
 ];
 const article = [
   {
