@@ -125,7 +125,6 @@ export default function Productinfo({ type }: { type: string }) {
           );
         })}
       </div>
-
       {/* Actions */}
       {type?.toLowerCase() === "showroom" && (
         <div className="mt-8 flex flex-col sm:flex-row gap-3">

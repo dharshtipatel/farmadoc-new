@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import FAQAccordion from "./FAQAccordion";
 import DescriptionTab from "./DescriptionTab";
@@ -170,15 +170,20 @@ const showroom = {
 };
 
 export default function ProductTabs({ type }: { type: string }) {
+  const normalizedType = type?.trim().toLowerCase();
   // Dynamically choose tabs based on type
   const tabs =
-  type?.toLowerCase() === "showroomdetail" || type?.toLowerCase() === "pharmacydetails"
+  normalizedType === "showroomdetail" || normalizedType === "pharmacydetails"
     ? ["Deals", "Services", "Info"]
-    : type?.toLowerCase() === "showroom"
+    : normalizedType === "showroom"
       ? ["Description", "About Showroom", "FAQ's"]
       : ["Top Sellers", "Map", "Description", "FAQ's"];
 
   const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  useEffect(() => {
+    setActiveTab(tabs[0]); // only reset when type changes
+  }, [normalizedType]);
 
   return (
     <div className="max-w-7xl mx-auto py-5">
