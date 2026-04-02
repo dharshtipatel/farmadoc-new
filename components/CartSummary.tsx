@@ -1,0 +1,106 @@
+"use client";
+
+import { useState } from "react";
+
+export default function CartSummary({
+  cartTotal,
+  platformFee,
+  totalDiscount,
+  couponDiscount,
+  onApplyCoupon,
+  couponCode,
+  setCouponCode,
+  payableAmount,
+  onPayReserve,
+  onBookPayStore,
+}: {
+  cartTotal: number;
+  platformFee: number;
+  totalDiscount: number;
+  couponDiscount: number;
+  onApplyCoupon: () => void;
+  couponCode: string;
+  setCouponCode: (code: string) => void;
+  payableAmount: number;
+  onPayReserve: () => void;
+  onBookPayStore: () => void;
+}) {
+  return (
+    <div className="w-full max-w-sm font-inter text-sm text-[#243b5e]">
+  {/* Bordered container for totals */}
+  <div className="border rounded border-gray-300 p-4 mb-4">
+    <h2 className="font-semibold mb-2">Bill Summary</h2>
+
+    <div className="space-y-1">
+      <div className="flex justify-between pt-2 pb-2">
+        <span>Cart Total</span>
+        <span>€{cartTotal.toFixed(2)}</span>
+      </div>
+
+      <div className="flex justify-between pt-2 pb-2">
+        <span>Platform Fee</span>
+        <span>€{platformFee.toFixed(2)}</span>
+      </div>
+
+      <div className="flex justify-between pt-2 pb-2">
+        <span>Total Discount</span>
+        <span className="text-green-600">-€{totalDiscount.toFixed(2)}</span>
+      </div>
+
+      <div className="flex justify-between pt-2 pb-2">
+        <span>Coupon Code Discount</span>
+        <span className="text-green-600">-€{couponDiscount.toFixed(2)}</span>
+      </div>
+
+      <div className="flex justify-between pt-2 pb-2 font-bold">
+        <span>Payable Amount</span>
+        <span>€{payableAmount.toFixed(2)}</span>
+      </div>
+    </div>
+  </div>
+
+  {/* Outside container elements */}
+  <div className="border-2 border-dashed border-green-300 rounded p-4 mb-4 text-[#008B38] font-semibold flex justify-between items-center bg-[#F1FFEE]">
+    <span>You Save</span>
+    <span>€{(totalDiscount + couponDiscount).toFixed(2)}</span>
+  </div>
+
+  <div className="mb-4">
+  <label className="block mb-1 text-[#1E3862] font-semibold" htmlFor="coupon">
+    Have a Coupon?
+  </label>
+
+  <div className="relative">
+    <input
+      id="coupon"
+      type="text"
+      className="w-full border border-gray-300 rounded p-3 pr-16 text-sm"
+      placeholder="Enter Coupon Code"
+      value={couponCode}
+      onChange={(e) => setCouponCode(e.target.value)}
+    />
+    <span
+      onClick={onApplyCoupon}
+      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-600 font-semibold cursor-pointer hover:underline"
+    >
+      Apply
+    </span>
+  </div>
+</div>
+
+  <button
+    onClick={onPayReserve}
+    className="w-full bg-[#14253D] text-white py-3 rounded mb-2 font-semibold hover:bg-[#0f1d30]"
+  >
+    Pay & Reserve
+  </button>
+
+  <button
+    onClick={onBookPayStore}
+    className="w-full border border-[#0f1d30] py-3 rounded font-semibold hover:bg-gray-100"
+  >
+    Book & Pay in Store
+  </button>
+</div>
+  );
+}
