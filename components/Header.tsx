@@ -96,28 +96,39 @@ export default function Header({
     <header className="w-full bg-white border-b border-[#E6EDF2] fixed top-0 left-0 z-50">
       {/* Top Row */}
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4 sm:px-6 py-3 gap-4">
-        {/* LEFT: Logo */}
-        <div className="flex items-center gap-4 flex-shrink-0 order-1 w-full sm:w-auto">
+        {/* LEFT SECTION: Logo + Divider + Location */}
+        <div className="flex items-center gap-4 flex-1 min-w-0 order-1 flex-wrap sm:flex-nowrap">
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <Image src="/images/Logo.png" alt="Logo" width={228} height={30} priority className="object-contain" />
+            <Image
+              src="/images/Logo.png"
+              alt="Logo"
+              width={228}
+              height={30}
+              priority
+              className="object-contain"
+            />
           </div>
-        </div>
 
-        {/* LOCATION: moves below logo on small screens */}
-        <div className="flex flex-col min-w-[140px] sm:min-w-[198px] font-inter flex-shrink-0 order-2 w-full sm:w-auto">
-          <div className="flex items-center gap-1 text-sm text-gray-500">
-            <MapPin size={16} />
-            Your Location
-          </div>
-          <div className="flex items-center gap-1 text-[#1E3862] font-semibold cursor-pointer">
-            {location.city} {location.code}
-            <ChevronDown size={14} className="text-gray-400" />
-          </div>
-        </div>
+          {/* Divider */}
+          <div className="hidden sm:block w-px h-10 bg-gray-300"></div>
+
+          {/* Location */}
+          <div className="flex flex-col min-w-[140px] sm:min-w-[198px] font-inter">
+                  <div className="flex items-center gap-1 text-sm text-gray-500">
+                    <MapPin size={16} />
+                    Your Location
+                  </div>
+                  <div className="flex items-center gap-1 text-[#1E3862] font-semibold cursor-pointer">
+                    {location.city} {location.code}
+                    <ChevronDown size={14} className="text-gray-400" />
+                  </div>
+                </div>
+              </div>
 
         {/* SEARCH BOX */}
         {showSearch && (
-          <form className="order-4 sm:order-3 flex-1 min-w-[150px] sm:max-w-[400px] w-full py-2">
+          <form className="order-3 sm:order-2 flex-1 min-w-[150px] w-full sm:max-w-[400px] py-2">
             <div className="flex items-center bg-white border border-[#243b5e] rounded-xl px-3 py-2 w-full">
               <Search className="text-[#243b5e] mr-2" size={18} />
               <input
@@ -131,20 +142,44 @@ export default function Header({
           </form>
         )}
 
-        {/* RIGHT: Language + User + Cart */}
-        <div className="flex flex-wrap items-center gap-4 flex-shrink-0 order-3 sm:order-4 w-full sm:w-auto">
+        {/* RIGHT SECTION: Language + User + Cart */}
+        <div className="flex items-center gap-4 flex-shrink-0 order-2 sm:order-3 flex-wrap sm:flex-nowrap w-full sm:w-auto">
+          {/* Language */}
           <div className="flex flex-col items-center gap-1 cursor-pointer flex-shrink-0">
-            <Image src="/images/lang.svg" alt="Lang" width={36} height={24} priority className="object-contain" />
+            <Image
+              src="/images/lang.svg"
+              alt="Lang"
+              width={36}
+              height={24}
+              priority
+              className="object-contain"
+            />
             <span className="text-xs font-inter">{languages[0]}</span>
           </div>
 
+          {/* User */}
           <div className="flex flex-col items-center gap-1 cursor-pointer flex-shrink-0">
-            <Image src="/images/login_icon.svg" alt="User" width={36} height={24} priority className="object-contain" />
+            <Image
+              src="/images/login_icon.svg"
+              alt="User"
+              width={36}
+              height={24}
+              priority
+              className="object-contain"
+            />
             <span className="text-xs font-inter">Log in</span>
           </div>
 
+          {/* Cart */}
           <div className="flex flex-col items-center gap-1 cursor-pointer relative flex-shrink-0">
-            <Image src="/images/cart.svg" alt="Cart" width={36} height={24} priority className="object-contain" />
+            <Image
+              src="/images/cart.svg"
+              alt="Cart"
+              width={36}
+              height={24}
+              priority
+              className="object-contain"
+            />
             <span className="text-xs font-inter">Cart</span>
             {cartCount > 0 && (
               <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
