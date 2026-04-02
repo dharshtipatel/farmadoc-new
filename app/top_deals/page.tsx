@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import Header from "../../components/Header";
 import Filters from "../../components/Filters";
 import Breadcrumb from "../../components/Breadcrumb";
@@ -10,6 +10,7 @@ import FAQAccordion from "../../components/FAQAccordion";
 import Footer from "../../components/Footer";
 import { useSearchParams } from "next/navigation";
 import PharmacyCard from "../../components/PharmacyCard";
+
 interface Product {
   id: number;
   name: string;
@@ -23,7 +24,7 @@ interface Product {
   type: string;
 }
 
-export default function TopDealsPage() {
+function TopDealsContent() {
   const searchParams = useSearchParams();
   var pageTitle = searchParams.get("title") || "Top Deals";
   var pageSubtitle = searchParams.get("subtitle") || "Top Deals";
@@ -82,64 +83,70 @@ export default function TopDealsPage() {
   }, [allProducts]);
 
   return (
+    <div className="max-w-7xl mx-auto mt-6 flex gap-15">
+      {/* Left Filters */}
+      <div className="w-[280px]">
+        <Filters filter_title={pageTitle} />
+      </div>
+
+      {/* Right Content */}
+      <div className="flex-1">
+        <DealsHeader title={pageTitle} count={allProducts.length} subtitle={pageSubtitle} />
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+          {visibleProducts.map((product) =>
+            isPharmacyView ? (
+              <PharmacyCard
+                key={product.id}
+                image={product.image}
+                name={product.pharmacy}
+                address={`Address for ${product.pharmacy}`}
+                type={product.type}
+                deals={Math.floor(Math.random() * 10) + 1}
+                distance={parseFloat(product.distance)}
+                starBadge="/images/star_badge.png"
+              />
+            ) : (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                pharmacy={product.pharmacy}
+                price={Number(product.price)}
+                oldPrice={Number(product.oldPrice)}
+                discount={product.discount}
+                distance={product.distance}
+                expiry={product.expiry}
+                image={product.image}
+                type={product.type}
+              />
+            )
+          )}
+        </div>
+
+        {/* Loader */}
+        {visibleProducts.length < allProducts.length && (
+          <div ref={loaderRef} className="h-10 mt-4 flex justify-center items-center">
+            <span className="text-gray-500">Loading more...</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function TopDealsPage() {
+  return (
     <div>
       <Header />
       <div className="pt-[135px]">
-        <Breadcrumb currentPage={pageTitle} />
+        <Breadcrumb currentPage="Top Deals" />
       </div>
 
-      <div className="max-w-7xl mx-auto mt-6 flex gap-15">
-        {/* Left Filters */}
-        <div className="w-[280px]">
-          <Filters filter_title={pageTitle} />
-        </div>
-
-        {/* Right Content */}
-        <div className="flex-1">
-          <DealsHeader title={pageTitle} count={allProducts.length} subtitle={pageSubtitle} />
-
-          {/* Products Grid */}
-          
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            {visibleProducts.map((product) =>
-              isPharmacyView ? (
-                <PharmacyCard
-                  key={product.id}
-                  image={product.image}
-                  name={product.pharmacy}
-                  address={`Address for ${product.pharmacy}`}
-                  type={product.type}
-                  deals={Math.floor(Math.random() * 10) + 1}
-                  distance={parseFloat(product.distance)}
-                  starBadge="/images/star_badge.png"
-                />
-              ) : (
-                <ProductCard
-                  key={product.id}
-                  id={product.id}
-                  name={product.name}
-                  pharmacy={product.pharmacy}
-                  price={Number(product.price)}
-                  oldPrice={Number(product.oldPrice)}
-                  discount={product.discount}
-                  distance={product.distance}
-                  expiry={product.expiry}
-                  image={product.image}
-                  type={product.type}
-                />
-              )
-            )}
-          </div>
-
-          {/* Loader */}
-          {visibleProducts.length < allProducts.length && (
-            <div ref={loaderRef} className="h-10 mt-4 flex justify-center items-center">
-              <span className="text-gray-500">Loading more...</span>
-            </div>
-          )}
-        </div>
-      </div>
+      <Suspense fallback={<div className="flex justify-center p-20">Loading deals...</div>}>
+        <TopDealsContent />
+      </Suspense>
 
       <FAQAccordion />
       <Footer />

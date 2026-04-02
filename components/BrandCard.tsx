@@ -6,9 +6,14 @@ type BrandCardProps = {
   showBadge?: boolean;
 };
 
-export default function BrandCard({ image, alt = "logo", showBadge = true }: BrandCardProps) {
+export default function BrandCard({
+  image,
+  alt = "logo",
+  showBadge = true,
+}: BrandCardProps) {
   return (
-    <div className="bg-white rounded-xl p-4 w-full max-w-[197px] h-[140px] relative border border-gray-200">
+    <div className="bg-white rounded-xl p-4 w-full max-w-[197px] aspect-[197/140] relative border border-gray-200 flex items-center justify-center">
+      {/* Badge */}
       {showBadge && (
         <Image
           src="/images/star_badge.png"
@@ -19,11 +24,13 @@ export default function BrandCard({ image, alt = "logo", showBadge = true }: Bra
         />
       )}
 
+      {/* Brand Logo */}
       <Image
         src={image}
         alt={alt}
         fill
         className="object-contain"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 197px"
       />
     </div>
   );

@@ -16,15 +16,15 @@ import WhyChooseFarmaDoc from "@/components/WhyChooseFarmaDoc";
 import TestimonialCard from "@/components/TestimonialCard";
 
 const topDeals = [
-  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }
+  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }
 ];
 
 const favourites = [
-  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }
+  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }
 ];
 
 const expiringSoonDeals = [
- { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }
+ { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }
 ];
 
 const pharmacies = [
@@ -76,18 +76,18 @@ const pharmacies = [
 ];
 
 const brands = [
-  { id: 1, image: "/images/BrandCard.png", alt: "Cipla", showBadge: true },
-  { id: 2, image: "/images/BrandCard.png", alt: "Pfizer", showBadge: false },
-  { id: 3, image: "/images/BrandCard.png", alt: "Lupin", showBadge: false },
-  { id: 4, image: "/images/BrandCard.png", alt: "Sun Pharma", showBadge: false },
-  { id: 5, image: "/images/BrandCard.png", alt: "Dr Reddy", showBadge: false },
-  { id: 6, image: "/images/BrandCard.png", alt: "GSK", showBadge: false },
-  { id: 7, image: "/images/BrandCard.png", alt: "GSK", showBadge: true },
+  { id: 1, image: "/images/Brand1.png", alt: "Cipla", showBadge: true },
+  { id: 2, image: "/images/Brand2.png", alt: "Pfizer", showBadge: true },
+  { id: 3, image: "/images/BrandCard.png", alt: "Lupin", showBadge: true },
+  { id: 4, image: "/images/Brand1.png", alt: "Sun Pharma", showBadge: true },
+  { id: 5, image: "/images/Brand2.png", alt: "Dr Reddy", showBadge: false },
+  { id: 6, image: "/images/Brand1.png", alt: "GSK", showBadge: false },
+  { id: 7, image: "/images/Brand2.png", alt: "GSK", showBadge: true },
 ];
 const article = [
   {
     id: 1,
-    imageSrc: "/images/1.png",
+    imageSrc: "/images/h1.jpg",
     category: "Sustainability",
     title: "Why Buying Near-Expiry Medicines Is Safe & Smart",
     author: "Dr. Elisa Romano",
@@ -95,7 +95,7 @@ const article = [
   },
   {
     id: 2,
-    imageSrc: "/images/pharmacy_trends.jpg",
+    imageSrc: "/images/h2.jpg",
     category: "Pharmacy Trends",
     title: "Top Pharmacy Innovations to Watch in 2026",
     author: "Dr. John Smith",
@@ -103,7 +103,7 @@ const article = [
   },
   {
     id: 3,
-    imageSrc: "/images/health_tips.jpg",
+    imageSrc: "/images/h3.jpg",
     category: "Health Tips",
     title: "5 Simple Ways to Boost Your Immune System",
     author: "Dr. Alice Lee",
@@ -111,7 +111,7 @@ const article = [
   },
   {
     id: 4,
-    imageSrc: "/images/sustainability.jpg",
+    imageSrc: "/images/h4.jpg",
     category: "Sustainability",
     title: "Eco-Friendly Packaging in Pharmacies",
     author: "Dr. Mark Davis",
@@ -185,6 +185,7 @@ export default function Home() {
         deals={expiringSoonDeals}
         CardComponent={ProductCard}
         cardsPerPage={4}
+        viewAllLink="/top_deals"
       />
 
       <PharmaBenefits />
@@ -223,6 +224,7 @@ export default function Home() {
         deals={favourites}
         CardComponent={ProductCard}
         cardsPerPage={4}
+        viewAllLink="/top_deals"
       />
 
       <CarouselSection

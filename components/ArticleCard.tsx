@@ -21,7 +21,7 @@ export default function ArticleCard({
     <div className="max-w-sm bg-white rounded-lg overflow-hidden border border-gray-200">
       {/* Image */}
       <div className="relative w-full h-48">
-        <Image src={imageSrc} alt={title} fill className="object-contain" />
+        <Image src={imageSrc} alt={title} fill className="" />
       </div>
 
       {/* Content */}
