@@ -8,7 +8,7 @@ export default function PharmaMovement() {
         {/* Left side */}
         <div className="relative w-[612px] h-full">
           <Image
-            src="/images/PharmaMovement.png"
+            src="/images/pharmaMovement.png"
             alt="Pharmacy Illustration"
             width={612}
             height={320}
