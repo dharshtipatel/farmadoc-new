@@ -73,11 +73,15 @@ export default function ProductPage() {
   return (
     <div>
       <Header />
-      <div className="pt-[135px]">
-        <Breadcrumb currentPage={"test"} />
+
+      {/* Make breadcrumb responsive */}
+      <div className="pt-[135px] px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
+          <Breadcrumb currentPage={"test"} />
+        </div>
       </div>
 
-      {/* Wrap the component using useSearchParams in Suspense */}
+      {/* Wrap the component using Suspense */}
       <Suspense fallback={<div className="flex justify-center p-20">Loading product...</div>}>
         <ProductContent />
       </Suspense>

@@ -30,9 +30,9 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
   };
 
   const sortedSellers = React.useMemo(() => {
-  if (!sortConfig.key) return sellers;
+    if (!sortConfig.key) return sellers;
 
-  const key = sortConfig.key;
+    const key = sortConfig.key;
     return [...sellers].sort((a, b) => {
       let aValue = key === "distance" ? convertDistance(a.distance) : a[key] ?? 0;
       let bValue = key === "distance" ? convertDistance(b.distance) : b[key] ?? 0;
@@ -59,11 +59,12 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
   const remaining = sortedSellers.length - visibleCount;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 font-inter">
+    <div className="max-w-7xl px-4 font-inter">
       <h2 className="text-2xl font-semibold mb-4">Top Sellers</h2>
 
-      <div className="overflow-x-auto rounded-md">
-        <table className="min-w-[700px] w-full border border-gray-200">
+      {/* Table for large screens */}
+      <div className="hidden md:block overflow-x-auto rounded-md">
+        <table className="w-full border border-gray-200">
           <thead className="bg-[#F4FAFF] text-[#6B6F72] text-[16px]">
             <tr>
               <th className="text-left py-3 px-4 font-medium">Sellers</th>
@@ -142,6 +143,59 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* Card view for small screens */}
+      <div className="md:hidden flex flex-col gap-4">
+        {displayedSellers.map((seller, idx) => (
+          <div key={idx} className="border border-gray-200 rounded-md p-4 bg-white">
+            <div className="flex items-start">
+              <div className="flex items-start gap-2">
+                <Image
+                  src={seller.image || "/images/default_store.png"}
+                  alt={seller.name}
+                  width={60}
+                  height={40}
+                  className="object-cover flex-shrink-0"
+                />
+                <span className="font-medium break-words">{seller.name}</span>
+              </div>
+            </div>
+
+            <div className="flex justify-between mt-2">
+              <div>
+                <span className="font-bold text-[#1E3862]">€{seller.price.toFixed(2)}</span>
+                <span className="ml-2 text-xs line-through text-gray-400">€{seller.oldPrice}</span>
+                <span className="ml-2 px-2 py-0.5 text-xs font-semibold rounded bg-[#FBE7E7] text-[#D62828]">
+                  {seller.discountPercent}% OFF
+                </span>
+              </div>
+              <a
+                href={seller.directionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-[#1192E8] text-sm hover:underline"
+              >
+                <Image src="/images/direction.svg" alt="direction" width={14} height={14} />
+                Direction
+              </a>
+            </div>
+
+            <div className="mt-2 text-sm text-gray-600">{seller.distance}</div>
+          </div>
+        ))}
+
+        {!showAll && remaining > 0 && (
+          <button onClick={() => setShowAll(true)} className="text-[#1192E8] font-medium hover:underline">
+            +{remaining} more
+          </button>
+        )}
+
+        {showAll && sortedSellers.length > visibleCount && (
+          <button onClick={() => setShowAll(false)} className="text-[#1192E8] font-medium hover:underline">
+            Show Less
+          </button>
+        )}
       </div>
     </div>
   );

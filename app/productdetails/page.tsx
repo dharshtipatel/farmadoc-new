@@ -45,8 +45,10 @@ export default function ProductDetailsPage() {
   return (
     <div>
       <Header />
-      <div className="pt-[135px]">
-        <Breadcrumb currentPage={"Showroom & Pharmacies"} />
+      <div className="pt-[135px] px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
+          <Breadcrumb currentPage={"Showroom & Pharmacies"} />
+        </div>
       </div>
 
       <Suspense fallback={<div className="flex justify-center p-20">Loading product details...</div>}>

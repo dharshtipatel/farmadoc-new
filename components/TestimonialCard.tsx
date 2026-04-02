@@ -16,31 +16,34 @@ export default function TestimonialCard({
   quotationIconSrc = "/images/quotation-mark.svg",
 }: TestimonialCardProps) {
   return (
-    <div className="max-w-[314px] h-[250px] p-2 bg-[#EDF2FB] rounded-lg relative">
+    <div className="w-full sm:max-w-[314px] h-auto p-4 sm:p-2 bg-[#EDF2FB] rounded-lg relative">
+      
       {/* Title and Quotation Mark */}
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="italic font-bold text-[18px] text-[#000000] font-times">
+      <div className="flex items-center justify-between mb-2 sm:mb-3">
+        <h3 className="italic font-bold text-[16px] sm:text-[18px] text-[#000000] font-times">
           {title}
         </h3>
         <Image
           src={quotationIconSrc}
           alt="Quotation marks"
-          width={48}
-          height={48}
-          className="select-none pointer-events-none"
+          width={36}
+          height={36}
+          className="select-none pointer-events-none sm:w-12 sm:h-12"
         />
       </div>
 
       {/* Quote */}
-      <p className="italic text-[16px] text-[#6B6F72] mb-2 leading-relaxed font-times">
+      <p className="italic text-[14px] sm:text-[16px] text-[#6B6F72] mb-2 leading-relaxed font-times">
         {quote}
       </p>
 
       {/* Author */}
-      <p className="font-bold text-[#000000] mb-1">{author}</p>
+      <p className="font-bold text-[14px] sm:text-[16px] text-[#000000] mb-1">
+        {author}
+      </p>
 
       {/* Star rating */}
-      <div className="flex space-x-1">
+      <div className="flex space-x-1 mt-1">
         {[...Array(rating)].map((_, i) => (
           <StarIcon key={i} />
         ))}
@@ -52,7 +55,7 @@ export default function TestimonialCard({
 function StarIcon() {
   return (
     <svg
-      className="w-5 h-5 text-yellow-400"
+      className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400"
       fill="currentColor"
       viewBox="0 0 20 20"
       aria-hidden="true"
