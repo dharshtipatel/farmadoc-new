@@ -24,11 +24,9 @@ interface Product {
 }
 
 export default function TopDealsPage() {
-  // const searchParams = useSearchParams();
-  // var pageTitle = searchParams.get("title") || "Top Deals";
-  // var pageSubtitle = searchParams.get("subtitle") || "Top Deals";
-  var pageTitle = "Top Deals";
-  var pageSubtitle = "Top Deals";
+  const searchParams = useSearchParams();
+  var pageTitle = searchParams.get("title") || "Top Deals";
+  var pageSubtitle = searchParams.get("subtitle") || "Top Deals";
 
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
