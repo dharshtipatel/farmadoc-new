@@ -49,7 +49,7 @@ export default function PharmacyBannerCard({
       
       {/* Left Image */}
       <div className="relative w-full lg:w-[522px] h-[320px] flex-shrink-0">
-        <Image src={image} alt={name} fill className="object-cover rounded-md" />
+        <Image src={image} alt={name} fill className="rounded-md" />
       </div>
 
       {/* Right Content */}

@@ -166,7 +166,8 @@ export default function Home() {
   return (
     <div className="bg-gradient-to-b from-[#E5F6FF] to-white">
       <Header showSearch={false} />
-      <div className="pt-[135px]">
+      <div className="pt-[80px] sm:pt-[135px] p-2"></div>
+      <div className="max-w-7xl mx-auto">
         <Banner />
       </div>
 

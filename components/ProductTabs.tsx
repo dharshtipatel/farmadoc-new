@@ -101,7 +101,7 @@ export default function ProductTabs({ type }: { type: string }) {
             <h2 className="text-2xl font-semibold mb-4">
               Services <span className="text-gray-500 text-sm">({services.length})</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-start">
               {services.map((service) => (
                 <ServiceCard key={service.id} {...service} />
               ))}

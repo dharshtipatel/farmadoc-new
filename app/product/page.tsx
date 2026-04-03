@@ -9,82 +9,68 @@ import Productinfo from "../../components/Productinfo";
 import ProductTabs from "../../components/ProductTabs";
 import Footer from "@/components/Footer";
 
-// Move search logic to a sub-component
 function ProductContent() {
   const searchParams = useSearchParams();
-  const [decodedType, setDecodedType] = useState('');
+  const [decodedType, setDecodedType] = useState("");
 
   useEffect(() => {
     const typeParam = searchParams.get("type");
     if (typeParam) {
-      try {
-        // atob is safe inside useEffect because it only runs on the client
-        setDecodedType((typeParam));
-      } catch (e) {
-        console.error("Failed to decode type parameter:", e);
-      }
+      setDecodedType(typeParam);
     }
   }, [searchParams]);
 
-  const id = searchParams.get("id");
-
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
-  
-  {/* Top Section (Image + Product Info) */}
-  <div className="flex flex-col lg:flex-row gap-8">
-    
-    {/* Image Section */}
-    <div className="lg:w-1/2 w-full">
-      <ImageBox
-        images={[
-          "/images/pill1.png",
-          "/images/pill2.png",
-          "/images/pill3.png",
-          "/images/pill4.png",
-          "/images/pill1.png",
-          "/images/pill2.png",
-          "/images/pill3.png",
-        ]}
-      />
+      {/* Top Section: Image + Product Info */}
+      <div className="flex flex-col lg:flex-row gap-8">
+        <div className="lg:w-1/2 w-full">
+          <ImageBox
+            images={[
+              "/images/pill1.png",
+              "/images/pill2.png",
+              "/images/pill3.png",
+              "/images/pill4.png",
+              "/images/pill1.png",
+              "/images/pill2.png",
+              "/images/pill3.png",
+            ]}
+          />
+        </div>
+
+        <div className="lg:w-1/2 w-full">
+          <Suspense fallback={<div>Loading product info...</div>}>
+            <Productinfo type={decodedType} />
+          </Suspense>
+        </div>
+      </div>
+
+      {/* Product Tabs */}
+      <div className="mt-8">
+        <Suspense fallback={<div>Loading product tabs...</div>}>
+          <ProductTabs type={decodedType} />
+        </Suspense>
+      </div>
     </div>
-
-    {/* Product Info */}
-    <div className="lg:w-1/2 w-full">
-      <Suspense fallback={<div>Loading product info...</div>}>
-        <Productinfo type={decodedType} />
-      </Suspense>
-    </div>
-
-  </div>
-
-  {/* Product Tabs - FULL WIDTH BELOW */}
-  <div className="mt-8">
-    <Suspense fallback={<div>Loading product tabs...</div>}>
-      <ProductTabs type={decodedType} />
-    </Suspense>
-  </div>
-
-</div>
   );
 }
 
 export default function ProductPage() {
   return (
-    <div>
+    <div className="relative">
+      {/* Fixed header */}
       <Header />
 
-      {/* Make breadcrumb responsive */}
-      <div className="pt-[135px] px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
-          <Breadcrumb currentPage={"test"} />
-        </div>
-      </div>
+      {/* Wrapper that pushes content below header */}
+      <div className="pt-[80px] sm:pt-[135px]">
+        {/* Breadcrumb sits below header */}
+        <Breadcrumb currentPage="test" />
 
-      {/* Wrap the component using Suspense */}
-      <Suspense fallback={<div className="flex justify-center p-20">Loading product...</div>}>
-        <ProductContent />
-      </Suspense>
+        {/* Main content */}
+        <Suspense fallback={<div className="flex justify-center p-20">Loading product...</div>}>
+          <ProductContent />
+        </Suspense>
+      </div>
 
       <Footer />
     </div>

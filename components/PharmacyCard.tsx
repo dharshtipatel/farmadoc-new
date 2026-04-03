@@ -26,16 +26,16 @@ export default function PharmacyCard({
   const encodeType = (value: string) => value;
 
   return (
-    <div className="w-full max-w-[305px] sm:w-[305px] border border-gray-300 rounded-[8px] flex flex-col gap-[12px] pb-[20px] bg-white">
+    <div className="w-full max-w-[305px] sm:max-w-[305px] border border-gray-300 rounded-lg flex flex-col gap-3 pb-5 bg-white">
 
       {/* Image Container */}
-      <div className="relative w-full h-[160px] sm:w-[302px] rounded-t-[8px] overflow-hidden">
+      <div className="relative w-full aspect-[302/160] rounded-t-lg overflow-hidden">
 
         <Image
           src={image}
           alt={name}
           fill
-          className=""
+          className="object-cover"
           priority
         />
 
@@ -71,9 +71,9 @@ export default function PharmacyCard({
       </div>
 
       {/* Content Section */}
-      <div className="px-4 sm:px-[16px] flex flex-col gap-[8px]">
+      <div className="px-4 sm:px-4 flex flex-col gap-2">
 
-        <h6 className="text-[16px] font-bold text-[#000000] font-['Helvetica Neue'] break-words">
+        <h6 className="text-[16px] font-bold text-black break-words">
           {name}
         </h6>
 
@@ -89,7 +89,7 @@ export default function PharmacyCard({
           passHref
         >
           <button
-            className="w-full sm:w-[265px] h-[40px] border border-gray-300 rounded-[4px] flex items-center justify-center gap-[10px] px-4 py-[8px] text-[14px] leading-[23px] font-medium tracking-[0.01em] text-[#1E3862] hover:bg-gray-50"
+            className="w-full h-10 border border-gray-300 rounded-md flex items-center justify-center gap-2 px-4 text-[14px] font-medium text-[#1E3862] hover:bg-gray-50"
             type="button"
           >
             View Offers

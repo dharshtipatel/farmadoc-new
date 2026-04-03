@@ -19,7 +19,8 @@ function ProductDetailsContent() {
   }, [searchParams]);
 
   return (
-    <>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Pharmacy Banner */}
       <PharmacyBannerCard
         name="Dell'Orso Pharmacy"
         city="Milan"
@@ -34,23 +35,32 @@ function ProductDetailsContent() {
           Sun: "Closed",
         }}
       />
-      <Suspense fallback={<div>Loading product tabs...</div>}>
-        <ProductTabs type={decodedType} />
-      </Suspense>
-    </>
+
+      {/* Product Tabs */}
+      <div className="mt-8">
+        <Suspense fallback={<div>Loading product tabs...</div>}>
+          <ProductTabs type={decodedType} />
+        </Suspense>
+      </div>
+    </div>
   );
 }
 
 export default function ProductDetailsPage() {
   return (
     <div>
+      {/* Fixed Header */}
       <Header />
-      <div className="pt-[135px] px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
-          <Breadcrumb currentPage={"Showroom & Pharmacies"} />
-        </div>
+
+      {/* Spacer to push content below header */}
+      <div className="pt-[80px] sm:pt-[135px]"></div>
+
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+        <Breadcrumb currentPage="Showroom & Pharmacies" />
       </div>
 
+      {/* Main Content */}
       <Suspense fallback={<div className="flex justify-center p-20">Loading product details...</div>}>
         <ProductDetailsContent />
       </Suspense>

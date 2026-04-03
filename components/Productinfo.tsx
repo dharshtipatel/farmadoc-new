@@ -128,9 +128,8 @@ export default function Productinfo({ type }: { type: string }) {
       {/* Actions */}
       {type?.toLowerCase() === "showroom" && (
         <div className="mt-8 flex flex-col sm:flex-row gap-3">
-
           {/* Add to cart */}
-          <div className="flex-1">
+          <div className="w-full sm:flex-1">
             {quantity === 0 ? (
               <button
                 className="w-full h-[52px] flex items-center justify-center gap-2 border border-blue-500 rounded-lg text-blue-600"
@@ -149,37 +148,35 @@ export default function Productinfo({ type }: { type: string }) {
           </div>
 
           {/* Book Now */}
-          
-<button
-  className="flex-1 h-[52px] flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg"
-  onClick={() => {
-    if (quantity <= 0) {
-      alert("Please select quantity before booking.");
-      return;
-    }
+          <button
+            className="w-full sm:flex-1 h-[52px] flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg"
+            onClick={() => {
+              if (quantity <= 0) {
+                alert("Please select quantity before booking.");
+                return;
+              }
 
-    const selectedVariant = variants[selected];
+              const selectedVariant = variants[selected];
 
-    // Add to cart
-    addToCart({
-  id: variants[selected].id, 
-  name: "Flu-Ex Com Foundation Spf15 33",
-  price: variants[selected].price,
-  quantity,
-  variant: {
-    count: variants[selected].count,
-    pack: variants[selected].pack,
-    oldPrice: variants[selected].oldPrice,
-  },
-});
+              addToCart({
+                id: selectedVariant.id,
+                name: "Flu-Ex Com Foundation Spf15 33",
+                price: selectedVariant.price,
+                quantity,
+                variant: {
+                  count: selectedVariant.count,
+                  pack: selectedVariant.pack,
+                  oldPrice: selectedVariant.oldPrice,
+                },
+              });
 
-    setQuantity(0); // reset quantity
-    router.push("/cart"); // navigate to cart page
-  }}
->
-  <Image src="/images/cart.svg" alt="cart" width={20} height={20} />
-  Book Now
-</button>
+              setQuantity(0);
+              router.push("/cart");
+            }}
+          >
+            <Image src="/images/cart.svg" alt="cart" width={20} height={20} />
+            Book Now
+          </button>
 
         </div>
       )}

@@ -11,7 +11,7 @@ import ProductCard from "../../components/ProductCard";
 import Footer from "@/components/Footer";
 
 const topDeals = [
-  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" }
+  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }
 ];
 
 export default function CartPage() {
@@ -49,9 +49,9 @@ export default function CartPage() {
   return (
     <div>
       <Header />
-      <div className="pt-[135px]">
+      <div className="pt-[80px] sm:pt-[135px]">
         <Breadcrumb currentPage={"My Cart"} />
-      </div>
+      
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2">
         <div className="flex flex-col lg:flex-row lg:items-start gap-6">
@@ -60,7 +60,7 @@ export default function CartPage() {
             <Cart />
           </div>
 
-          <div className="w-full lg:w-1/3">
+          <div className="w-full lg:w-1/3 mb-8">
             <div className="w-full max-w-sm font-inter text-sm text-[#243b5e]">
               {/* Cart Total Row */}
               <div className="flex justify-between items-center mb-6">
@@ -93,6 +93,7 @@ export default function CartPage() {
           viewAllLink="/top_deals"
           className="mx-0"
         />
+      </div>
       </div>
       <Footer />
     </div>

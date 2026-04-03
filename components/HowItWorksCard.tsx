@@ -9,7 +9,7 @@ interface HowItWorksCardProps {
 
 export function HowItWorksCard({ imageSrc, altText, title }: HowItWorksCardProps) {
   return (
-    <div className="flex items-center justify-between w-full min-h-[84px] bg-white rounded-[8px] border border-[#D6DADD] pt-[8px] pr-[16px] pb-[8px] pl-[8px]">
+  <div className="flex items-center justify-between w-full min-h-[84px] bg-white rounded-[8px] border border-[#D6DADD] pt-[8px] pr-[16px] pb-[8px] pl-[8px]">
   
   <div className="flex items-center gap-[12px]">
     <img src={imageSrc} alt={altText} className="w-[84px] h-[68px]" />

@@ -146,8 +146,7 @@ export default function Filters({ filter_title }: FiltersProps) {
 
   return (
     <aside className="px-6 flex flex-col">
-      <div className="w-[273px] font-medium text-black">
-        
+      <div className="w-full max-w-[273px] font-medium text-black">
         {/* Header */}
         <div className="flex justify-between items-center mb-3">
           <h3 className="font-bold text-lg">Filters</h3>
@@ -173,7 +172,6 @@ export default function Filters({ filter_title }: FiltersProps) {
 
         {filterConfig.map((section) => (
           <FilterSection key={section.title} title={section.title}>
-            
             {section.type === "checkbox" && section.options && (
               <CheckboxFilter
                 options={section.options}
@@ -188,17 +186,13 @@ export default function Filters({ filter_title }: FiltersProps) {
                 min={1}
                 max={10}
                 value={distance}
-                onChange={(label) =>
-                  handleSingleReplace("Distance", label)
-                }
+                onChange={(label) => handleSingleReplace("Distance", label)}
               />
             )}
 
             {section.type === "price" && (
               <PriceRange
-                onPriceChange={(label) =>
-                  handleSingleReplace("Price", label)
-                }
+                onPriceChange={(label) => handleSingleReplace("Price", label)}
               />
             )}
           </FilterSection>

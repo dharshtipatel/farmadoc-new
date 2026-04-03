@@ -26,19 +26,21 @@ interface Product {
 
 function TopDealsContent() {
   const searchParams = useSearchParams();
-  var pageTitle = searchParams.get("title") || "Top Deals";
-  var pageSubtitle = searchParams.get("subtitle") || "Top Deals";
+  let pageTitle = searchParams.get("title") || "Top Deals";
+  let pageSubtitle = searchParams.get("subtitle") || "Top Deals";
 
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
   const loaderRef = useRef<HTMLDivElement>(null);
+
   const isPharmacyView = pageTitle.toLowerCase() === "popular pharmacies near you";
   if (isPharmacyView) {
     pageTitle = "Pharmacies Near you";
     pageSubtitle = "Find exclusive deals on medications and health essentials.";
   }
 
-  // Generate random products on client only
+  // Generate random products
   useEffect(() => {
     const products = Array.from({ length: 30 }, (_, i) => ({
       id: i + 1,
@@ -58,7 +60,7 @@ function TopDealsContent() {
 
   // Infinite scroll
   useEffect(() => {
-    if (!allProducts.length) return; // wait until products are generated
+    if (!allProducts.length) return;
 
     const observer = new IntersectionObserver(
       (entries, observerInstance) => {
@@ -83,55 +85,88 @@ function TopDealsContent() {
   }, [allProducts]);
 
   return (
-    <div className="max-w-7xl mx-auto mt-6 flex gap-15">
-      {/* Left Filters */}
-      <div className="w-[280px]">
-        <Filters filter_title={pageTitle} />
+    <div className="max-w-7xl mx-auto mt-6">
+      {/* Mobile Filter Button */}
+      <div className="sm:hidden flex justify-end mb-4">
+        <button
+          onClick={() => setShowMobileFilters(true)}
+          className="bg-[#33B1FF] text-white px-4 py-2 rounded"
+        >
+          Filters
+        </button>
       </div>
 
-      {/* Right Content */}
-      <div className="flex-1">
-        <DealsHeader title={pageTitle} count={allProducts.length} subtitle={pageSubtitle} />
-
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-          {visibleProducts.map((product) =>
-            isPharmacyView ? (
-              <PharmacyCard
-                key={product.id}
-                image={product.image}
-                name={product.pharmacy}
-                address={`Address for ${product.pharmacy}`}
-                type={product.type}
-                deals={Math.floor(Math.random() * 10) + 1}
-                distance={parseFloat(product.distance)}
-                starBadge="/images/star_badge.png"
-              />
-            ) : (
-              <ProductCard
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                pharmacy={product.pharmacy}
-                price={Number(product.price)}
-                oldPrice={Number(product.oldPrice)}
-                discount={product.discount}
-                distance={product.distance}
-                expiry={product.expiry}
-                image={product.image}
-                type={product.type}
-              />
-            )
-          )}
+      <div className="flex flex-col sm:flex-row gap-6">
+        {/* Desktop Filters */}
+        <div className="hidden sm:block w-[280px]">
+          <Filters filter_title={pageTitle} />
         </div>
 
-        {/* Loader */}
-        {visibleProducts.length < allProducts.length && (
-          <div ref={loaderRef} className="h-10 mt-4 flex justify-center items-center">
-            <span className="text-gray-500">Loading more...</span>
+        {/* Right Content */}
+        <div className="flex-1">
+          <DealsHeader title={pageTitle} count={allProducts.length} subtitle={pageSubtitle} />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            {visibleProducts.map((product) =>
+              isPharmacyView ? (
+                <PharmacyCard
+                  key={product.id}
+                  image={product.image}
+                  name={product.pharmacy}
+                  address={`Address for ${product.pharmacy}`}
+                  type={product.type}
+                  deals={Math.floor(Math.random() * 10) + 1}
+                  distance={parseFloat(product.distance)}
+                  starBadge="/images/star_badge.png"
+                />
+              ) : (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  pharmacy={product.pharmacy}
+                  price={Number(product.price)}
+                  oldPrice={Number(product.oldPrice)}
+                  discount={product.discount}
+                  distance={product.distance}
+                  expiry={product.expiry}
+                  image={product.image}
+                  type={product.type}
+                />
+              )
+            )}
           </div>
-        )}
+
+          {/* Loader */}
+          {visibleProducts.length < allProducts.length && (
+            <div ref={loaderRef} className="h-10 mt-4 flex justify-center items-center">
+              <span className="text-gray-500">Loading more...</span>
+            </div>
+          )}
+        </div>
       </div>
+
+      {/* Mobile Filter Drawer */}
+      {showMobileFilters && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setShowMobileFilters(false);
+            }
+          }}
+        >
+          <div className="bg-white w-full h-full shadow-lg overflow-y-auto relative py-6 px-4">
+            <button
+              onClick={() => setShowMobileFilters(false)}
+              className="absolute top-4 right-4 text-gray-600 text-lg font-bold"
+            >
+              ✕
+            </button>
+            <Filters filter_title={pageTitle} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -140,15 +175,17 @@ export default function TopDealsPage() {
   return (
     <div>
       <Header />
-      <div className="pt-[135px]">
+      
+      {/* Container that pushes all content below the fixed header */}
+      <div className="pt-[80px] sm:pt-[135px] px-4">
         <Breadcrumb currentPage="Top Deals" />
+
+        <Suspense fallback={<div className="flex justify-center p-20">Loading deals...</div>}>
+          <TopDealsContent />
+        </Suspense>
+
+        <FAQAccordion />
       </div>
-
-      <Suspense fallback={<div className="flex justify-center p-20">Loading deals...</div>}>
-        <TopDealsContent />
-      </Suspense>
-
-      <FAQAccordion />
       <Footer />
     </div>
   );

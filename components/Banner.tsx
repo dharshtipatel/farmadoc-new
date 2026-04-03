@@ -34,10 +34,10 @@ export default function Banner() {
 
   return (
     <section className="w-full py-10">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4">
         
         {/* Banner Content */}
-        <div className="mx-auto max-w-4xl text-center mt-8">
+        <div className="mx-auto max-w-4xl text-center">
           
           <h1 className="font-bold text-[#1E3862] text-[32px]">
             Save Before Waste, Affordable Pharmacy Deals Near You
