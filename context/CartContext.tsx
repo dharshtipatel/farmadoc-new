@@ -10,6 +10,7 @@ export type CartItem = {
   variant: { count: string; pack: string, oldPrice: number; };
   image?: string;
   store?: string;
+  pharmacy?: string;
 };
 
 type CartContextType = {
