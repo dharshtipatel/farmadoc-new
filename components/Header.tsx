@@ -5,6 +5,7 @@ import { useState } from "react";
 import SubMenu from "./SubMenu";
 import FarmaDocShowroom from "./FarmaDocShowroom";
 import InsideFarmaDoc from "./InsideFarmadoc";
+import LoginModal from "./LoginModal";
 
 interface Deal {
   id: number;
@@ -94,6 +95,7 @@ export default function Header({
   const [searchQuery, setSearchQuery] = useState("");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
 
   return (
     <header className="w-full bg-white border-b border-[#E6EDF2] fixed top-0 left-0 z-50">
@@ -167,17 +169,30 @@ export default function Header({
               <span className="text-xs font-inter">{languages[0]}</span>
             </div>
 
-            {/* User */}
-            <div className="flex flex-col items-center gap-1 cursor-pointer">
-              <Image src="/images/login_icon.svg" alt="User" width={36} height={24} />
-              <span className="text-xs font-inter">Log in</span>
             </div>
-          </div>
+
+            {/* User */}
+            <div
+              className="flex flex-col items-center gap-1 cursor-pointer"
+              onClick={() => setOpenLogin(true)}
+            >
+              <Image
+                src="/images/login_icon.svg"
+                alt="User"
+                width={36}
+                height={24}
+              />
+              <span className=" hidden sm:flex text-xs font-inter">Log in</span>
+            </div>
+
+            {/* Modal */}
+            {openLogin && <LoginModal onClose={() => setOpenLogin(false)} />}
+          
 
           {/* Cart (always visible) */}
           <div className="flex flex-col items-center gap-1 cursor-pointer relative flex-shrink-0">
             <Image src="/images/cart.svg" alt="Cart" width={36} height={24} />
-            <span className="text-xs font-inter">Cart</span>
+            <span className="hidden sm:flex text-xs font-inter">Cart</span>
             {cartCount > 0 && (
               <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
                 {cartCount}

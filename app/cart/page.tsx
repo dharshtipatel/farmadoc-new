@@ -50,7 +50,7 @@ export default function CartPage() {
       pharmacyName: item.pharmacy || "Herba Salus Parapharmacy",
       image: item.image || "/images/2.png",
     }));
-    console.log("Reserving items:", itemsToReserve);
+    
     setReservationItems(itemsToReserve);
     setShowReservationPopup(true);
   };

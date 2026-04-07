@@ -14,7 +14,7 @@ const ReservationSummaryPage: React.FC<ReservationSummaryPageProps> = ({
 }) => {
   const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<"success" | "failure">(
-    "failure" // You can toggle this to simulate success or failure
+    "success" // You can toggle this to simulate success or failure
   );
 
   const parsedItems = items;
