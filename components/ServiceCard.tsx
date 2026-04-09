@@ -7,7 +7,6 @@ type ServiceCardProps = {
   originalPrice?: number;
   discount?: number;
   image: string;
-  onCall?: () => void;
   onBook?: () => void;
 };
 
@@ -18,7 +17,6 @@ export default function ServiceCard({
   originalPrice,
   discount,
   image,
-  onCall,
   onBook,
 }: ServiceCardProps) {
   return (
@@ -53,7 +51,7 @@ export default function ServiceCard({
           </span>
 
           {originalPrice && (
-            <span className="text-xs text-[#6B6F72] line-through">
+            <span className="text-xs text-[#6B6F72]">
               €{originalPrice.toFixed(2)}
             </span>
           )}
@@ -67,19 +65,13 @@ export default function ServiceCard({
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-2 mt-4">
-        <button
-          onClick={onCall}
-          className="h-[35px] flex-1 border border-[#33B1FF] text-[#33B1FF] text-xs sm:text-sm rounded hover:bg-blue-50 transition"
-        >
-          Call
-        </button>
+      <div className="gap-2 mt-2">
 
         <button
           onClick={onBook}
-          className="h-[35px] flex-1 bg-[#33B1FF] text-white text-xs sm:text-sm rounded hover:bg-blue-600 transition"
+          className="min-w-[135px] h-[35px] flex-1 bg-white text-[#33B1FF] text-xs sm:text-sm rounded border border-[#33B1FF] hover:bg-blue-50 transition"
         >
-          Book in store
+          Book Online
         </button>
       </div>
     </div>

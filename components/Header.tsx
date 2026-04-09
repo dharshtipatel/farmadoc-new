@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
 import { MapPin, ChevronDown, Search, Menu } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SubMenu from "./SubMenu";
 import FarmaDocShowroom from "./FarmaDocShowroom";
 import InsideFarmaDoc from "./InsideFarmadoc";
 import LoginModal from "./LoginModal";
 import ProfileDrawer from "./ProfileDrawer";
+import MapCard from "./MapCard";
 
 interface Deal {
   id: number;
@@ -99,6 +100,21 @@ export default function Header({
   const [openLogin, setOpenLogin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [openProfileDrawer, setOpenProfileDrawer] = useState(false);
+  const [openMapPopup, setOpenMapPopup] = useState(false);
+
+  // Prevent body scroll when popup is open
+  useEffect(() => {
+    if (openMapPopup) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [openMapPopup]);
 
   const handleLoginSuccess = () => {
     setIsLoggedIn(true);
@@ -138,12 +154,15 @@ export default function Header({
           <div className="hidden sm:block w-px h-10 bg-gray-300"></div>
 
           {/* Location */}
-          <div className="hidden sm:flex flex-col min-w-[140px] sm:min-w-[198px] font-inter">
+          <div 
+            className="hidden sm:flex flex-col min-w-[140px] sm:min-w-[198px] font-inter cursor-pointer"
+            onClick={() => setOpenMapPopup(true)}
+          >
             <div className="flex items-center gap-1 text-sm text-gray-500">
               <MapPin size={16} />
               Your Location
             </div>
-            <div className="flex items-center gap-1 text-[#1E3862] font-semibold cursor-pointer">
+            <div className="flex items-center gap-1 text-[#1E3862] font-semibold">
               {location.city} {location.code}
               <ChevronDown size={14} className="text-gray-400" />
             </div>
@@ -313,6 +332,15 @@ export default function Header({
           ))}
         </div>
       </nav>
+
+      {/* Map Popup Modal */}
+      {openMapPopup && (
+        <div className="fixed inset-0 bg-black/85 flex items-center justify-center z-[50]" onClick={() => setOpenMapPopup(false)}>
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
+              <MapCard onClose={() => setOpenMapPopup(false)} showButtonOnMap={true} />
+            </div>
+        </div>
+      )}
     </header>
   );
 }

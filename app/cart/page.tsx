@@ -76,9 +76,9 @@ export default function CartPage() {
           <div className="w-full lg:w-1/3 mb-8">
             <div className="w-full max-w-sm font-inter text-sm text-[#243b5e]">
               {/* Cart Total Row */}
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-[22px] font-bold">Cart Total</h3>
-                <span className="text-[#1E3862] font-semibold">€{payableAmount.toFixed(2)}</span>
+              <div className="flex justify-between items-center mb-6 font-helvetica">
+                <h3 className="text-[22px] text-black font-bold">Cart Total</h3>
+                <span className="text-[#1E3862] text-[22px] font-bold">€{payableAmount.toFixed(2)}</span>
               </div>
 
               {/* Cart summary details */}

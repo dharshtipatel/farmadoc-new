@@ -28,7 +28,7 @@ export default function CartSummary({
   return (
     <div className="w-full max-w-sm font-inter text-sm text-[#243b5e]">
   {/* Bordered container for totals */}
-  <div className="border rounded border-gray-300 p-4 mb-4">
+  <div className="border rounded border-[#1E3862] p-4 mb-4 bg-[#EDF2FB]">
     <h2 className="font-semibold mb-2">Bill Summary</h2>
 
     <div className="space-y-1">
@@ -74,7 +74,7 @@ export default function CartSummary({
     <input
       id="coupon"
       type="text"
-      className="w-full border border-gray-300 rounded p-3 pr-16 text-sm"
+      className="w-full border border-[#1E3862] rounded p-3 pr-16 text-sm"
       placeholder="Enter Coupon Code"
       value={couponCode}
       onChange={(e) => setCouponCode(e.target.value)}

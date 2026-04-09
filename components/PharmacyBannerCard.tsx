@@ -9,6 +9,7 @@ type Props = {
   address: string;
   distance: string;
   image: string;
+  phone?: string;
   starBadge?: string;
   operatingHours: {
     Mon?: string;
@@ -27,6 +28,7 @@ export default function PharmacyBannerCard({
   address,
   distance,
   image,
+  phone,
   starBadge,
   operatingHours,
 }: Props) {
@@ -43,17 +45,19 @@ export default function PharmacyBannerCard({
   const hours = { ...defaultHours, ...operatingHours };
   const leftDays = ["Mon", "Tue", "Wed", "Thu"];
   const rightDays = ["Fri", "Sat", "Sun"];
+  const hasPhone = Boolean(phone?.trim());
+  const sanitizedPhone = phone?.replace(/\D/g, "");
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-5 flex flex-col lg:flex-row gap-4 lg:gap-6">
       
       {/* Left Image */}
-      <div className="relative w-full lg:w-[522px] h-[320px] flex-shrink-0">
+      <div className="relative w-full lg:w-[522px] h-[368px] flex-shrink-0">
         <Image src={image} alt={name} fill className="rounded-md" />
       </div>
 
       {/* Right Content */}
-      <div className="flex-1 flex flex-col justify-between gap-4 h-[320px]">
+      <div className="flex-1 flex flex-col justify-between gap-4 h-[368px]">
         
         {/* Top Section: Title + Star */}
         <div className="flex items-center justify-between">
@@ -122,6 +126,43 @@ export default function PharmacyBannerCard({
               ))}
             </div>
           </div>
+          
+          {hasPhone && (
+            <div className="mt-5 flex flex-col sm:flex-row gap-3">
+              <a
+                href={`tel:${sanitizedPhone}`}
+                className="sm:w-auto inline-flex items-center justify-center gap-1 rounded-md border border-[#1E3862] bg-white px-4 py-3 text-sm font-semibold text-[#1E3862] hover:bg-[#F6F9FF] transition min-w-[141px] h-[40px]"
+              >
+                <Image
+                  src="/images/phone.svg"
+                  alt="phone"
+                  width={23}
+                  height={23}
+                  className="object-contain"
+                  priority
+                />
+                Call
+              </a>
+              {sanitizedPhone && (
+                <a
+                  href={`https://wa.me/${sanitizedPhone}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="sm:w-auto inline-flex items-center justify-center gap-1 rounded-md border border-[#1E3862] bg-white px-4 py-3 text-sm font-semibold text-[#1E3862] hover:bg-[#F6F9FF] transition min-w-[141px] h-[40px]"
+                >
+                  <Image
+                    src="/images/whatsapp.svg"
+                    alt="WhatsApp"
+                    width={23}
+                    height={23}
+                    className="object-contain"
+                    priority
+                  />
+                  WhatsApp
+                </a>
+              )}
+            </div>
+          )}
 
           <div className="flex flex-wrap gap-2 sm:gap-4 text-xs text-gray-500 mt-3">
             <span>Reserve/Book available</span>

@@ -26,6 +26,7 @@ function ProductDetailsContent() {
         city="Milan"
         address="Bear Street, 1, Milan, ME, 20121"
         distance="1.5 Km"
+        phone="+391234567890"
         image="/images/3.png"
         starBadge="/images/star_badge.png"
         operatingHours={{
