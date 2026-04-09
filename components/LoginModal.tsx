@@ -6,9 +6,10 @@ import Image from "next/image";
 
 type Props = {
   onClose: () => void;
+  onLoginSuccess?: () => void;
 };
 
-export default function LoginModal({ onClose }: Props) {
+export default function LoginModal({ onClose, onLoginSuccess }: Props) {
   const [showPassword, setShowPassword] = useState(false);
   const [newPassword, setNewPassword] = useState(false);
   const [newCustomerPassword, setNewCustomerPassword] = useState(false);
@@ -374,8 +375,15 @@ export default function LoginModal({ onClose }: Props) {
               isSignup ? "invisible" : ""
             }`}
             onClick={() => {
-                if (step === "forgot" || step === "customerSignup") setStep("otp");
-                else if (step === "otp") setStep("reset");
+                if (step === "login") {
+                  onLoginSuccess?.();
+                } else if (step === "forgot" || step === "customerSignup") {
+                  setStep("otp");
+                } else if (step === "otp") {
+                  setStep("reset");
+                } else if (step === "reset") {
+                  onLoginSuccess?.();
+                }
             }}
             >
             {step === "login"

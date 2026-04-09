@@ -15,6 +15,7 @@ type ProductCardProps = {
   expiry: string;
   image: string;
   type: string;
+  isLiked?: boolean;
 };
 
 export default function ProductCard({
@@ -28,6 +29,7 @@ export default function ProductCard({
   expiry,
   image,
   type,
+  isLiked = false,
 }: ProductCardProps) {
   const router = useRouter();
   const encodeType = (value: string) => {
@@ -38,8 +40,11 @@ export default function ProductCard({
     <div className="bg-white rounded-xl p-4 w-full max-w-xs relative border border-gray-200">
 
       {/* Heart */}
-      <button className="absolute top-3 left-3 text-gray-500">
-        <Heart size={20} />
+      <button className="absolute top-3 left-3">
+        <Heart 
+          size={20} 
+          className={isLiked ? "text-[#1192E8] fill-[#1192E8]" : "text-gray-500"} 
+        />
       </button>
 
       {/* Badges */}

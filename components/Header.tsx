@@ -6,6 +6,7 @@ import SubMenu from "./SubMenu";
 import FarmaDocShowroom from "./FarmaDocShowroom";
 import InsideFarmaDoc from "./InsideFarmadoc";
 import LoginModal from "./LoginModal";
+import ProfileDrawer from "./ProfileDrawer";
 
 interface Deal {
   id: number;
@@ -96,6 +97,13 @@ export default function Header({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [openProfileDrawer, setOpenProfileDrawer] = useState(false);
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+    setOpenLogin(false);
+  };
 
   return (
     <header className="w-full bg-white border-b border-[#E6EDF2] fixed top-0 left-0 z-50">
@@ -174,7 +182,13 @@ export default function Header({
             {/* User */}
             <div
               className="flex flex-col items-center gap-1 cursor-pointer"
-              onClick={() => setOpenLogin(true)}
+              onClick={() => {
+                if (isLoggedIn) {
+                  setOpenProfileDrawer(true);
+                } else {
+                  setOpenLogin(true);
+                }
+              }}
             >
               <Image
                 src="/images/login_icon.svg"
@@ -182,11 +196,15 @@ export default function Header({
                 width={36}
                 height={24}
               />
-              <span className=" hidden sm:flex text-xs font-inter">Log in</span>
+              <span className=" hidden sm:flex text-xs font-inter">{isLoggedIn ? "Profile" : "Log in"}</span>
             </div>
 
             {/* Modal */}
-            {openLogin && <LoginModal onClose={() => setOpenLogin(false)} />}
+            {openLogin && <LoginModal onClose={() => setOpenLogin(false)} onLoginSuccess={handleLoginSuccess} />}
+
+            {openProfileDrawer && (
+              <ProfileDrawer onClose={() => setOpenProfileDrawer(false)} />
+            )}
           
 
           {/* Cart (always visible) */}
