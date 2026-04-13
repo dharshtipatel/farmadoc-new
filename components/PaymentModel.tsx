@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -21,6 +22,8 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
   status,
   imageUrl = "/images/payment_success.svg", // Default success image
 }) => {
+  const router = useRouter();
+  
   if (!isOpen) return null;
 
   // Conditionally set image and text based on payment status
@@ -77,7 +80,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
         {/* Action Buttons */}
         <div className="flex justify-center mt-4 gap-4">
           <button
-            onClick={onClose}
+            onClick={() => router.push("/")}
             className="bg-[#1E3862] text-white py-2 px-4 rounded-lg border border-[#1E3862] hover:bg-white hover:text-[#1E3862] transition"
           >
             Back to Home

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { MapPin, ChevronDown, Search, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import SubMenu from "./SubMenu";
 import FarmaDocShowroom from "./FarmaDocShowroom";
 import InsideFarmaDoc from "./InsideFarmadoc";
@@ -101,6 +102,7 @@ export default function Header({
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [openProfileDrawer, setOpenProfileDrawer] = useState(false);
   const [openMapPopup, setOpenMapPopup] = useState(false);
+  const router = useRouter();
 
   // Prevent body scroll when popup is open
   useEffect(() => {
@@ -227,7 +229,7 @@ export default function Header({
           
 
           {/* Cart (always visible) */}
-          <div className="flex flex-col items-center gap-1 cursor-pointer relative flex-shrink-0">
+          <div className="flex flex-col items-center gap-1 cursor-pointer relative flex-shrink-0" onClick={() => router.push('/cart')}>
             <Image src="/images/cart.svg" alt="Cart" width={36} height={24} />
             <span className="hidden sm:flex text-xs font-inter">Cart</span>
             {cartCount > 0 && (

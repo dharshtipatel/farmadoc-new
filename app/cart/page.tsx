@@ -10,6 +10,7 @@ import CarouselSection from "../../components/CarouselSection";
 import ProductCard from "../../components/ProductCard";
 import Footer from "@/components/Footer";
 import ReservationSummaryPage from "../../components/ReservationSummaryPage";
+import LoginModal from "../../components/LoginModal";
 
 const topDeals = [
   { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }
@@ -21,6 +22,8 @@ export default function CartPage() {
   const [couponCode, setCouponCode] = useState("");
   const [showReservationPopup, setShowReservationPopup] = useState(false);
   const [reservationItems, setReservationItems] = useState<any[]>([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
 
   // Calculate totals dynamically from cart items
   const cartTotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -41,7 +44,17 @@ export default function CartPage() {
     // TODO: validate coupon, calculate couponDiscount dynamically
   };
 
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true);
+    setOpenLogin(false);
+  };
+
   const handlePayReserve = () => {
+    if (!isLoggedIn) {
+      setOpenLogin(true);
+      return;
+    }
+
     const itemsToReserve = items.map((item) => ({
       id: item.id,
       productName: item.name,
@@ -116,6 +129,9 @@ export default function CartPage() {
             />
           </div>
         </div>
+      )}
+      {openLogin && (
+        <LoginModal onClose={() => setOpenLogin(false)} onLoginSuccess={handleLoginSuccess} />
       )}
       </div>
       <Footer />
