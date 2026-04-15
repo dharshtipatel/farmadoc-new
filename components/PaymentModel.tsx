@@ -11,6 +11,7 @@ interface PaymentModalProps {
   pharmaciesCount: number;
   status: "success" | "failure"; // status prop to handle success or failure state
   imageUrl?: string; // Optional image URL for the success/failure icon
+  isPharmacySummary?: boolean; // For pharmacy signup summary
 }
 
 const PaymentModal: React.FC<PaymentModalProps> = ({
@@ -21,6 +22,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
   pharmaciesCount,
   status,
   imageUrl = "/images/payment_success.svg", // Default success image
+  isPharmacySummary = false,
 }) => {
   const router = useRouter();
   
@@ -28,10 +30,12 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
 
   // Conditionally set image and text based on payment status
   const icon = status === "success" ? "/images/payment_success.svg" : "/images/payment_close.svg";
-  const title = status === "success" ? "Payment Successful!" : "Payment Failed";
-  const message = status === "success" 
-    ? "Your reservation is confirmed"
-    : "We were unable to process your payment at this time. Please try again or use a different payment method.";
+  const title = isPharmacySummary ? "You’re All Set" : (status === "success" ? "Payment Successful!" : "Payment Failed");
+  const message = isPharmacySummary 
+    ? "Our team will review your request and contact you shortly."
+    : (status === "success" 
+      ? "Your reservation is confirmed"
+      : "We were unable to process your payment at this time. Please try again or use a different payment method.");
 
   return (
     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
@@ -49,8 +53,17 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
 
         {/* Modal Title */}
         <h3 className="text-2xl font-semibold mb-2 text-center">{title}</h3>
-        <p className="text-sm text-[#6B6F72] mb-4 text-center">{message}</p>
-         {status === "success" && (
+        <p className="text-center text-[#6B6F72] text-sm leading-relaxed mb-4">
+          {message}
+          <br />
+          {isPharmacySummary && (
+            <span className="block mt-2">
+              We may also add your pharmacy and offers based on publicly<br /> available
+              information
+            </span>
+          )}
+        </p>
+         {status === "success" && !isPharmacySummary && (
         <div className="mb-4">
           {/* Order ID and Paid Amount */}
           <div className="flex justify-between mb-2">
@@ -78,17 +91,22 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
 
 
         {/* Action Buttons */}
-        <div className="flex justify-center mt-4 gap-4">
-          <button
-            onClick={() => router.push("/")}
-            className="bg-[#1E3862] text-white py-2 px-4 rounded-lg border border-[#1E3862] hover:bg-white hover:text-[#1E3862] transition"
-          >
+        <div className="mt-4 flex">
+        {isPharmacySummary ? (
+          <button className="w-full bg-[#1E3862] text-white py-3 px-4 rounded-lg">
             Back to Home
           </button>
-            <button className="bg-[#1E3862] text-white py-2 px-4 rounded-lg border border-[#1E3862] hover:bg-white hover:text-[#1E3862] transition">
+        ) : (
+          <div className="flex justify-center gap-4 w-full">
+            <button className="bg-[#1E3862] text-white py-2 px-4 rounded-lg">
+              Back to Home
+            </button>
+            <button className="bg-[#1E3862] text-white py-2 px-4 rounded-lg">
               {status === "success" ? "View Order Details" : "Retry Payment"}
             </button>
-        </div>
+          </div>
+        )}
+      </div>
       </div>
     </div>
   );

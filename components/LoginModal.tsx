@@ -3,24 +3,41 @@
 import { useState, useEffect } from "react";
 import { Eye, EyeOff, Mail } from "lucide-react";
 import Image from "next/image";
+import PaymentModal from "./PaymentModel";
+import ReCAPTCHA from "react-google-recaptcha";
 
 type Props = {
   onClose: () => void;
   onLoginSuccess?: () => void;
+  onOpenPayment?: () => void;
+  initialStep?: "login" | "forgot" | "otp" | "reset" | "signup" | "customerSignup" | "pharmacySignup" | "pharmacyDetails";
 };
 
-export default function LoginModal({ onClose, onLoginSuccess }: Props) {
+export default function LoginModal({ onClose, onLoginSuccess, initialStep = "login" }: Props) {
   const [showPassword, setShowPassword] = useState(false);
+  const [showPayment, setShowPayment] = useState(false);
   const [newPassword, setNewPassword] = useState(false);
   const [newCustomerPassword, setNewCustomerPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
-  const [step, setStep] = useState<"login" | "forgot" | "otp" | "reset" | "signup" | "customerSignup">("login");
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  type Step =
+  | "login"
+  | "forgot"
+  | "otp"
+  | "reset"
+  | "signup"
+  | "customerSignup"
+  | "pharmacySignup"
+  | "pharmacyDetails";
+  const [step, setStep] = useState<Step>(initialStep);
 
   const isForgot = step === "forgot";
   const isOtp = step === "otp";
   const isReset = step === "reset";
   const isSignup = step === "signup";
   const isCustomerSignup = step === "customerSignup";
+  const isPharmacySignup = step === "pharmacySignup";
+  const isPharmacyDetails = step === "pharmacyDetails";
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -32,7 +49,7 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
   return (
     <div
       className="fixed inset-0 flex items-center justify-center bg-black/85 z-50 px-3 sm:px-4"
-      onClick={onClose}
+      onClick={() => !isPharmacySignup && onClose()}
     >
       <div
         className="flex w-full max-w-[1000px] flex-col md:flex-row bg-white rounded-lg overflow-hidden relative"
@@ -58,8 +75,8 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
           </button>
 
           {/* Heading */}
-          <h2 className="text-xl font-semibold">
-            {isSignup || isCustomerSignup
+          <h2 className="text-xl font-bold text-[#000000]">
+            {isSignup || isCustomerSignup || isPharmacySignup || isPharmacyDetails
                 ? ""
                 : isReset
                 ? "Reset Your Password"
@@ -71,7 +88,7 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
           </h2>
 
           <p className="text-gray-500 text-sm mb-6">
-            {isSignup || isCustomerSignup
+            {isSignup || isCustomerSignup || isPharmacySignup || isPharmacyDetails
                 ? ""
                 : isReset
                 ? "Reset password to regain access to your account."
@@ -84,11 +101,11 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
 
           {/* Email / OTP / RESET */}
           <label className="text-sm font-medium">
-            {isOtp || isReset || isSignup || isCustomerSignup ? "" : "Email"}
+            {isOtp || isReset || isSignup || isCustomerSignup || isPharmacySignup || isPharmacyDetails ? "" : "Email"}
           </label>
 
           {/* Email */}
-          {!isOtp && !isReset && !isSignup && !isCustomerSignup && (
+          {!isOtp && !isReset && !isSignup && !isCustomerSignup && !isPharmacySignup && !isPharmacyDetails && (
             <div className="flex items-center border rounded-md px-3 py-3 mt-1 mb-4">
               <Mail size={16} className="mr-2" />
               <input
@@ -127,47 +144,6 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
               </p>
             </>
           )}
-
-          {isSignup && (
-        <div className="flex flex-col justify-center items-center h-full text-center">
-            
-            {/* Heading */}
-            <h2 className="text-xl font-semibold mb-2">
-            How do you want to use FarmaDoc?
-            </h2>
-
-            {/* Cards */}
-            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 mt-6 w-full">
-            <div onClick={() => setStep("customerSignup")} className="w-full sm:w-auto max-w-[220px] border border-[#D6DADD] rounded-lg px-6 py-5 text-center cursor-pointer hover:shadow bg-[#F6F9FF] min-w-[182.5px]">
-                <div className="flex justify-center mb-2">
-                <Image
-                    src="/images/customer.svg"
-                    alt="Customer"
-                    width={32}
-                    height={32}
-                />
-                </div>
-                <p className="text-sm font-semibold text-[#1E3862]">
-                I’m a Customer
-                </p>
-            </div>
-
-            <div className="w-full sm:w-auto max-w-[220px] border border-[#D6DADD] rounded-lg px-6 py-5 text-center cursor-pointer hover:shadow bg-[#F6F9FF] min-w-[182.5px]">
-                <div className="flex justify-center mb-2">
-                <Image
-                    src="/images/pharmacy_icon.svg"
-                    alt="Pharmacy"
-                    width={32}
-                    height={32}
-                />
-                </div>
-                <p className="text-sm font-semibold text-[#1E3862]">
-                I’m a Pharmacy
-                </p>
-            </div>
-            </div>
-        </div>
-        )}
 
         {isCustomerSignup && (
             <>
@@ -255,6 +231,144 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
             </>
         )}
 
+        {isPharmacySignup && (
+        <>
+        <div className="font-inter">
+            <h2 className="text-[20px] font-bold mb-1 text-[#000000]">
+            List Your Pharmacy on FarmaDoc
+            </h2>
+
+            <p className="text-[14px] text-[#6B6F72] font-medium mb-5">
+            Promote your pharmacy offers and reach customers nearby
+            </p>
+
+            {/* Pharmacy Name */}
+            <div className="flex flex-col gap-2 mb-4">
+            <label className="text-[14px] font-medium text-[#000000]">
+                Pharmacy / Business Name
+            </label>
+            <input
+                type="text"
+                placeholder="Binnu Pharmacy"
+                className="w-full border border-[#D1D5DB] rounded-md px-3 py-3 focus:outline-none focus:ring-1 focus:ring-[#1E3862]"
+            />
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col gap-2 mb-4">
+            <label className="text-[14px] font-medium text-[#000000]">
+                Email
+            </label>
+            <input
+                type="email"
+                placeholder="example@email.com"
+                className="w-full border border-[#D1D5DB] rounded-md px-3 py-3 focus:outline-none focus:ring-1 focus:ring-[#1E3862]"
+            />
+            </div>
+
+            {/* Phone */}
+            <div className="flex flex-col gap-2 mb-4">
+            <label className="text-[14px] font-medium text-[#000000]">
+                Phone
+            </label>
+            <input
+                type="text"
+                placeholder="+39 123 4567890"
+                className="w-full border border-[#D1D5DB] rounded-md px-3 py-3 focus:outline-none focus:ring-1 focus:ring-[#1E3862]"
+            />
+            </div>
+
+            {/* Checkbox */}
+            <div className="flex items-center gap-2 text-sm mb-4">
+            <input type="checkbox" defaultChecked />
+            <span className="text-[#6B6F72] text-[12px]">I confirm I represent this pharmacy</span>
+            </div>
+            
+            <div className="mb-4 flex">
+            <ReCAPTCHA
+                sitekey="6LeMXTUsAAAAAJIiT0b4K0B8bx2KPgJmLwYjvIcE"
+                onChange={(value: string | null) => setCaptchaValue(value)}
+            />
+            </div>
+
+            </div>
+        </>
+        )}
+
+        {isPharmacyDetails && (
+        <>
+            <h2 className="text-xl font-bold mb-2 text-[#000000]">
+            Tell Us About Your Pharmacy
+            </h2>
+            <p className="text-gray-500 text-sm mb-6">
+            Share a few details and we’ll take care of the rest
+            </p>
+
+            {/* Street Address */}
+            <div className="flex flex-col gap-1 mb-4">
+            <label className="text-sm text-[#000000]">Street Address</label>
+            <input
+                type="text"
+                placeholder="Herbal"
+                className="w-full border border-[#D6DADD] rounded-md px-3 py-3"
+            />
+            </div>
+
+            {/* City + Postal Code */}
+            <div className="flex gap-3 mb-4">
+            <div className="w-1/2 flex flex-col gap-1">
+                <label className="text-sm text-[#000000]">City</label>
+                <input
+                type="text"
+                placeholder="City"
+                className="w-full border border-[#D6DADD] rounded-md px-3 py-3"
+                />
+            </div>
+
+            <div className="w-1/2 flex flex-col gap-1">
+                <label className="text-sm text-[#000000]">Postal Code</label>
+                <input
+                type="text"
+                placeholder="Postal Code"
+                className="w-full border border-[#D6DADD] rounded-md px-3 py-3"
+                />
+            </div>
+            </div>
+
+            {/* Region + Country */}
+            <div className="flex gap-3 mb-4">
+            <div className="w-1/2 flex flex-col gap-1">
+                <label className="text-sm text-[#000000]">Region</label>
+                <input
+                type="text"
+                placeholder="Region"
+                className="w-full border border-[#D6DADD] rounded-md px-3 py-3"
+                />
+            </div>
+
+            <div className="w-1/2 flex flex-col gap-1">
+            <label className="text-sm text-[#000000]">Country</label>
+            <input
+                type="text"
+                value="Italy"
+                readOnly
+                className="w-full border border-[#D6DADD] rounded-md px-3 py-3 bg-gray-100 cursor-not-allowed"
+            />
+            </div>
+            </div>
+
+            {/* Google Map URL */}
+            <div className="flex flex-col gap-1 mb-4">
+            <label className="text-sm text-[#000000]">Google Map URL</label>
+            <input
+                type="text"
+                placeholder="URL"
+                className="w-full border border-[#D6DADD] rounded-md px-3 py-3"
+            />
+            </div>
+        </>
+        )}
+
           {/* RESET PASSWORD (added same style as OTP block) */}
           {isReset && (
             <>
@@ -316,7 +430,7 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
           <div
             className={`transition-opacity duration-300 ${
               isForgot || isOtp || isReset || isSignup
-                ? "opacity-0 invisible" : isCustomerSignup ? "hidden"
+                ? "opacity-0 invisible" : isCustomerSignup || isPharmacySignup || isPharmacyDetails ? "hidden"
                 : "opacity-100"
             }`}
           >
@@ -353,7 +467,7 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
           {/* Remember + Forgot */}
           <div
             className={`flex justify-between items-center text-sm mb-4 ${
-              isForgot || isOtp || isReset || isSignup ? "invisible" : isCustomerSignup ? "hidden" : ""
+              isForgot || isOtp || isReset || isSignup ? "invisible" : isCustomerSignup || isPharmacySignup || isPharmacyDetails ? "hidden" : ""
             }`}
           >
             <label className="flex items-center gap-2">
@@ -375,32 +489,44 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
               isSignup ? "invisible" : ""
             }`}
             onClick={() => {
-                if (step === "login") {
+                if (step === "pharmacySignup") {
+                    if (!captchaValue) {
+                        alert("Please verify that you are not a robot");
+                        return;
+                    }
+                    setStep("pharmacyDetails");
+                } else if (step === "pharmacyDetails") {
+                  setStep("otp");
+                } else if (step === "login") {
                   onLoginSuccess?.();
                 } else if (step === "forgot" || step === "customerSignup") {
                   setStep("otp");
                 } else if (step === "otp") {
-                  setStep("reset");
+                  setShowPayment(true);
                 } else if (step === "reset") {
                   onLoginSuccess?.();
                 }
             }}
             >
-            {step === "login"
+            {step === "pharmacyDetails"
+                ? "Continue": 
+                step === "pharmacySignup"
+                ? "Continue"
+                : step === "login"
                 ? "Log in"
                 : step === "customerSignup"
                 ? "Continue"
                 : step === "forgot"
                 ? "Continue"
                 : step === "otp"
-                ? "Verify"
+                ? "Verify & Continue"
                 : step === "reset"
                 ? "Reset Password"
                 : ""}
             </button>
 
           {/* OR + Google */}
-          <div className={`${isForgot || isOtp || isReset || isSignup ? "invisible" : ""}`}>
+          <div className={`${isForgot || isOtp || isReset || isSignup || isPharmacySignup || isPharmacyDetails ? "invisible" : ""}`}>
             <div className="flex items-center my-4">
               <div className="flex-1 h-px bg-gray-100"></div>
               <span className="px-3 text-gray-400 text-xs">OR</span>
@@ -418,7 +544,7 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
           </div>
 
           {/* Bottom text */}
-          {!isOtp && !isReset && !isSignup && (
+          {!isOtp && !isReset && !isSignup && !isPharmacySignup && !isPharmacyDetails && (
             <p className="text-sm text-center mt-4">
               { isCustomerSignup ? "Already have an account?"
               : isForgot
@@ -426,7 +552,7 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
                 : "Don’t have an account?"}{" "}
               <span
                 className="text-blue-600 cursor-pointer"
-                onClick={() => setStep( isCustomerSignup ? "login" : isForgot ? "login" : "signup")}
+                onClick={() => setStep( isCustomerSignup ? "login" : isForgot ? "login" : "customerSignup")}
               >
                 {isForgot || isCustomerSignup ? "Log in"  : "Sign Up"}
               </span>
@@ -434,6 +560,20 @@ export default function LoginModal({ onClose, onLoginSuccess }: Props) {
           )}
         </div>
       </div>
+      {showPayment && (
+        <PaymentModal
+          isOpen={showPayment}
+          onClose={() => {
+            setShowPayment(false);
+            onClose();
+          }}
+          orderId="PHM#123456"
+          paidAmount={0}
+          pharmaciesCount={1}
+          status="success"
+          isPharmacySummary={true}
+        />
+      )}
     </div>
   );
 }

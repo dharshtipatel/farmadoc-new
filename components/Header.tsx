@@ -2,13 +2,17 @@
 import Image from "next/image";
 import { MapPin, ChevronDown, Search, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import SubMenu from "./SubMenu";
 import FarmaDocShowroom from "./FarmaDocShowroom";
 import InsideFarmaDoc from "./InsideFarmadoc";
 import LoginModal from "./LoginModal";
 import ProfileDrawer from "./ProfileDrawer";
 import MapCard from "./MapCard";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
+import { useLocale } from "next-intl";
+
 
 interface Deal {
   id: number;
@@ -41,7 +45,7 @@ interface HeaderProps {
 
 export default function Header({
   location = { city: "Herba Salus", code: "390003" },
-  languages = ["EN", "FR", "ES"],
+  languages = ["IT", "EN"],
   navItems = [
     {
       label: "Self-Medication",
@@ -103,6 +107,9 @@ export default function Header({
   const [openProfileDrawer, setOpenProfileDrawer] = useState(false);
   const [openMapPopup, setOpenMapPopup] = useState(false);
   const router = useRouter();
+  const { lang, setLang } = useLanguage();
+
+  const t = translations[lang];
 
   // Prevent body scroll when popup is open
   useEffect(() => {
@@ -180,7 +187,7 @@ export default function Header({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="What are you looking for ?"
+                placeholder={t.search}
                 className="w-full min-w-0 outline-none text-gray-600 text-sm sm:text-base"
               />
             </div>
@@ -217,7 +224,7 @@ export default function Header({
                 width={36}
                 height={24}
               />
-              <span className=" hidden sm:flex text-xs font-inter">{isLoggedIn ? "Profile" : "Log in"}</span>
+              <span className=" hidden sm:flex text-xs font-inter">{isLoggedIn ? "Profile" : t.login}</span>
             </div>
 
             {/* Modal */}
@@ -231,7 +238,7 @@ export default function Header({
           {/* Cart (always visible) */}
           <div className="flex flex-col items-center gap-1 cursor-pointer relative flex-shrink-0" onClick={() => router.push('/cart')}>
             <Image src="/images/cart.svg" alt="Cart" width={36} height={24} />
-            <span className="hidden sm:flex text-xs font-inter">Cart</span>
+            <span className="hidden sm:flex text-xs font-inter">{t.cart}</span>
             {cartCount > 0 && (
               <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
                 {cartCount}
@@ -255,9 +262,28 @@ export default function Header({
             {/* Right: Language + Close */}
             <div className="flex items-center gap-4">
               {/* Language */}
-              <div className="flex items-center gap-1 cursor-pointer">
+              <div
+                className="flex items-center gap-2 cursor-pointer"
+                onClick={() => {
+                  const router = useRouter();
+const pathname = usePathname();
+
+const handleLanguageChange = () => {
+  const newLocale = lang === "it" ? "en" : "it";
+
+  setLang(newLocale); // optional (only if you still want context)
+
+  router.replace(`/${newLocale}${pathname}`);
+};
+                }}
+              >
                 <Image src="/images/lang.svg" alt="Lang" width={24} height={16} />
-                <span className="text-xs">{languages[0]}</span>
+
+                <span className="text-xs font-medium">
+                  <span className="text-xs font-medium">
+                    {lang.toUpperCase()}
+                  </span>
+                </span>
               </div>
 
               {/* Close Button */}
