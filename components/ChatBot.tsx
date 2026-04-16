@@ -14,57 +14,57 @@ export default function ChatBot() {
     },
   ]);
 
-  // 👉 Product generator (static demo)
-  const getProducts = () => {
-    return [
-      {
-        name: "Strepsils Honey & Lemon",
-        desc: "Amylmetacresol 0.6mg",
-        price: "€5.90",
-        stock: "In Stock",
-        image: "/images/medi1.png",
-        location: "Farmacia San Marco",
-        km: "1.2 km",
-      },
-      {
-        name: "Dolo 650",
-        desc: "Paracetamol 650mg",
-        price: "€3.20",
-        stock: "In Stock",
-        image: "/images/medi2.png",
-        location: "Farmacia Roma",
-        km: "2.0 km",
-      },
-      {
-        name: "Vicks Vaporub",
-        desc: "Cold relief ointment",
-        price: "€4.80",
-        stock: "In Stock",
-        image: "/images/medi3.png",
-        location: "Farmacia Milano",
-        km: "0.8 km",
-      },
-    ];
-  };
 
   // 👉 Send message
-  const handleSend = () => {
-    if (!input.trim()) return;
+  const handleSend = async () => {
+  if (!input.trim()) return;
 
-    const userMessage = {
-      type: "user",
-      text: input,
-    };
-
-    const botMessage = {
-      type: "bot",
-      text: `Based on your symptoms "${input}", here are some medicines available at nearby pharmacies. Please consult a doctor or pharmacist before use:`,
-      products: getProducts(),
-    };
-
-    setMessages((prev) => [...prev, userMessage, botMessage]);
-    setInput("");
+  const userMessage = {
+    type: "user",
+    text: input,
   };
+
+  setMessages((prev) => [...prev, userMessage]);
+
+  try {
+    const res = await fetch("/api/ai", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ message: input }),
+});
+
+const data = await res.json();
+
+// ❗ HANDLE EMPTY PRODUCTS CASE FIRST
+if (!data.products || data.products.length === 0) {
+  const botMessage = {
+    type: "bot",
+    text: data.message || "No products found for your symptoms.",
+  };
+
+  setMessages((prev) => [...prev, botMessage]);
+  return;
+}
+
+// ✅ NORMAL CASE (products found)
+const botMessage = {
+  type: "bot",
+  text: "Here are some relevant medicines:",
+  products: data.products,
+};
+
+setMessages((prev) => [...prev, botMessage]);
+  } catch (err) {
+    setMessages((prev) => [
+      ...prev,
+      { type: "bot", text: "Something went wrong." },
+    ]);
+  }
+
+  setInput("");
+};
 
   return (
     <>
