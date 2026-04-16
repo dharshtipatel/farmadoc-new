@@ -51,7 +51,7 @@ if (!data.products || data.products.length === 0) {
 // ✅ NORMAL CASE (products found)
 const botMessage = {
   type: "bot",
-  text: "Here are some relevant medicines:",
+  text: data.text,
   products: data.products,
 };
 
