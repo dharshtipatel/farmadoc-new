@@ -97,7 +97,7 @@ export default function PharmacySignupPage() {
   return (
   <div>
         <Header showSearch={false}/>
-        <div className="pt-[80px] "></div>
+        <div className="pt-[80px]"></div>
         
         <div className="relative w-full">
             {/* Background Image */}
