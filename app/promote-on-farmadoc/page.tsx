@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import LoginModal from '@/components/LoginModal';
 import CarouselSection from "@/components/CarouselSection";
-import TestimonialCard from "@/farmadoc-new/components/TestimonialCard";
+import TestimonialCard from "@/components/TestimonialCard";
 export default function PharmacySignupPage() {
     const comments = [
     {
