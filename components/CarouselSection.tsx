@@ -11,6 +11,7 @@ type CarouselSectionProps<T> = {
   cardsPerPage?: number;
   viewAllLink?: string; 
   className?: string;
+  titleClassName?: string;
 };
 
 export default function CarouselSection<T>({
@@ -21,6 +22,7 @@ export default function CarouselSection<T>({
   cardsPerPage = 4,
   viewAllLink = "/products",
   className = "",
+  titleClassName
 }: CarouselSectionProps<T>) {
   const [page, setPage] = useState(0);
 
@@ -36,8 +38,8 @@ export default function CarouselSection<T>({
 
   // Responsive grid classes
   const gridColsClasses = cardsPerPage === 6
-    ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-6"
-    : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4";
+    ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-6"
+    : "grid-cols-1 sm:grid-cols-2 md:grid-cols-4";
 
   return (
     <section className={
@@ -48,8 +50,10 @@ export default function CarouselSection<T>({
       {/* Title + subtitle */}
       <div className="h-[67px] flex items-center justify-between">
         <div>
-        <h2 className="text-2xl font-semibold">{title}</h2>
-        <span className="text-sm text-gray-500 mt-1">{subtitle}</span>
+        <h2 className={`text-2xl font-semibold ${titleClassName || ""}`}>
+          {title}
+        </h2>
+        <span className="text-sm text-gray-500 mt-4">{subtitle}</span>
         </div>
         <Link
           href={{

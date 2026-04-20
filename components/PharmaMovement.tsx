@@ -18,7 +18,7 @@ export default function PharmaMovement() {
 
         {/* Right side */}
         <div className="w-full lg:w-1/2 flex flex-col px-4 sm:px-6 pb-6 lg:pb-0">
-          <p className="text-sm text-[#1192E8]">Sell on FarmaDoc</p>
+          <p className="text-sm text-[#1192E8]">Promote on FarmaDoc</p>
 
           <h2 className="text-[20px] sm:text-[22px] lg:text-[24px] font-bold text-[#1E3862] pt-2">
             Join the Movement Against Pharmaceutical Waste

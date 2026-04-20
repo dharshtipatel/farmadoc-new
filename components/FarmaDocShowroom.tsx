@@ -2,9 +2,11 @@
 import Image from 'next/image'
 import { useState } from 'react';
 import LoginModal from './LoginModal';
+import { useRouter } from 'next/navigation';
 
 export default function FarmaDocShowroom() {
   const [openLogin, setOpenLogin] = useState(false);
+  const router = useRouter();
   return (
     <div className="flex flex-col sm:flex-row max-w-3xl mx-auto my-8 p-6 rounded-lg bg-white gap-6 items-start font-sans text-gray-700 font-inter">
       
@@ -31,7 +33,7 @@ export default function FarmaDocShowroom() {
           No worries, Still you can register as pharmacy <br /> or Para pharmacy for Free.
         </p>
 
-        <button onClick={() => setOpenLogin(true)} className="bg-[#33B1FF] hover:bg-blue-700 text-white font-semibold px-28 py-3 rounded transition-colors duration-300">
+        <button onClick={() => router.push('/promote-on-farmadoc')} className="bg-[#33B1FF] hover:bg-blue-700 text-white font-semibold px-28 py-3 rounded transition-colors duration-300">
           Join FarmaDoc
         </button>
       </div>

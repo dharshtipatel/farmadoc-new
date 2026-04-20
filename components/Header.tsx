@@ -93,7 +93,7 @@ export default function Header({
     },
     { label: "Supplements" },
     { label: "Personal Care" },
-    { label: "Sell on FarmaDoc" },
+    { label: "Promote on FarmaDoc" },
     { label: "Inside Farma Doc" },
   ],
   cartCount = 0,
@@ -347,7 +347,7 @@ const handleLanguageChange = () => {
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  {item.label === "Sell on FarmaDoc" ? (
+                  {item.label === "Promote on FarmaDoc" ? (
                     <FarmaDocShowroom />
                   ) : item.label === "Inside Farma Doc" ? (
                     <InsideFarmaDoc />
