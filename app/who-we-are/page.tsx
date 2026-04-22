@@ -243,7 +243,10 @@ export default function WhoWeAre() {
         cardsPerPage={4}
     />
 
-    <FarmaDocCTA /> 
+    <FarmaDocCTA
+    title="Join the FarmaDoc movement"
+    description="Every transaction on FarmaDoc has a double impact: it saves customers money and prevents pharmaceutical waste from entering landfill. This is commerce with conscience."
+    /> 
 
     <Footer />
     </div>
