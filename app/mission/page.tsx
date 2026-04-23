@@ -53,7 +53,30 @@ export default function Mission() {
       <StatsSection />
       </div>
 
-      <PromisesSection />
+      <PromisesSection
+        imageSrc="/images/promises.jpg"
+        title="Promises we keep"
+        description="Our mission isn’t just words..."
+        buttonText="Upgrade to Premium →"
+        onButtonClick={() => alert("Clicked")}
+        items={[
+          {
+            icon: "/images/featured-placement.svg",
+            title: "100% Authentic Products",
+            description: "Every product is pharmacy-certified and safe.",
+          },
+          {
+            icon: "/images/priority-map-visibility.svg",
+            title: "Transparent Reporting",
+            description: "We publish annual sustainability reports.",
+          },
+          {
+            icon: "/images/verified-badge.svg",
+            title: "2030 Zero Waste Goal",
+            description: "Commitment to eliminating waste by 2030.",
+          },
+        ]}
+      />
 
       <FarmaDocCTA
         title="Together, we can end pharmaceutical waste"

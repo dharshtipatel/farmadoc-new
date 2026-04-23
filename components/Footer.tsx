@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const stats = [
   {
@@ -27,44 +28,44 @@ const footerLinks = [
   {
     title: "Inside FarmaDoc",
     links: [
-      "Who we are",
-      "Our Mission",
-      "Join FarmaDoc",
-      "How it Works",
-      "FAQ’s",
-      "Register",
-      "Contact us",
+      { label: "Who we are" },
+      { label: "Our Mission" },
+      { label: "Join FarmaDoc" },
+      { label: "How it Works", href: "/how-it-works" },
+      { label: "FAQ's", href: "/faqs" },
+      { label: "Blog Main", href: "/blogmain" },
+      { label: "Contact us" },
     ],
   },
   {
     title: "Self-Medication",
     links: [
-      "Homeopathy",
-      "Stomach & Intestine",
-      "Eye & Sight",
-      "Seasonal Remedies Winter",
-      "Anti Pain",
-      "Seasonal Remedies for Spring & Summer",
+      { label: "Homeopathy" },
+      { label: "Stomach & Intestine" },
+      { label: "Eye & Sight" },
+      { label: "Seasonal Remedies Winter" },
+      { label: "Anti Pain" },
+      { label: "Seasonal Remedies for Spring & Summer" },
     ],
   },
   {
     title: "Personal Care",
     links: [
-      "Hair Hygiene & Care",
-      "Intimacy",
-      "Body Hygiene & Care",
-      "Line & Well Being",
-      "Oral Hygiene",
-      "Soleri",
-      "Dermo cosmetics",
+      { label: "Hair Hygiene & Care" },
+      { label: "Intimacy" },
+      { label: "Body Hygiene & Care" },
+      { label: "Line & Well Being" },
+      { label: "Oral Hygiene" },
+      { label: "Soleri" },
+      { label: "Dermo cosmetics" },
     ],
   },
   {
     title: "Supplements",
     links: [
-      "Wellbeing & Energy",
-      "Specific Supplements",
-      "Pregnancy & Menopause",
+      { label: "Wellbeing & Energy" },
+      { label: "Specific Supplements" },
+      { label: "Pregnancy & Menopause" },
     ],
   },
 ];
@@ -86,31 +87,26 @@ const payments = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#EDF2FB] px-4 sm:px-6 lg:px-10 py-10 space-y-12">
-
-      {/* Stats Section */}
-      <div className="border-b border-gray-300 max-w-7xl mx-auto pb-8">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-2 text-center">
+    <footer className="space-y-12 bg-[#EDF2FB] px-4 py-10 sm:px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl border-b border-gray-300 pb-8">
+        <h2 className="mb-2 text-center text-xl font-semibold sm:text-2xl">
           What Makes FarmaDoc Different
         </h2>
 
-        <p className="text-[#6B6F72] text-sm mb-8 text-center">
-          More than discounts, FarmaDoc brings transparency, trust, and sustainability to your healthcare purchases.
+        <p className="mb-8 text-center text-sm text-[#6B6F72]">
+          More than discounts, FarmaDoc brings transparency, trust, and
+          sustainability to your healthcare purchases.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((item, index) => (
             <div key={index} className="flex items-center justify-between gap-3">
-
               <div className="flex flex-col">
-                <span className="font-bold text-lg sm:text-xl">
+                <span className="text-lg font-bold sm:text-xl">
                   {item.value}
                 </span>
 
-                <span className="text-sm text-[#9A9C9E]">
-                  {item.label}
-                </span>
+                <span className="text-sm text-[#9A9C9E]">{item.label}</span>
               </div>
 
               <Image
@@ -119,36 +115,39 @@ export default function Footer() {
                 width={50}
                 height={50}
               />
+
               {index !== stats.length - 1 && (
-                <div className="hidden lg:block w-px h-[60px] bg-gray-300"></div>
+                <div className="hidden h-[60px] w-px bg-gray-300 lg:block" />
               )}
             </div>
           ))}
-
         </div>
       </div>
 
-      {/* Links Section */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {footerLinks.map((section, index) => (
           <div key={index}>
-
-            <h4 className="font-semibold mb-3 text-black text-lg">
+            <h4 className="mb-3 text-lg font-semibold text-black">
               {section.title}
             </h4>
 
             <ul className="space-y-2 text-sm text-[#6B6F72]">
               {section.links.map((link, i) => (
-                <li key={i} className="hover:text-black cursor-pointer">
-                  {link}
+                <li key={i} className="hover:text-black">
+                  {link.href ? (
+                    <Link href={link.href} className="cursor-pointer">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <span className="cursor-pointer">{link.label}</span>
+                  )}
                 </li>
               ))}
             </ul>
 
             {section.title === "Supplements" && (
               <>
-                <h4 className="font-semibold mt-6 mb-3 text-black text-lg">
+                <h4 className="mt-6 mb-3 text-lg font-semibold text-black">
                   Follow Us
                 </h4>
 
@@ -165,62 +164,33 @@ export default function Footer() {
                 </div>
               </>
             )}
-
           </div>
         ))}
-
       </div>
 
-      {/* Bottom Section */}
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 lg:justify-between lg:items-center text-xs">
-
-        {/* Left */}
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 text-xs lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-col">
-
-          <Image
-            src="/images/Logo.png"
-            alt="Logo"
-            width={180}
-            height={30}
-          />
+          <Image src="/images/Logo.png" alt="Logo" width={180} height={30} />
 
           <div className="mt-4 flex flex-wrap gap-2 text-gray-600">
-            <span>© 2024 Farmadoc Srls</span>
-            <span>|</span>
-            <span>Via Divisione Julia 7, 24121 Bergamo</span>
-            <span>|</span>
-            <span>VAT number 04796980169</span>
+            <span>© 2024 Farmadoc Srls - All rights reserved - Via Divisione Julia 7, 24121 Bergamo - VAT number 04796980169 - REA BG489983 - Share capital €1,000 fully paid-up</span>
           </div>
 
-          <div className="flex flex-wrap gap-2 mt-2">
-            <a href="#" className="underline hover:text-gray-700">
+          <div className="mt-2 flex flex-wrap gap-2">
+            <Link href="/privacy-policy" className="underline hover:text-gray-700">
               Privacy Policy
-            </a>
+            </Link>
 
             <span>|</span>
 
-            <a
-              href="https://storyset.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-gray-700"
-            >
-              Illustrations
-            </a>
-
-            <span>|</span>
-
-            <span>Made with Cuborio™</span>
+            <Link href="/terms-conditions" className="underline hover:text-gray-700">
+              Terms & Conditions
+            </Link>
           </div>
-
         </div>
 
-        {/* Right */}
         <div className="flex flex-wrap items-center gap-3">
-
-          <p className="font-bold whitespace-nowrap">
-            Payment Methods
-          </p>
+          <p className="whitespace-nowrap font-bold">Payment Methods</p>
 
           {payments.map((payment, index) => (
             <Image
@@ -231,11 +201,8 @@ export default function Footer() {
               height={20}
             />
           ))}
-
         </div>
-
       </div>
-
     </footer>
   );
 }
