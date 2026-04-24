@@ -10,8 +10,7 @@ export default function PurposeSection() {
         </h1>
 
         <p className="mt-4 text-[#6B6F72] text-[16px] md:text-base leading-relaxed font-medium font-inter">
-          Every purchase on FarmaDoc does more than save money; it actively reduces pharmaceutical waste.
-          We're committed to commerce with a conscience, ensuring health and environmental responsibility go hand in hand.
+          Every product on FarmaDoc actively reduces pharmaceutical waste and makes healthcare more accessible. We are committed to promoting ethical trade, ensuring that health and environmental responsibility go hand in hand.
         </p>
       </div>
 
@@ -36,7 +35,7 @@ export default function PurposeSection() {
 
           <p className="text-[#6B6F72] text-[16px] font-inter leading-relaxed">
             Italy discards an estimated €500 million worth of pharmaceutical products annually due to surplus stock and near-expiry dates.
-            FarmaDoc intercepts this waste by creating a market for it. Every product sold on our platform is a product that doesn't end up in a landfill.
+            FarmaDoc intercepts this waste by creating a market for it. Every product promoted on our platform is a product that doesn't end up in a landfill.
           </p>
         </div>
 
@@ -58,7 +57,7 @@ export default function PurposeSection() {
 
           <p className="text-[#6B6F72] text-[16px] font-inter leading-relaxed">
             Medication affordability is a real barrier for millions of Italian families. FarmaDoc brings discounts of up to 70% on authentic pharmaceutical products,
-            making essential health products accessible to those who need them most, regardless of income.
+            making health products accessible to those who need them most, regardless of income.
           </p>
         </div>
 

@@ -29,7 +29,7 @@ const notificationsData: Notification[] = [
   },
   {
     id: '3',
-    title: 'New Pharmacy Nearby',
+    title: 'New Merchant Nearby',
     message: 'Apollo Pharmacy opened 0.8km from you.',
     time: '7d',
     read: false,

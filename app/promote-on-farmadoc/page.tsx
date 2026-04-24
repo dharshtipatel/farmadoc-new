@@ -170,7 +170,7 @@ export default function PharmacySignupPage() {
         {/* Stats Section */}
         <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-[20px]">
         <div className="pr-6 border-r border-gray-200">
-            <h2 className="text-[52px] font-medium font-helvetica text-[#1E3862]">850+</h2>
+            <h2 className="text-[52px] font-medium font-helvetica text-[#1E3862]">4500+</h2>
             <p className="text-[16px] text-gray-500 font-inter font-medium">Pharmacies onboarded</p>
         </div>
 
@@ -180,8 +180,10 @@ export default function PharmacySignupPage() {
         </div>
 
         <div className="pr-6 border-r border-gray-200">
-            <h2 className="text-[52px] font-medium font-helvetica text-[#1E3862]">€1.2M</h2>
-            <p className="text-[16px] text-gray-500 font-inter font-medium">Revenue generated for pharmacies</p>
+            <h2 className="text-[52px] font-medium font-helvetica text-[#1E3862]">50%</h2>
+            <p className="text-[16px] text-gray-500 font-inter font-medium whitespace-nowrap">
+            reduction of up to 50% of surplus stock
+            </p>
         </div>
 
         <div>
@@ -192,7 +194,7 @@ export default function PharmacySignupPage() {
 
         <div className="max-w-7xl mx-auto px-6 mb-10">
         <h1 className="text-[32px] md:text-3xl font-bold text-[#1E3862] mb-3 font-medium font-helvetica">
-            We do the work. You get the sales.
+            We do the work. You get the clients.
         </h1>
 
         <p className="text-[#6B6F72] text-[16px] md:text-base font-inter">
@@ -469,14 +471,14 @@ export default function PharmacySignupPage() {
             <LoginModal onClose={() => setOpenLogin(false)} initialStep="pharmacySignup" />
         )}
 
-        <CarouselSection
+        {/* <CarouselSection
             title="What Our Partners Say"
             subtitle="Discover how partners across Italy are boosting revenue, fighting waste, and reaching new customers with FarmaDoc."
             deals={comments}
             CardComponent={TestimonialCard}
             cardsPerPage={4}
             titleClassName="text-[32px] text-[#1E3862] font-helvetica font-medium"
-        />
+        /> */}
         <PharmaMovement />
         <FAQAccordion />
         

@@ -59,11 +59,11 @@ export default function WhoWeAre() {
         <div className="max-w-7xl mx-auto">
             
             {/* Top grid */}
-            <div className="grid md:grid-cols-2 gap-10 items-start">
+            <div className="grid md:grid-cols-2 gap-10 items-start mt-4">
             <div>
-                <h1 className="text-[60px] font-medium text-[#1E3862] font-helvetica">
-                Healthcare <br />
-                made human again
+                <h1 className="text-[60px] font-medium text-[#1E3862] font-helvetica leading-tight">
+                Health <br />
+                accessible to all
                 </h1>
             </div>
 
@@ -184,7 +184,7 @@ export default function WhoWeAre() {
                 </div>
                 <h3 className="font-semibold mb-2 text-[20px] font-inter">Trust & Safety</h3>
                 <p className="text-[16px] font-inter text-[#6B6F72]">
-                We guarantee 100% authentic, pharmacy-certified products on our platform.
+                Products guaranteed thanks to the local pharmaceutical supply chain.
                 </p>
             </div>
 
@@ -217,7 +217,7 @@ export default function WhoWeAre() {
         </h1>
 
         <p className="text-sm sm:text-base text-[#6B6F72] font-medium font-inter max-w-full md:max-w-[738px] leading-relaxed">
-        Every transaction on FarmaDoc has a double impact: it saves customers money and prevents pharmaceutical waste from entering landfill. This is commerce with conscience.
+        Every transaction through FarmaDoc has a double impact: it saves customers money and prevents pharmaceutical waste from entering landfill. This is commerce with conscience.
         </p>
 
         <div className="mt-10 mb-8">
@@ -233,11 +233,11 @@ export default function WhoWeAre() {
 
         <StatsSection />
     </div>
-    <Timeline /> 
+    {/* <Timeline />  */}
 
     <CarouselSection
         title="What Our Customers Say"
-        subtitle="Real stories from people who saved money, reduced waste, and discovered trusted pharmacies through FarmaDoc."
+        subtitle="Real stories from people who saved money, reduced waste, and discovered trusted members through FarmaDoc."
         deals={comments}
         CardComponent={TestimonialCard}
         cardsPerPage={4}
@@ -245,7 +245,7 @@ export default function WhoWeAre() {
 
     <FarmaDocCTA
     title="Join the FarmaDoc movement"
-    description="Every transaction on FarmaDoc has a double impact: it saves customers money and prevents pharmaceutical waste from entering landfill. This is commerce with conscience."
+    description="FarmaDoc aims to have a dual impact: saving customers money and reducing pharmaceutical waste."
     /> 
 
     <Footer />

@@ -35,13 +35,12 @@ export default function Mission() {
           {/* Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
             <p className="text-white text-[40px] italic max-w-[680px] w-full leading-[1.1] break-words [font-family:var(--font-times)]">
-            "Every package sold on FarmaDoc is one less package in a landfill —
-            and one more family with access to affordable healthcare."
+            "Every package promoted is one less in the trash and one more in the hands of those who need it."
             </p>
 
             <div className="mt-6 text-white">
               <p className="font-inter text-[20px] font-medium">Marco Fiorani</p>
-              <p className="text-[14px] font-inter">Co-Founder & CEO</p>
+              <p className="text-[14px] font-inter">Founder & CEO</p>
             </div>
           </div>
 
@@ -62,18 +61,18 @@ export default function Mission() {
         items={[
           {
             icon: "/images/featured-placement.svg",
-            title: "100% Authentic Products",
-            description: "Every product is pharmacy-certified and safe.",
+            title: "Constant Waste Reduction",
+            description: "Our goal is to progressively reduce pharmaceutical waste within our network, increasing the number of products saved each year.",
           },
           {
             icon: "/images/priority-map-visibility.svg",
-            title: "Transparent Reporting",
-            description: "We publish annual sustainability reports.",
+            title: "Expansion of the Sustainable Network",
+            description: "We are working to involve more and more businesses in the recovery cycle, extending the positive impact throughout the country.",
           },
           {
             icon: "/images/verified-badge.svg",
-            title: "2030 Zero Waste Goal",
-            description: "Commitment to eliminating waste by 2030.",
+            title: "Education on Zero Waste",
+            description: "We raise awareness among businesses and consumers about the importance of reducing pharmaceutical waste, creating a culture of sustainability.",
           },
         ]}
       />

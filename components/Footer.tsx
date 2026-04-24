@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const stats = [
   {
-    value: "1,200+",
+    value: "4,500+",
     label: "Verified Pharmacies",
     icon: "/images/verified.svg",
   },
@@ -13,7 +13,7 @@ const stats = [
     icon: "/images/delete.svg",
   },
   {
-    value: "800+",
+    value: "300+",
     label: "Helping Local Pharmacies Grow",
     icon: "/images/grow.svg",
   },
@@ -94,8 +94,7 @@ export default function Footer() {
         </h2>
 
         <p className="mb-8 text-center text-sm text-[#6B6F72]">
-          More than discounts, FarmaDoc brings transparency, trust, and
-          sustainability to your healthcare purchases.
+          Health can't wait. Prices shouldn't be an obstacle.
         </p>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

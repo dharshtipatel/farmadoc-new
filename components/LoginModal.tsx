@@ -58,7 +58,7 @@ export default function LoginModal({ onClose, onLoginSuccess, initialStep = "log
         {/* Left Image */}
         <div className="hidden sm:flex w-full md:w-1/3 relative h-[200px] md:h-auto">
           <Image
-            src="/images/Graphic.png"
+            src="/images/graphic1.png"
             alt="Login Background"
             fill
             className=""

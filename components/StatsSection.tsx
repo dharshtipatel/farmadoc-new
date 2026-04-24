@@ -18,8 +18,8 @@ const stats = [
   },
   {
     icon: "/images/pharmacy.svg",
-    value: "850+",
-    label: "Pharmacy partners",
+    value: "5000+",
+    label: "Activities",
   },
 ];
 
