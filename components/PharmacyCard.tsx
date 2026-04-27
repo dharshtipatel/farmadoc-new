@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 export type Pharmacy = {
   image: string;
@@ -23,6 +24,7 @@ export default function PharmacyCard({
   distance,
   starBadge,
 }: Pharmacy) {
+  const { t } = useAppTranslation();
   const encodeType = (value: string) => value;
 
   return (
@@ -57,7 +59,7 @@ export default function PharmacyCard({
         {deals && (
           <div className="absolute top-3 right-3 bg-blue-100 text-blue-600 rounded-md px-2 py-1 flex items-center gap-1 text-xs font-semibold">
             <span>🔥</span>
-            <span>{deals} Deals</span>
+            <span>{deals} {t("pharmacyCard.deals")}</span>
           </div>
         )}
 
@@ -92,7 +94,7 @@ export default function PharmacyCard({
             className="w-full h-10 border border-gray-300 rounded-md flex items-center justify-center gap-2 px-4 text-[14px] font-medium text-[#1E3862] hover:bg-gray-50"
             type="button"
           >
-            View Offers
+            {t("pharmacyCard.viewOffers")}
           </button>
         </Link>
 

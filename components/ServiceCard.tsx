@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type ServiceCardProps = {
   title: string;
@@ -19,6 +20,8 @@ export default function ServiceCard({
   image,
   onBook,
 }: ServiceCardProps) {
+  const { t } = useAppTranslation();
+
   return (
     <div className="w-full max-w-[305px] h-auto rounded-2xl border border-[#D6DADD] p-4 bg-white flex flex-col justify-between">
       
@@ -58,7 +61,7 @@ export default function ServiceCard({
 
           {discount && (
             <span className="text-[10px] text-[#D62828] bg-[#FBE7E7] px-2 py-0.5 rounded font-bold">
-              {discount}% Off
+              {discount}% {t("serviceCard.off")}
             </span>
           )}
         </div>
@@ -71,7 +74,7 @@ export default function ServiceCard({
           onClick={onBook}
           className="min-w-[135px] h-[35px] flex-1 bg-white text-[#33B1FF] text-xs sm:text-sm rounded border border-[#33B1FF] hover:bg-blue-50 transition"
         >
-          Book Online
+          {t("serviceCard.bookOnline")}
         </button>
       </div>
     </div>

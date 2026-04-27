@@ -1,88 +1,95 @@
+"use client";
+
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
+
 export default function PurposeSection() {
+  const { t } = useAppTranslation();
+
   return (
-    <section className="w-full px-20 py-20 bg-white">
-      
-      {/* Header */}
-      <div className="max-w-[956px] mb-12">
-        <h1 className="text-[32px] font-helvetica md:text-4xl font-medium text-[#1E3862]">
-          The foundation of our purpose
+    <section className="w-full bg-white px-20 py-20">
+      <div className="mb-12 max-w-[956px]">
+        <h1 className="text-[32px] font-medium text-[#1E3862] md:text-4xl font-helvetica">
+          {t("purposeSection.title")}
         </h1>
 
-        <p className="mt-4 text-[#6B6F72] text-[16px] md:text-base leading-relaxed font-medium font-inter">
-          Every product on FarmaDoc actively reduces pharmaceutical waste and makes healthcare more accessible. We are committed to promoting ethical trade, ensuring that health and environmental responsibility go hand in hand.
+        <p className="mt-4 text-[16px] font-medium leading-relaxed text-[#6B6F72] md:text-base font-inter">
+          {t("purposeSection.description")}
         </p>
       </div>
 
-      {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        {/* Sustainability */}
-        <div className="bg-[#F4FFE9] rounded-xl p-6">
-          <div className="text-green-600 text-2xl mb-3">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="rounded-xl bg-[#F4FFE9] p-6">
+          <div className="mb-3 text-2xl text-green-600">
             <Image
-                src="/images/sustainability.svg"
-                alt="search"
-                width={60}
-                height={60}
-                priority
-                className="rounded-lg"
+              src="/images/sustainability.svg"
+              alt="sustainability"
+              width={60}
+              height={60}
+              priority
+              className="rounded-lg"
             />
           </div>
 
-          <h3 className="text-[24px] font-inter font-semibold mb-1">Sustainability</h3>
-          <p className="text-green-600 text-[14px] font-inter font-medium mb-3">Zero Pharma Waste</p>
+          <h3 className="mb-1 text-[24px] font-semibold font-inter">
+            {t("purposeSection.cards.sustainability.title")}
+          </h3>
+          <p className="mb-3 text-[14px] font-medium text-green-600 font-inter">
+            {t("purposeSection.cards.sustainability.tag")}
+          </p>
 
-          <p className="text-[#6B6F72] text-[16px] font-inter leading-relaxed">
-            Italy discards an estimated €500 million worth of pharmaceutical products annually due to surplus stock and near-expiry dates.
-            FarmaDoc intercepts this waste by creating a market for it. Every product promoted on our platform is a product that doesn't end up in a landfill.
+          <p className="text-[16px] leading-relaxed text-[#6B6F72] font-inter">
+            {t("purposeSection.cards.sustainability.description")}
           </p>
         </div>
 
-        {/* Accessibility */}
-        <div className="bg-[#F2FAFF] rounded-xl p-6">
-          <div className="text-blue-500 text-2xl mb-3">
+        <div className="rounded-xl bg-[#F2FAFF] p-6">
+          <div className="mb-3 text-2xl text-blue-500">
             <Image
-                src="/images/Accessibility.svg"
-                alt="search"
-                width={60}
-                height={60}
-                priority
-                className="rounded-lg"
+              src="/images/Accessibility.svg"
+              alt="accessibility"
+              width={60}
+              height={60}
+              priority
+              className="rounded-lg"
             />
           </div>
 
-          <h3 className="text-[24px] font-inter font-semibold mb-1">Accessibility</h3>
-          <p className="text-blue-500 text-[14px] font-medium font-inter mb-3">Healthcare for Everyone</p>
+          <h3 className="mb-1 text-[24px] font-semibold font-inter">
+            {t("purposeSection.cards.accessibility.title")}
+          </h3>
+          <p className="mb-3 text-[14px] font-medium text-blue-500 font-inter">
+            {t("purposeSection.cards.accessibility.tag")}
+          </p>
 
-          <p className="text-[#6B6F72] text-[16px] font-inter leading-relaxed">
-            Medication affordability is a real barrier for millions of Italian families. FarmaDoc brings discounts of up to 70% on authentic pharmaceutical products,
-            making health products accessible to those who need them most, regardless of income.
+          <p className="text-[16px] leading-relaxed text-[#6B6F72] font-inter">
+            {t("purposeSection.cards.accessibility.description")}
           </p>
         </div>
 
-        {/* Efficiency (full width) */}
-        <div className="bg-[#F8F3FF] rounded-xl p-6 md:col-span-2">
-          <div className="text-purple-600 text-2xl mb-3">
+        <div className="rounded-xl bg-[#F8F3FF] p-6 md:col-span-2">
+          <div className="mb-3 text-2xl text-purple-600">
             <Image
-                src="/images/Efficiency.svg"
-                alt="search"
-                width={60}
-                height={60}
-                priority
-                className="rounded-lg"
+              src="/images/Efficiency.svg"
+              alt="efficiency"
+              width={60}
+              height={60}
+              priority
+              className="rounded-lg"
             />
           </div>
 
-          <h3 className="text-[24px] font-inter font-semibold mb-1">Efficiency</h3>
-          <p className="text-purple-600 text-[14px] font-inter font-medium mb-3">Streamlined Commerce</p>
+          <h3 className="mb-1 text-[24px] font-semibold font-inter">
+            {t("purposeSection.cards.efficiency.title")}
+          </h3>
+          <p className="mb-3 text-[14px] font-medium text-purple-600 font-inter">
+            {t("purposeSection.cards.efficiency.tag")}
+          </p>
 
-          <p className="text-[#6B6F72] text-[16px] font-inter leading-relaxed">
-            Traditional pharmaceutical retail is fragmented, slow, and opaque. FarmaDoc centralizes geo-based discovery, booking, and in-store pickup —
-            creating a friction-free loop between inventory and patient. Our platform manages everything so pharmacies can focus on care.
+          <p className="text-[16px] leading-relaxed text-[#6B6F72] font-inter">
+            {t("purposeSection.cards.efficiency.description")}
           </p>
         </div>
-
       </div>
     </section>
   );

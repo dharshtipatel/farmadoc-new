@@ -1,22 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 export interface FAQItem {
-  question: string;
-  answer: string;
+  questionKey: string;
+  answerKey: string;
 }
 
 const defaultItems: FAQItem[] = [
   {
-    question: "Are near-expiry medicines safe to use?",
-    answer:
-      "Yes. All medicines listed on FarmaDoc are approved, sealed, and sourced directly from licensed pharmacies.",
+    questionKey: "faq.items.q1.question",
+    answerKey: "faq.items.q1.answer",
   },
   {
-    question: "Why are these medicines available at lower prices?",
-    answer:
-      "Pharmacies sell surplus or near-expiry inventory at discounted prices.",
+    questionKey: "faq.items.q2.question",
+    answerKey: "faq.items.q2.answer",
   },
 ];
 
@@ -27,6 +26,8 @@ export default function FAQAccordion({
   showHeader?: boolean;
   items?: FAQItem[];
 }) {
+  const { t } = useAppTranslation();
+
   const [openIndex, setOpenIndex] = useState<number | null>(
     items.length > 0 ? 0 : null
   );
@@ -41,15 +42,15 @@ export default function FAQAccordion({
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-5 relative space-y-2">
+
       {showHeader && (
         <>
           <h2 className="text-2xl font-semibold mb-2">
-            Frequently Asked Questions
+            {t("faq.title")}
           </h2>
 
           <p className="text-[#6B6F72] text-sm mb-8">
-            Everything you need to know, from reservations to pickups, all in
-            one place.
+            {t("faq.subtitle")}
           </p>
         </>
       )}
@@ -66,16 +67,20 @@ export default function FAQAccordion({
             onClick={() => toggleItem(index)}
           >
             <div className="flex justify-between items-center">
+
               <h3 className="text-[18px] font-semibold text-black font-helvetica">
-                Q{index + 1}. {item.question}
+                Q{index + 1}. {t(item.questionKey)}
               </h3>
 
-              <span className="text-2xl font-bold">{isOpen ? "-" : "+"}</span>
+              <span className="text-2xl font-bold">
+                {isOpen ? "-" : "+"}
+              </span>
+
             </div>
 
             {isOpen && (
               <p className="mt-2 text-[14px] text-[#6B6F72] font-inter">
-                {item.answer}
+                {t(item.answerKey)}
               </p>
             )}
           </div>
@@ -84,7 +89,7 @@ export default function FAQAccordion({
 
       {items.length === 0 && (
         <p className="text-[14px] text-[#6B6F72] font-inter">
-          No FAQs available for this section right now.
+          {t("faq.empty")}
         </p>
       )}
     </div>

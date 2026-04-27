@@ -1,14 +1,16 @@
 "use client";
+
 import { useState } from "react";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type CheckboxOption = {
   label: string;
-  value?: string; // optional, not used in filter state
+  value?: string;
 };
 
 type CheckboxFilterProps = {
   options: CheckboxOption[];
-  selected?: string[]; // array of selected labels
+  selected?: string[];
   onChange?: (label: string, checked: boolean) => void;
   defaultVisible?: number;
 };
@@ -19,12 +21,10 @@ export default function CheckboxFilter({
   onChange,
   defaultVisible = 10,
 }: CheckboxFilterProps) {
+  const { t } = useAppTranslation();
   const [expanded, setExpanded] = useState(false);
 
-  const visibleOptions = expanded
-    ? options
-    : options.slice(0, defaultVisible);
-
+  const visibleOptions = expanded ? options : options.slice(0, defaultVisible);
   const hiddenCount = Math.max(options.length - defaultVisible, 0);
 
   return (
@@ -37,9 +37,7 @@ export default function CheckboxFilter({
           <input
             type="checkbox"
             checked={selected.includes(option.label)}
-            onChange={(e) =>
-              onChange?.(option.label, e.target.checked) // pass label
-            }
+            onChange={(e) => onChange?.(option.label, e.target.checked)}
             className="form-checkbox h-[23px] w-[23px] text-[#1E3862] peer"
           />
 
@@ -55,7 +53,7 @@ export default function CheckboxFilter({
           onClick={() => setExpanded(!expanded)}
           className="text-left text-[#1E3862] text-sm font-medium mt-1"
         >
-          {expanded ? "Show less" : `+ ${hiddenCount} more`}
+          {expanded ? t("checkboxFilter.showLess") : `+ ${hiddenCount} ${t("checkboxFilter.more")}`}
         </button>
       )}
     </div>

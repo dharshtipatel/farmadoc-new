@@ -5,9 +5,10 @@ import Image from "next/image";
 import { Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type Variant = {
-  id: string,
+  id: string;
   count: string;
   pack: string;
   price: number;
@@ -22,11 +23,14 @@ const variants: Variant[] = [
 ];
 
 export default function Productinfo({ type }: { type: string }) {
+  const { t } = useAppTranslation();
+
   const [selected, setSelected] = useState(0);
   const [quantity, setQuantity] = useState(0);
 
   const increment = () => setQuantity((q) => q + 1);
   const decrement = () => setQuantity((q) => (q > 0 ? q - 1 : 0));
+
   const router = useRouter();
   const { addToCart } = useCart();
 
@@ -69,19 +73,19 @@ export default function Productinfo({ type }: { type: string }) {
           </span>
 
           <span className="bg-[#FBE7E7] px-2 py-1 text-xs font-semibold text-[#D62828] rounded">
-            25% OFF
+            {t("productinfo.off")}
           </span>
         </div>
 
         <div className="flex flex-wrap items-center gap-3 text-xs">
           <span className="text-[#1E3862]">
-            100K+ bought in past month
+            {t("productinfo.boughtRecently")}
           </span>
 
           <div className="hidden sm:block w-px h-4 bg-gray-300"></div>
 
           <span className="text-[#D62828]">
-            Expires on 26 Dec, 2026
+            {t("productinfo.expiresOn")} 26 Dec, 2026
           </span>
         </div>
 
@@ -118,16 +122,20 @@ export default function Productinfo({ type }: { type: string }) {
                   <p className="text-xs line-through text-gray-400">
                     €{variant.oldPrice}
                   </p>
-                  <p className="text-xs font-semibold">25% OFF</p>
+                  <p className="text-xs font-semibold">
+                    {t("productinfo.off")}
+                  </p>
                 </div>
               </div>
             </button>
           );
         })}
       </div>
+
       {/* Actions */}
       {type?.toLowerCase() === "showroom" && (
         <div className="mt-8 flex flex-col sm:flex-row gap-3">
+
           {/* Add to cart */}
           <div className="w-full sm:flex-1">
             {quantity === 0 ? (
@@ -136,7 +144,7 @@ export default function Productinfo({ type }: { type: string }) {
                 onClick={() => setQuantity(1)}
               >
                 <Image src="/images/cart.svg" alt="cart" width={20} height={20} />
-                Add to Cart
+                {t("productinfo.addToCart")}
               </button>
             ) : (
               <div className="w-full h-[52px] flex items-center border border-blue-500 rounded-lg">
@@ -152,7 +160,7 @@ export default function Productinfo({ type }: { type: string }) {
             className="w-full sm:flex-1 h-[52px] flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg"
             onClick={() => {
               if (quantity <= 0) {
-                alert("Please select quantity before booking.");
+                alert(t("productinfo.selectQuantity"));
                 return;
               }
 
@@ -175,7 +183,7 @@ export default function Productinfo({ type }: { type: string }) {
             }}
           >
             <Image src="/images/cart.svg" alt="cart" width={20} height={20} />
-            Book Now
+            {t("productinfo.bookNow")}
           </button>
 
         </div>
@@ -184,11 +192,11 @@ export default function Productinfo({ type }: { type: string }) {
       {/* Footer icons */}
       <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-xs text-gray-500 text-center">
         {[
-          { icon: "/images/return.svg", label: "Returns not available" },
-          { icon: "/images/authentic_product.svg", label: "100% Authentic Products" },
-          { icon: "/images/return.svg", label: "Returns not available" },
-          { icon: "/images/secure_payment.svg", label: "Secure Payment" },
-          { icon: "/images/secure_payment.svg", label: "Secure Payment" },
+          { icon: "/images/return.svg", label: t("productinfo.noReturns") },
+          { icon: "/images/authentic_productinfo.svg", label: t("productinfo.authentic") },
+          { icon: "/images/return.svg", label: t("productinfo.noReturns") },
+          { icon: "/images/secure_payment.svg", label: t("productinfo.securePayment") },
+          { icon: "/images/secure_payment.svg", label: t("productinfo.securePayment") },
         ].map((item, i) => (
           <div key={i} className="flex flex-col items-center">
             <div className="w-10 h-10 bg-[#EDF2FB] rounded-full flex items-center justify-center mb-2">

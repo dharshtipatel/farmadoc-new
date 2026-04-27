@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, Suspense } from "react";
+import { useState, useMemo, useRef, Suspense, useEffect } from "react";
 import Header from "../../components/Header";
 import Filters from "../../components/Filters";
 import Breadcrumb from "../../components/Breadcrumb";
@@ -10,6 +10,7 @@ import FAQAccordion from "../../components/FAQAccordion";
 import Footer from "../../components/Footer";
 import { useSearchParams } from "next/navigation";
 import PharmacyCard from "../../components/PharmacyCard";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 interface Product {
   id: number;
@@ -22,52 +23,58 @@ interface Product {
   expiry: string;
   image: string;
   type: string;
+  dealsCount: number;
 }
 
 function TopDealsContent() {
+  const { t } = useAppTranslation();
   const searchParams = useSearchParams();
-  let pageTitle = searchParams.get("title") || "Top Deals";
-  let pageSubtitle = searchParams.get("subtitle") || "Top Deals";
+  let pageTitle = searchParams.get("title") || t("topDealsPage.defaultTitle");
+  let pageSubtitle = searchParams.get("subtitle") || t("topDealsPage.defaultSubtitle");
 
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
-  const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
+  const [visibleCount, setVisibleCount] = useState(9);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const loaderRef = useRef<HTMLDivElement>(null);
 
-  const isPharmacyView = pageTitle.toLowerCase() === "popular pharmacies near you";
+  const isPharmacyView =
+    pageTitle.toLowerCase().includes("pharm") || pageTitle.toLowerCase().includes("farmac");
+
   if (isPharmacyView) {
-    pageTitle = "Pharmacies Near you";
-    pageSubtitle = "Find exclusive deals on medications and health essentials.";
+    pageTitle = t("topDealsPage.pharmacyTitle");
+    pageSubtitle = t("topDealsPage.pharmacySubtitle");
   }
 
-  // Generate random products
-  useEffect(() => {
-    const products = Array.from({ length: 30 }, (_, i) => ({
-      id: i + 1,
-      name: `Product ${i + 1}`,
-      pharmacy: `Pharmacy ${i + 1}`,
-      price: (Math.random() * 20 + 5).toFixed(2),
-      oldPrice: (Math.random() * 30 + 10).toFixed(2),
-      discount: `${Math.floor(Math.random() * 50) + 10}% OFF`,
-      distance: `${(Math.random() * 5).toFixed(1)} km`,
-      expiry: `2026-12-${(i % 28) + 1}`,
-      image: "/images/1.png",
-      type: Math.random() > 0.5 ? "pharmacy" : "showroom",
-    }));
-    setAllProducts(products);
-    setVisibleProducts(products.slice(0, 9));
-  }, []);
+  const allProducts = useMemo<Product[]>(
+    () =>
+      Array.from({ length: 30 }, (_, i) => ({
+        id: i + 1,
+        name: `${t("common.product")} ${i + 1}`,
+        pharmacy: `${t("common.pharmacy")} ${i + 1}`,
+        price: (5 + (i % 10) * 1.7).toFixed(2),
+        oldPrice: (10 + (i % 10) * 2.3).toFixed(2),
+        discount: `${10 + (i % 5) * 5}% OFF`,
+        distance: `${(0.5 + (i % 8) * 0.4).toFixed(1)} km`,
+        expiry: `2026-12-${(i % 28) + 1}`,
+        image: "/images/1.png",
+        type: i % 2 === 0 ? "pharmacy" : "showroom",
+        dealsCount: (i % 10) + 1,
+      })),
+    [t]
+  );
 
-  // Infinite scroll
+  const visibleProducts = allProducts.slice(0, visibleCount);
+
   useEffect(() => {
     if (!allProducts.length) return;
+    const node = loaderRef.current;
+    if (!node) return;
 
     const observer = new IntersectionObserver(
       (entries, observerInstance) => {
         if (entries[0].isIntersecting) {
-          setVisibleProducts((prev) => {
-            const next = allProducts.slice(0, prev.length + 6);
-            if (next.length >= allProducts.length) {
+          setVisibleCount((prev) => {
+            const next = Math.min(prev + 6, allProducts.length);
+            if (next >= allProducts.length) {
               observerInstance.unobserve(entries[0].target);
             }
             return next;
@@ -77,32 +84,26 @@ function TopDealsContent() {
       { rootMargin: "200px" }
     );
 
-    if (loaderRef.current) observer.observe(loaderRef.current);
-
-    return () => {
-      if (loaderRef.current) observer.unobserve(loaderRef.current);
-    };
-  }, [allProducts]);
+    observer.observe(node);
+    return () => observer.unobserve(node);
+  }, [allProducts.length]);
 
   return (
     <div className="max-w-7xl mx-auto mt-6">
-      {/* Mobile Filter Button */}
       <div className="sm:hidden flex justify-end mb-4">
         <button
           onClick={() => setShowMobileFilters(true)}
           className="bg-[#33B1FF] text-white px-4 py-2 rounded"
         >
-          Filters
+          {t("topDealsPage.filtersButton")}
         </button>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-6">
-        {/* Desktop Filters */}
         <div className="hidden sm:block w-[280px]">
           <Filters filter_title={pageTitle} />
         </div>
 
-        {/* Right Content */}
         <div className="flex-1">
           <DealsHeader title={pageTitle} count={allProducts.length} subtitle={pageSubtitle} />
 
@@ -113,9 +114,9 @@ function TopDealsContent() {
                   key={product.id}
                   image={product.image}
                   name={product.pharmacy}
-                  address={`Address for ${product.pharmacy}`}
+                  address={`${t("topDealsPage.addressFor")} ${product.pharmacy}`}
                   type={product.type}
-                  deals={Math.floor(Math.random() * 10) + 1}
+                  deals={product.dealsCount}
                   distance={parseFloat(product.distance)}
                   starBadge="/images/star_badge.png"
                 />
@@ -137,16 +138,14 @@ function TopDealsContent() {
             )}
           </div>
 
-          {/* Loader */}
           {visibleProducts.length < allProducts.length && (
             <div ref={loaderRef} className="h-10 mt-4 flex justify-center items-center">
-              <span className="text-gray-500">Loading more...</span>
+              <span className="text-gray-500">{t("topDealsPage.loadingMore")}</span>
             </div>
           )}
         </div>
       </div>
 
-      {/* Mobile Filter Drawer */}
       {showMobileFilters && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end"
@@ -161,7 +160,7 @@ function TopDealsContent() {
               onClick={() => setShowMobileFilters(false)}
               className="absolute top-4 right-4 text-gray-600 text-lg font-bold"
             >
-              ✕
+              x
             </button>
             <Filters filter_title={pageTitle} />
           </div>
@@ -172,15 +171,15 @@ function TopDealsContent() {
 }
 
 export default function TopDealsPage() {
+  const { t } = useAppTranslation();
+
   return (
     <div>
       <Header />
-      
-      {/* Container that pushes all content below the fixed header */}
       <div className="pt-[80px] sm:pt-[135px] px-4">
-        <Breadcrumb currentPage="Top Deals" />
+        <Breadcrumb currentPage={t("topDealsPage.breadcrumb")} />
 
-        <Suspense fallback={<div className="flex justify-center p-20">Loading deals...</div>}>
+        <Suspense fallback={<div className="flex justify-center p-20">{t("topDealsPage.loadingDeals")}</div>}>
           <TopDealsContent />
         </Suspense>
 

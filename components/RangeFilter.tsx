@@ -1,21 +1,29 @@
 "use client";
+
 import { useState, useEffect } from "react";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type RangeFilterProps = {
   title: string;
   min: number;
   max: number;
   value: number;
-  onChange: (label: string) => void; // pass label to parent, like PriceRange
+  onChange: (value: number) => void;
 };
 
-export default function RangeFilter({ title, min, max, value, onChange }: RangeFilterProps) {
+export default function RangeFilter({
+  title,
+  min,
+  max,
+  value,
+  onChange,
+}: RangeFilterProps) {
+  const { t } = useAppTranslation();
   const [localValue, setLocalValue] = useState(value);
 
   useEffect(() => {
-    // Whenever localValue changes, call onChange with label
-    onChange(`${title}: ${localValue}KM`);
-  }, [localValue]);
+    onChange(localValue);
+  }, [localValue, onChange]);
 
   const percentage = ((localValue - min) / (max - min)) * 100;
 
@@ -36,7 +44,7 @@ export default function RangeFilter({ title, min, max, value, onChange }: RangeF
       />
 
       <div className="text-sm text-gray-700 text-right">
-        {localValue} KM
+        {localValue} {t("rangeFilter.km")}
       </div>
     </div>
   );

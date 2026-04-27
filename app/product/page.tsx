@@ -8,10 +8,12 @@ import ImageBox from "../../components/ImageBox";
 import Productinfo from "../../components/Productinfo";
 import ProductTabs from "../../components/ProductTabs";
 import Footer from "@/components/Footer";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 function ProductContent() {
   const searchParams = useSearchParams();
   const [decodedType, setDecodedType] = useState("");
+  const { t } = useAppTranslation();
 
   useEffect(() => {
     const typeParam = searchParams.get("type");
@@ -22,8 +24,10 @@ function ProductContent() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
-      {/* Top Section: Image + Product Info */}
+
+      {/* Top Section */}
       <div className="flex flex-col lg:flex-row gap-8">
+
         <div className="lg:w-1/2 w-full">
           <ImageBox
             images={[
@@ -39,37 +43,42 @@ function ProductContent() {
         </div>
 
         <div className="lg:w-1/2 w-full">
-          <Suspense fallback={<div>Loading product info...</div>}>
+          <Suspense fallback={<div>{t("product.loadingInfo")}</div>}>
             <Productinfo type={decodedType} />
           </Suspense>
         </div>
+
       </div>
 
-      {/* Product Tabs */}
+      {/* Tabs */}
       <div className="mt-8">
-        <Suspense fallback={<div>Loading product tabs...</div>}>
+        <Suspense fallback={<div>{t("product.loadingTabs")}</div>}>
           <ProductTabs type={decodedType} />
         </Suspense>
       </div>
+
     </div>
   );
 }
 
 export default function ProductPage() {
+  const { t } = useAppTranslation();
+
   return (
     <div className="relative">
-      {/* Fixed header */}
+
       <Header />
 
-      {/* Wrapper that pushes content below header */}
       <div className="pt-[80px] sm:pt-[135px]">
-        {/* Breadcrumb sits below header */}
-        <Breadcrumb currentPage="test" />
 
-        {/* Main content */}
-        <Suspense fallback={<div className="flex justify-center p-20">Loading product...</div>}>
+        <Breadcrumb currentPage={t("product.breadcrumb")} />
+
+        <Suspense fallback={<div className="flex justify-center p-20">
+          {t("product.loading")}
+        </div>}>
           <ProductContent />
         </Suspense>
+
       </div>
 
       <Footer />

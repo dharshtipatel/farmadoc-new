@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type Seller = {
   name: string;
@@ -18,6 +19,7 @@ type SortConfig = {
 };
 
 const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
+  const { t } = useAppTranslation();
   const [sortConfig, setSortConfig] = useState<SortConfig>({ key: null, direction: "asc" });
   const [showAll, setShowAll] = useState(false);
   const visibleCount = 5;
@@ -34,8 +36,8 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
 
     const key = sortConfig.key;
     return [...sellers].sort((a, b) => {
-      let aValue = key === "distance" ? convertDistance(a.distance) : a[key] ?? 0;
-      let bValue = key === "distance" ? convertDistance(b.distance) : b[key] ?? 0;
+      const aValue = key === "distance" ? convertDistance(a.distance) : a[key] ?? 0;
+      const bValue = key === "distance" ? convertDistance(b.distance) : b[key] ?? 0;
 
       if (aValue < bValue) return sortConfig.direction === "asc" ? -1 : 1;
       if (aValue > bValue) return sortConfig.direction === "asc" ? 1 : -1;
@@ -51,7 +53,7 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
     setSortConfig({ key, direction });
   };
 
-  const getSortIndicator = (key: keyof Seller) => (
+  const getSortIndicator = () => (
     <Image src="/images/Sort Icon.svg" alt="sort" width={20} height={20} />
   );
 
@@ -60,24 +62,24 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
 
   return (
     <div className="max-w-7xl px-4 font-inter">
-      <h2 className="text-2xl font-semibold mb-4">Top Sellers</h2>
+      <h2 className="text-2xl font-semibold mb-4">{t("topSellers.title")}</h2>
 
       {/* Table for large screens */}
       <div className="hidden md:block overflow-x-auto rounded-md">
         <table className="w-full border border-gray-200">
           <thead className="bg-[#F4FAFF] text-[#6B6F72] text-[16px]">
             <tr>
-              <th className="text-left py-3 px-4 font-medium">Sellers</th>
+              <th className="text-left py-3 px-4 font-medium">{t("topSellers.sellers")}</th>
               <th className="py-3 px-4 font-medium cursor-pointer" onClick={() => requestSort("price")}>
                 <div className="flex justify-between">
-                  <span>Price/Discount</span>
-                  {getSortIndicator("price")}
+                  <span>{t("topSellers.priceDiscount")}</span>
+                  {getSortIndicator()}
                 </div>
               </th>
               <th className="py-3 px-4 font-medium cursor-pointer" onClick={() => requestSort("distance")}>
                 <div className="flex justify-between">
-                  <span>Distance</span>
-                  {getSortIndicator("distance")}
+                  <span>{t("topSellers.distance")}</span>
+                  {getSortIndicator()}
                 </div>
               </th>
             </tr>
@@ -115,7 +117,7 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
                       className="flex items-center gap-1 text-[#1192E8] text-sm hover:underline"
                     >
                       <Image src="/images/direction.svg" alt="direction" width={14} height={14} />
-                      Direction
+                      {t("topSellers.direction")}
                     </a>
                   </div>
                 </td>
@@ -126,7 +128,7 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
               <tr>
                 <td colSpan={3} className="px-4 py-4">
                   <button onClick={() => setShowAll(true)} className="text-[#1192E8] font-medium hover:underline">
-                    +{remaining} more
+                    +{remaining} {t("topSellers.more")}
                   </button>
                 </td>
               </tr>
@@ -136,7 +138,7 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
               <tr>
                 <td colSpan={3} className="px-4 py-4">
                   <button onClick={() => setShowAll(false)} className="text-[#1192E8] font-medium hover:underline">
-                    Show Less
+                    {t("topSellers.showLess")}
                   </button>
                 </td>
               </tr>
@@ -177,7 +179,7 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
                 className="flex items-center gap-1 text-[#1192E8] text-sm hover:underline"
               >
                 <Image src="/images/direction.svg" alt="direction" width={14} height={14} />
-                Direction
+                {t("topSellers.direction")}
               </a>
             </div>
 
@@ -187,13 +189,13 @@ const TopSellers = ({ sellers }: { sellers: Seller[] }) => {
 
         {!showAll && remaining > 0 && (
           <button onClick={() => setShowAll(true)} className="text-[#1192E8] font-medium hover:underline">
-            +{remaining} more
+            +{remaining} {t("topSellers.more")}
           </button>
         )}
 
         {showAll && sortedSellers.length > visibleCount && (
           <button onClick={() => setShowAll(false)} className="text-[#1192E8] font-medium hover:underline">
-            Show Less
+            {t("topSellers.showLess")}
           </button>
         )}
       </div>

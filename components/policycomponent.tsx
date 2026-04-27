@@ -1,5 +1,7 @@
 "use client";
 
+import { useAppTranslation } from "@/lib/useAppTranslation";
+
 type PolicyProps = {
   title: string;
   date: string;
@@ -13,6 +15,8 @@ export default function PolicyComponent({
   description,
   content,
 }: PolicyProps) {
+  const { t } = useAppTranslation();
+
   return (
     <>
       <div className="bg-[#E5F6FF]">
@@ -24,7 +28,7 @@ export default function PolicyComponent({
           </h1>
 
           <p className="text-[#6B6F72] mt-2 text-[18px] font-medium font-inter md:text-base">
-            Effective Date: {date}
+            {t("policy.effectiveDate")}: {date}
           </p>
 
           <p className="text-[#6B6F72] mt-2 text-[18px] font-medium font-inter md:text-base mb-12">

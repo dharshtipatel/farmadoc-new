@@ -3,5 +3,1027 @@
   "cart": "Carrello",
   "search": "Cosa stai cercando?",
   "profile": "Profilo",
-  "welcome": "Benvenuto su FarmaDoc"
+  "welcome": "Benvenuto su FarmaDoc",
+  "header": {
+    "yourLocation": "La tua posizione",
+    "navItems": [
+      {
+        "label": "Automedicazione",
+        "categoriesData": [
+          {
+            "name": "Omeopatia",
+            "content": "Medicinali omeopatici correlati"
+          },
+          {
+            "name": "Stomaco e intestino",
+            "content": "Medicinali digestivi"
+          }
+        ]
+      },
+      {
+        "label": "Integratori"
+      },
+      {
+        "label": "Cura personale"
+      },
+      {
+        "label": "Promuovi su FarmaDoc"
+      },
+      {
+        "label": "Dentro FarmaDoc"
+      }
+    ]
+  },
+  "footer": {
+    "stats": [
+      {
+        "value": "4,500+",
+        "label": "Farmacie verificate",
+        "icon": "/images/verified.svg"
+      },
+      {
+        "value": "18,000+ Kg",
+        "label": "Riduzione dello spreco farmaceutico",
+        "icon": "/images/delete.svg"
+      },
+      {
+        "value": "300+",
+        "label": "Supporto alle farmacie locali",
+        "icon": "/images/grow.svg"
+      },
+      {
+        "value": "4.8 Rating",
+        "label": "Scelto dai clienti",
+        "icon": "/images/star.svg"
+      }
+    ],
+    "heading": "Cosa rende FarmaDoc diversa",
+    "subheading": "La salute non può aspettare. Il prezzo non dovrebbe essere un ostacolo.",
+    "sections": [
+      {
+        "title": "Dentro FarmaDoc",
+        "links": [
+          { "label": "Chi siamo" },
+          { "label": "La nostra missione" },
+          { "label": "Unisciti a FarmaDoc" },
+          { "label": "Come funziona", "href": "/how-it-works" },
+          { "label": "FAQ", "href": "/faqs" },
+          { "label": "Blog principale", "href": "/blogmain" },
+          { "label": "Contattaci" }
+        ]
+      },
+      {
+        "title": "Automedicazione",
+        "links": [
+          { "label": "Omeopatia" },
+          { "label": "Stomaco e intestino" },
+          { "label": "Occhi e vista" },
+          { "label": "Rimedi stagionali invernali" },
+          { "label": "Antidolorifici" },
+          { "label": "Rimedi stagionali primavera ed estate" }
+        ]
+      },
+      {
+        "title": "Cura personale",
+        "links": [
+          { "label": "Capelli e igiene" },
+          { "label": "Intimità" },
+          { "label": "Igiene e cura del corpo" },
+          { "label": "Linea e benessere" },
+          { "label": "Igiene orale" },
+          { "label": "Solari" },
+          { "label": "Dermocosmesi" }
+        ]
+      },
+      {
+        "title": "Integratori",
+        "links": [
+          { "label": "Benessere ed energia" },
+          { "label": "Integratori specifici" },
+          { "label": "Gravidanza e menopausa" }
+        ]
+      }
+    ],
+    "followUs": "Seguici",
+    "copyright": "© 2024 Farmadoc Srls - Tutti i diritti riservati - Via Divisione Julia 7, 24121 Bergamo - Partita IVA 04796980169 - REA BG489983 - Capitale sociale €1.000 interamente versato",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Termini e condizioni",
+    "paymentMethods": "Metodi di pagamento"
+  },
+  "loginModal": {
+    "close": "Chiudi",
+    "email": "Email",
+    "phone": "Telefono",
+    "password": "Password",
+    "fullName": "Nome completo",
+    "newPassword": "Nuova password",
+    "confirmPassword": "Conferma password",
+    "streetAddress": "Indirizzo",
+    "city": "Città",
+    "postalCode": "CAP",
+    "region": "Regione",
+    "country": "Paese",
+    "googleMapUrl": "URL Google Map",
+    "placeholders": {
+      "email": "example@email.com",
+      "phone": "+39 123 4567890",
+      "password": "Inserisci la password",
+      "newPassword": "Inserisci la nuova password",
+      "confirmPassword": "Conferma password",
+      "fullName": "Nome completo",
+      "businessName": "Binnu Pharmacy",
+      "streetAddress": "Via principale",
+      "city": "Città",
+      "postalCode": "CAP",
+      "region": "Regione",
+      "country": "Italia",
+      "googleMapUrl": "URL"
+    },
+    "steps": {
+      "login": {
+        "title": "Benvenuto su FarmaDoc",
+        "description": "Trova e prenota medicinali vicino a te",
+        "button": "Accedi"
+      },
+      "forgot": {
+        "title": "Password dimenticata?",
+        "description": "Inserisci la tua email per reimpostare la password",
+        "button": "Continua"
+      },
+      "otp": {
+        "title": "Verifica la tua email",
+        "description": "Abbiamo inviato un codice di verifica alla tua email.",
+        "button": "Verifica e continua"
+      },
+      "reset": {
+        "title": "Reimposta la password",
+        "description": "Reimposta la password per accedere di nuovo al tuo account.",
+        "button": "Reimposta password"
+      },
+      "customerSignup": {
+        "title": "Crea il tuo account",
+        "description": "Registrati e ottieni i tuoi farmaci ad alto sconto",
+        "button": "Continua"
+      },
+      "pharmacySignup": {
+        "title": "Inserisci la tua farmacia su FarmaDoc",
+        "description": "Promuovi le offerte della tua farmacia e raggiungi i clienti vicini",
+        "button": "Continua"
+      },
+      "pharmacyDetails": {
+        "title": "Raccontaci della tua farmacia",
+        "description": "Condividi qualche dettaglio e al resto pensiamo noi",
+        "button": "Continua"
+      }
+    },
+    "didNotReceiveCode": "Non hai ricevuto il codice?",
+    "resend": "Invia di nuovo",
+    "termsIntro": "Continuando, accetti i nostri",
+    "termsAndConditions": "Termini e condizioni",
+    "representPharmacy": "Confermo di rappresentare questa farmacia",
+    "captchaAlert": "Verifica di non essere un robot",
+    "rememberMe": "Ricordami",
+    "forgotPassword": "Password dimenticata?",
+    "or": "OPPURE",
+    "continueWithGoogle": "Continua con Google",
+    "alreadyHaveAccount": "Hai già un account?",
+    "rememberPassword": "Ricordi la password?",
+    "dontHaveAccount": "Non hai un account?",
+    "signUp": "Registrati",
+    "logIn": "Accedi",
+    "pharmacyBusinessName": "Nome farmacia / attività"
+  },
+  "missionPage": {
+    "quote": "\"Ogni confezione promossa è una in meno nei rifiuti e una in più nelle mani di chi ne ha bisogno.\"",
+    "founderName": "Marco Fiorani",
+    "founderRole": "Fondatore e CEO",
+    "promisesTitle": "Promesse che manteniamo",
+    "promisesDescription": "La nostra missione non è fatta solo di parole...",
+    "promisesButton": "Passa a Premium →",
+    "promisesItems": [
+      {
+        "icon": "/images/featured-placement.svg",
+        "title": "Riduzione costante degli sprechi",
+        "description": "Il nostro obiettivo è ridurre progressivamente lo spreco farmaceutico nella nostra rete, aumentando ogni anno il numero di prodotti salvati."
+      },
+      {
+        "icon": "/images/priority-map-visibility.svg",
+        "title": "Espansione della rete sostenibile",
+        "description": "Stiamo lavorando per coinvolgere sempre più attività nel ciclo di recupero, estendendo l'impatto positivo in tutto il paese."
+      },
+      {
+        "icon": "/images/verified-badge.svg",
+        "title": "Educazione zero sprechi",
+        "description": "Sensibilizziamo attività e consumatori sull'importanza di ridurre lo spreco farmaceutico, creando una cultura della sostenibilità."
+      }
+    ],
+    "ctaTitle": "Insieme possiamo fermare lo spreco farmaceutico",
+    "ctaDescription": "Ogni acquisto che fai su FarmaDoc è un voto per un sistema sanitario più sostenibile ed equo."
+  },
+  "purposeSection": {
+    "title": "Le basi del nostro scopo",
+    "description": "Ogni prodotto su FarmaDoc riduce attivamente lo spreco farmaceutico e rende la salute più accessibile. Ci impegniamo a promuovere un commercio etico, garantendo che salute e responsabilità ambientale vadano di pari passo.",
+    "cards": {
+      "sustainability": {
+        "title": "Sostenibilità",
+        "tag": "Zero spreco farmaceutico",
+        "description": "In Italia vengono scartati ogni anno prodotti farmaceutici per un valore stimato di €500 milioni a causa di eccedenze di magazzino e date di scadenza ravvicinate. FarmaDoc intercetta questo spreco creando un mercato dedicato. Ogni prodotto promosso sulla nostra piattaforma è un prodotto che non finisce in discarica."
+      },
+      "accessibility": {
+        "title": "Accessibilità",
+        "tag": "Salute per tutti",
+        "description": "Il costo dei medicinali è un ostacolo reale per milioni di famiglie italiane. FarmaDoc offre sconti fino al 70% su prodotti farmaceutici autentici, rendendo i prodotti per la salute accessibili a chi ne ha più bisogno, indipendentemente dal reddito."
+      },
+      "efficiency": {
+        "title": "Efficienza",
+        "tag": "Commercio semplificato",
+        "description": "La vendita farmaceutica tradizionale è frammentata, lenta e poco trasparente. FarmaDoc centralizza la scoperta geolocalizzata, la prenotazione e il ritiro in negozio, creando un flusso senza attriti tra inventario e paziente. La nostra piattaforma gestisce tutto così le farmacie possono concentrarsi sulla cura."
+      }
+    }
+  },
+
+  "banner": {
+    "title": "Prodotti per la salute. Vicino a te.",
+    "subtitle": "Scopri prodotti farmaceutici scontati disponibili solo per il ritiro locale",
+    "searchPlaceholder": "Cerca qui prodotti o disturbi..",
+    "howItWorks": {
+      "title": "Come funziona",
+      "step1": "Imposta la tua posizione",
+      "step2": "Esplora le offerte nelle vicinanze",
+      "step3": "Ritira in negozio"
+    }
+  },
+
+  "productCard": {
+    "offerEnds": "Offerta valida per 2 giorni",
+    "expiry": "Scadenza",
+    "details": "Dettagli",
+    "viewAllDeals": "Vedi tutte le offerte"
+  },
+
+  "pharmaBenefits": {
+    "left": {
+      "title": "Aiutiamo a ridurre i rifiuti farmaceutici.",
+      "description": "FarmaDoc è il marketplace dove aiutiamo gli utenti a trovare prodotti di qualità a ottimi prezzi in farmacie e drogherie.",
+      "cta": "Esplora di più"
+    },
+    "affordable": {
+      "title": "Prezzi convenienti",
+      "description": "Accedi a sconti esclusivi su farmaci e prodotti da banco"
+    },
+    "waste": {
+      "title": "Riduci i rifiuti",
+      "description": "Aiuta l'ambiente riducendo i rifiuti e il pianeta ti ringrazierà!"
+    },
+    "proximity": {
+      "title": "Prossimità",
+      "description": "Non solo shopping online, farmacie reali, professionisti reali."
+    }
+  },
+
+  "pharmacyBanner": {
+    "badge": "Offerte Esclusive per la Salute",
+    "title": {
+      "line1": "Fino al 50% di sconto su prodotti vicino a te",
+      "line2": "prodotti vicino a te"
+    },
+    "description": "Risparmia di più su stock di farmacie verificate, prenota online e ritira in negozio oggi.",
+    "button": "Trova Farmacia Vicino a Te",
+    "note": "*Paga al ritiro"
+  },
+
+  "pharmaMovement": {
+    "badge": "Promuovi su FarmaDoc",
+    "title": "Unisciti al movimento contro gli sprechi farmaceutici",
+    "description": "Unisciti al principale marketplace italiano per prodotti farmaceutici in surplus e in prossimità della scadenza. Riduci gli sprechi, aumenta le entrate e raggiungi nuovi clienti nella tua zona.",
+    "button": "Registra la tua attività",
+    "benefits": {
+      "stock": "Elenca facilmente il tuo stock in surplus",
+      "losses": "Riduci le perdite da inventario invenduto",
+      "customers": "Attira nuovi clienti locali"
+    }
+  },
+
+  "whyChoose": {
+    "title": "Perché scegliere FarmaDoc?",
+    "description": "Tutti i prodotti su FarmaDoc provengono direttamente da farmacie e parafarmacie e rimangono sicuri, efficaci e conformi fino alla data di scadenza. Ogni articolo è conservato e gestito secondo rigorosi standard.",
+    "features": {
+      "waste": "Riduci gli sprechi farmaceutici",
+      "save": "Risparmia su prodotti farmaceutici affidabili",
+      "pickup": "Ritira localmente e trova farmacie fidate",
+      "pharmacist": "Farmacista per consigli personalizzati",
+      "transparent": "Offerte trasparenti, Disponibilità reale"
+    }
+  },
+
+  "faq": {
+    "title": "Domande frequenti",
+    "subtitle": "Tutto ciò che devi sapere, dalle prenotazioni ai ritiri, tutto in un unico posto.",
+    "empty": "Nessuna FAQ disponibile al momento.",
+    "items": {
+      "q1": {
+        "question": "I medicinali prossimi alla scadenza sono sicuri?",
+        "answer": "Sì. Tutti i medicinali su FarmaDoc sono approvati, sigillati e provenienti da farmacie autorizzate."
+      },
+      "q2": {
+        "question": "Perché questi medicinali costano meno?",
+        "answer": "Le farmacie vendono scorte in eccesso o prossime alla scadenza a prezzi scontati."
+      }
+    }
+  },
+
+  "carousel": {
+    "viewAll": "Vedi tutto",
+    "bestDeals": {
+      "title": "Offerte Top",
+      "subtitle": "Scopri offerte imbattibili su prodotti di alta qualità."
+    },
+    "expiring": {
+      "title": "Salva prima di sprecare, in scadenza presto",
+      "subtitle": "Non perdere questi farmaci in scadenza."
+    },
+    "pharmacies": {
+      "title": "Farmacie Popolari Vicino a Te",
+      "subtitle": "Scopri farmacie fidate nelle vicinanze che offrono offerte esclusive per la salute e il benessere."
+    },
+    "brands": {
+      "title": "Marchi nella tua zona",
+      "subtitle": "Esplora marchi premium nei negozi vicini"
+    },
+    "favourites": {
+      "title": "Consigliato per te",
+      "subtitle": "Esplora una selezione curata di farmaci su misura per le tue esigenze di salute."
+    },
+    "articles": {
+      "title": "Approfondimenti sulla salute",
+      "subtitle": "Rimani aggiornato con consigli esperti, tendenze sanitarie e storie di farmacia sostenibile."
+    },
+    "testimonials": {
+      "title": "Cosa dicono i nostri clienti",
+      "subtitle": "Storie vere di persone che hanno risparmiato, ridotto gli sprechi e scoperto farmacie fidate tramite FarmaDoc."
+    }
+  },
+
+  "articleCard": {
+    "readMore": "Leggi di piu"
+  },
+
+  "pharmacyCard": {
+    "deals": "Offerte",
+    "viewOffers": "Vedi offerte"
+  },
+
+  "home": {
+    "topDeals": [
+      { "id": 1, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" },
+      { "id": 2, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi2.png", "type": "Pharmacy" },
+      { "id": 3, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi3.png", "type": "Pharmacy" },
+      { "id": 4, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi4.png", "type": "Pharmacy" },
+      { "id": 5, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" }
+    ],
+    "favourites": [
+      { "id": 1, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" },
+      { "id": 2, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi2.png", "type": "Pharmacy" },
+      { "id": 3, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi3.png", "type": "Pharmacy" },
+      { "id": 4, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi4.png", "type": "Pharmacy" },
+      { "id": 5, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" }
+    ],
+    "expiringSoonDeals": [
+      { "id": 1, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" },
+      { "id": 2, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi2.png", "type": "Pharmacy" },
+      { "id": 3, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi3.png", "type": "Pharmacy" },
+      { "id": 4, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi4.png", "type": "Pharmacy" },
+      { "id": 5, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" }
+    ],
+    "pharmacies": [
+      { "image": "/images/1.png", "name": "Farmacia Centrale - Milano", "address": "Herba Salus Parapharmacy, Via Gram...", "deals": 5, "distance": 1.5, "starBadge": "/images/star_badge.png", "type": "Pharmacy" },
+      { "image": "/images/2.png", "name": "Farmacia Roma - Roma", "address": "Via Nazionale 123, Roma", "deals": 3, "distance": 2.2, "starBadge": "/images/star_badge.png", "type": "Pharmacy" },
+      { "image": "/images/2.png", "name": "Farmacia Torino - Torino", "address": "Piazza Castello 5, Torino", "deals": 8, "distance": 0.9, "starBadge": "/images/star_badge.png", "type": "Pharmacy" },
+      { "image": "/images/3.png", "name": "Farmacia Torino - Torino", "address": "Piazza Castello 5, Torino", "deals": 8, "distance": 0.9, "starBadge": "/images/star_badge.png", "type": "Pharmacy" },
+      { "image": "/images/3.png", "name": "Farmacia Torino - Torino", "address": "Piazza Castello 5, Torino", "deals": 8, "distance": 0.9, "starBadge": "/images/star_badge.png", "type": "Pharmacy" }
+    ],
+    "articles": [
+      { "id": 1, "imageSrc": "/images/h1.jpg", "category": "Sostenibilita", "title": "Perche acquistare farmaci vicini alla scadenza e sicuro e conveniente", "author": "Dr.ssa Elisa Romano", "date": "16 Dic, 2025" },
+      { "id": 2, "imageSrc": "/images/h2.jpg", "category": "Trend in farmacia", "title": "Le innovazioni in farmacia da tenere d'occhio nel 2026", "author": "Dr. John Smith", "date": "05 Gen, 2026" },
+      { "id": 3, "imageSrc": "/images/h3.jpg", "category": "Consigli salute", "title": "5 modi semplici per rafforzare il sistema immunitario", "author": "Dr.ssa Alice Lee", "date": "22 Nov, 2025" },
+      { "id": 4, "imageSrc": "/images/h4.jpg", "category": "Sostenibilita", "title": "Packaging eco-friendly nelle farmacie", "author": "Dr. Mark Davis", "date": "30 Ott, 2025" }
+    ],
+    "testimonials": [
+      { "id": 1, "title": "Grandi risparmi senza compromessi", "quote": "Ho risparmiato quasi 40 euro su integratori ancora lontani dalla scadenza. Il ritiro e stato semplice e il personale della farmacia molto gentile.", "author": "Laura M., Milano", "rating": 5, "quotationIconSrc": "/images/quotation-mark.svg" },
+      { "id": 2, "title": "Veloce e comodo", "quote": "Il sistema di prenotazione online e ritiro e facilissimo. Ho preso i miei medicinali senza fare lunghe code.", "author": "Marco T., Roma", "rating": 4, "quotationIconSrc": "/images/quotation-mark.svg" },
+      { "id": 3, "title": "Affidabile e sicuro", "quote": "All'inizio ero scettica sui farmaci vicini alla scadenza, ma FarmaDoc garantisce che tutto sia sicuro e verificato da farmacie autorizzate.", "author": "Elena R., Torino", "rating": 5, "quotationIconSrc": "/images/quotation-mark.svg" },
+      { "id": 4, "title": "Assistenza clienti fantastica", "quote": "Il servizio clienti ha risposto rapidamente a tutte le mie domande. Mi sento tranquillo a ordinare ancora con FarmaDoc.", "author": "Giovanni L., Firenze", "rating": 5, "quotationIconSrc": "/images/quotation-mark.svg" },
+      { "id": 5, "title": "Fa risparmiare tempo e denaro", "quote": "Ho trovato ottime offerte su integratori e medicinali vicino a me. Aiuta davvero a ridurre gli sprechi e a spendere meno.", "author": "Sara P., Napoli", "rating": 4, "quotationIconSrc": "/images/quotation-mark.svg" }
+    ]
+  },
+  "common": {
+    "product": "Prodotto",
+    "pharmacy": "Farmacia"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "checkboxFilter": {
+    "showLess": "Mostra meno",
+    "more": "altro"
+  },
+  "rangeFilter": {
+    "km": "KM"
+  },
+  "filters": {
+    "title": "Filtri",
+    "clearAll": "Cancella tutto",
+    "distance": "Distanza",
+    "price": "Prezzo",
+    "productFilters": [
+      { "title": "Disponibilita prodotto", "type": "checkbox", "options": [ { "label": "Prenota ora e ritira", "value": "book_collect" }, { "label": "Paga e ritira in negozio", "value": "pay_collect" } ] },
+      { "title": "Intervallo distanza", "type": "range" },
+      { "title": "Intervallo prezzo", "type": "price" },
+      { "title": "Categoria e tipo", "type": "checkbox", "options": [ { "label": "Vitamine", "value": "vitamins" }, { "label": "Antidolorifici", "value": "pain_relief" }, { "label": "Raffreddore e influenza", "value": "cold_flu" } ] },
+      { "title": "Sconti e promozioni", "type": "checkbox", "options": [ { "label": "Sconto 15%", "value": "15dis" }, { "label": "Sconto 20%", "value": "20dis" } ] },
+      { "title": "Marchio", "type": "checkbox", "options": [ { "label": "Marchio A", "value": "brand_a" }, { "label": "Marchio B", "value": "brand_b" } ] }
+    ],
+    "pharmacyFilters": [
+      { "title": "Tipo di farmacia", "type": "checkbox", "options": [ { "label": "Showroom+ (Premium)", "value": "showroom" }, { "label": "Parafarmacia", "value": "para" }, { "label": "Farmacia", "value": "pharmacy" } ] },
+      { "title": "Intervallo distanza", "type": "range" },
+      { "title": "Sconti e promozioni", "type": "checkbox", "options": [ { "label": "Sconto 15%", "value": "15dis" }, { "label": "Sconto 20%", "value": "20dis" } ] },
+      { "title": "Servizi", "type": "checkbox", "options": [ { "label": "ECG", "value": "ecg" }, { "label": "Controllo pressione", "value": "pressure" }, { "label": "Vaccinazioni", "value": "vaccinations" } ] },
+      { "title": "Farmacie", "type": "checkbox", "options": [ { "label": "Farmacia Centrale (Roma)", "value": "roma" }, { "label": "Farmacia del Cambio (Firenze)", "value": "firenze" }, { "label": "Farmacia Internazionale (Milano)", "value": "milano" } ] }
+    ]
+  },
+  "dealsHeader": {
+    "sortBy": "Ordina per:",
+    "sortOptions": ["Rilevanza", "Farmacia piu vicina", "Miglior sconto", "Prezzo: dal piu basso", "In scadenza presto", "Scadenza piu lunga"]
+  },
+  "topDealsPage": {
+    "breadcrumb": "Offerte top",
+    "defaultTitle": "Offerte top",
+    "defaultSubtitle": "Offerte top",
+    "pharmacyTitle": "Farmacie vicino a te",
+    "pharmacySubtitle": "Trova offerte esclusive su medicinali e prodotti essenziali per la salute.",
+    "filtersButton": "Filtri",
+    "loadingMore": "Caricamento in corso...",
+    "loadingDeals": "Caricamento offerte...",
+    "addressFor": "Indirizzo di"
+  },
+  "topDealsComponent": {
+    "title": "Offerte",
+    "loadingMore": "Caricamento in corso..."
+  },
+  "savedItemsPage": {
+    "title": "Elementi salvati",
+    "products": "Prodotti",
+    "services": "Servizi",
+    "loadingMoreProducts": "Caricamento di altri prodotti...",
+    "noSavedServices": "Nessun servizio salvato."
+  },
+  "productDetailsPage": {
+    "breadcrumb": "Showroom e farmacie",
+    "loadingProductDetails": "Caricamento dettagli prodotto...",
+    "banner": {
+      "name": "Farmacia Dell'Orso",
+      "city": "Milano",
+      "address": "Via dell'Orso 1, Milano, ME, 20121",
+      "distance": "1.5 Km",
+      "phone": "+391234567890",
+      "operatingHours": {
+        "Thu": "10:00 AM - 02:00 PM",
+        "Fri": "09:00 AM - 01:00 PM",
+        "Sat": "Chiuso",
+        "Sun": "Chiuso"
+      }
+    }
+  },
+  "pharmacyBannerCard": {
+    "direction": "Indicazioni",
+    "operatingHours": "Orari di apertura",
+    "call": "Chiama",
+    "whatsApp": "WhatsApp",
+    "reserveBookAvailable": "Prenotazione disponibile",
+    "payOnlinePayInStore": "Paga online o in negozio",
+    "pickupFromStoreOnly": "Ritiro solo in negozio",
+    "closed": "Chiuso",
+    "days": { "Mon": "Lun", "Tue": "Mar", "Wed": "Mer", "Thu": "Gio", "Fri": "Ven", "Sat": "Sab", "Sun": "Dom" }
+  },
+  "productTabs": {
+    "tabs": {
+      "deals": "Offerte",
+      "services": "Servizi",
+      "info": "Info",
+      "description": "Descrizione",
+      "aboutShowroom": "Informazioni showroom",
+      "faqs": "FAQ",
+      "topSellers": "Migliori venditori",
+      "map": "Mappa"
+    },
+    "youMightBeInterestedIn": "Potrebbe interessarti",
+    "discoverRelatedItems": "Scopri articoli correlati alla tua ricerca e prodotti simili."
+  },
+  "infoSection": {
+    "title": "Info",
+    "aboutShowroom": "Informazioni showroom",
+    "aboutPharmacy": "Informazioni farmacia",
+    "loyaltyCardAccepted": "Carta fedelta accettata",
+    "paymentMethods": "Metodi di pagamento",
+    "paymentOptionsAvailable": "Sono disponibili le seguenti opzioni di pagamento:",
+    "reservationPickupPolicy": "Politica di prenotazione e ritiro"
+  },
+  "descriptionTab": {
+    "title": "Descrizione",
+    "empty": "Nessuna descrizione disponibile."
+  },
+  "serviceCard": {
+    "off": "Off",
+    "bookOnline": "Prenota online"
+  },
+  "showroomCard": {
+    "aboutShowroom": "Informazioni showroom",
+    "direction": "Indicazioni",
+    "deals": "Offerte",
+    "viewAllOffers": "Vedi tutte le offerte",
+    "availableDealsAtShowroom": "Offerte disponibili nello showroom"
+  },
+  "topSellers": {
+    "title": "Migliori venditori",
+    "sellers": "Venditori",
+    "priceDiscount": "Prezzo/Sconto",
+    "distance": "Distanza",
+    "direction": "Indicazioni",
+    "more": "altro",
+    "showLess": "Mostra meno"
+  },
+  "mapView": {
+    "title": "Mappa",
+    "map": "Mappa",
+    "satellite": "Satellite"
+  },
+  "profileSettingsPage": {
+    "profileManagement": "Gestione profilo",
+    "editProfile": "Modifica profilo",
+    "changePassword": "Cambia password",
+    "deleteAccount": "Elimina account",
+    "personalInformation": "Informazioni personali",
+    "fullName": "Nome completo",
+    "phoneNumber": "Numero di telefono",
+    "email": "Email",
+    "updateProfile": "Aggiorna profilo",
+    "currentPassword": "Password attuale",
+    "newPassword": "Nuova password",
+    "confirmNewPassword": "Conferma nuova password",
+    "enterCurrentPassword": "Inserisci la password attuale",
+    "enterNewPassword": "Inserisci la nuova password",
+    "confirmNewPasswordPlaceholder": "Conferma la nuova password",
+    "updatePassword": "Aggiorna password",
+    "deleteWarning": "Questa azione eliminera definitivamente il tuo account FarmaDoc e tutte le informazioni associate. Questo processo e irreversibile.",
+    "deactivateAccountTitle": "Disattivare l'account?",
+    "deactivateAccountDescription": "Questa azione eliminera definitivamente il tuo profilo insieme ai dati associati. L'azione e irreversibile.",
+    "whyAreYouLeaving": "Perche ci lasci?",
+    "reason": "Motivo",
+    "characterLimit": "limite di 250 caratteri",
+    "tellUsMore": "Raccontaci di piu...",
+    "goBack": "Indietro",
+    "deactivate": "Disattiva",
+    "requestAccountDeletionTitle": "Richiedere eliminazione account?",
+    "requestAccountDeletionDescription": "Inserisci la tua password per eliminare definitivamente il tuo account e tutti i dati associati. Questa azione non puo essere annullata.",
+    "enterPassword": "Inserisci password",
+    "enterPasswordPlaceholder": "Inserisci la tua password",
+    "hidePassword": "Nascondi password",
+    "showPassword": "Mostra password",
+    "reasons": ["Ho trovato un'alternativa migliore", "Preoccupazioni per la privacy", "Il servizio e troppo costoso", "Esperienza insoddisfacente", "Altro"]
+  },
+  "promotePage": {
+    "hero": {
+      "title": "Promuovi senza gestire nulla",
+      "description": "Unisciti al principale marketplace farmaceutico italiano e inizia a smaltire lo stock in eccesso oggi stesso. Il team di FarmaDoc gestisce tutto, dal caricamento dei prodotti alle promozioni. Tu devi solo esserci.",
+      "primaryButton": "Unisciti a FarmaDoc",
+      "secondaryButton": "Parla con il nostro team",
+      "badges": ["Nessuna configurazione richiesta", "Gestiamo noi i listing"]
+    },
+    "stats": [
+      { "value": "4500+", "label": "Farmacie attivate" },
+      { "value": "48h", "label": "Tempo medio per andare online" },
+      { "value": "50%", "label": "Riduzione fino al 50% dello stock in eccesso" },
+      { "value": "4.8", "label": "Valutazione dei partner" }
+    ],
+    "work": {
+      "title": "Noi facciamo il lavoro. Tu ottieni i clienti.",
+      "description": "A differenza dei marketplace tradizionali, il team di FarmaDoc gestisce tutto. Nessuna dashboard da imparare, nessun listing da mantenere.",
+      "cards": [
+        { "icon": "/images/logo1.svg", "title": "Carichiamo i tuoi prodotti", "description": "Il nostro team gestisce caricamento prodotti, descrizioni e categorizzazione. Tu ci fornisci solo l'inventario." },
+        { "icon": "/images/logo2.svg", "title": "Gestiamo le tue offerte", "description": "FarmaDoc crea e ottimizza le offerte sconto per massimizzare vendite e visibilita." },
+        { "icon": "/images/logo3.svg", "title": "Gestiamo la visibilita", "description": "Posizionamento strategico nei risultati di ricerca, mappe e sezioni in evidenza." },
+        { "icon": "/images/logo4.svg", "title": "Tu ottieni risultati", "description": "Report mensili su vendite, visibilita e copertura clienti." }
+      ]
+    },
+    "premium": {
+      "title": "Distinguiti con visibilita Premium",
+      "description": "A differenza dei marketplace tradizionali, il team di FarmaDoc gestisce tutto. Nessuna dashboard da imparare, nessun listing da mantenere.",
+      "features": [
+        { "icon": "/images/feature-placement.svg", "title": "Posizionamento in evidenza", "description": "La tua farmacia appare in cima ai risultati di ricerca e nella sezione offerte della homepage." },
+        { "icon": "/images/priority-visibility.svg", "title": "Visibilita prioritaria sulla mappa", "description": "Pin evidenziato sulla mappa geolocalizzata, visibile sopra gli annunci standard nella tua area." },
+        { "icon": "/images/boosted-offer.svg", "title": "Offerte potenziate", "description": "Banner promozionale nelle pagine offerte ad alto traffico. Aumenta la visibilita nei momenti chiave." },
+        { "icon": "/images/verified_badge.svg", "title": "Badge verificato", "description": "Il badge premium aumenta la fiducia dei clienti e puo migliorare le conversioni fino al 40%." }
+      ],
+      "button": "Passa a Premium"
+    },
+    "comparison": {
+      "title": "Marketplace tradizionale vs. FarmaDoc",
+      "subtitle": "Scopri la differenza di un modello completamente gestito.",
+      "headers": ["Funzione", "Tradizionale", "FarmaDoc"],
+      "rows": [
+        { "feature": "Gestione listing prodotti", "traditional": { "type": "icon", "value": "cross" }, "farmadoc": { "type": "icon", "label": "Gestito interamente dal team FarmaDoc" } },
+        { "feature": "Competenze tecniche richieste", "traditional": { "type": "icon", "value": "check" }, "farmadoc": { "type": "badge", "label": "Nessuna conoscenza tecnica necessaria" } },
+        { "feature": "Creazione offerte e sconti", "traditional": { "type": "badge", "value": "Manuale" }, "farmadoc": { "type": "icon", "label": "Ottimizzato automaticamente" } },
+        { "feature": "Visibilita su ricerca e mappa", "traditional": { "type": "badge", "value": "Limitata" }, "farmadoc": { "type": "icon", "label": "Posizionamento prioritario garantito" } }
+      ]
+    }
+  },
+
+  "blogDetailsPage": {
+    "breadcrumb": "Dettagli Blog",
+    "defaultLabel": "Consigli per la salute",
+    "defaultDate": "12 Ago, 2025",
+    "defaultCategory": "Salute",
+    "contentPlaceholder": "Contenuto",
+    "shareArticle": "Condividi questo articolo",
+    "loading": "Caricamento..."
+  },
+
+  "blogPage": {
+    "heading": "Rimani aggiornato",
+    "description": "Esplora gli ultimi articoli e risorse per rimanere sempre aggiornato nel mondo dell'automazione industriale.",
+    "tabs": [
+      { "id": "health-tips", "label": "Consigli per la salute" },
+      { "id": "medicines-guide", "label": "Guida ai farmaci" },
+      { "id": "wellness", "label": "Benessere" },
+      { "id": "pharmacy-insights", "label": "Approfondimenti farmacia" }
+    ],
+    "blogData": {
+      "health-tips": [
+        {
+          "id": 1,
+          "title": "Articolo consigli salute 1",
+          "date": "12 Ago, 2025",
+          "category": "Salute",
+          "image": "/images/blogimage.svg"
+        }
+      ],
+      "medicines-guide": [
+        {
+          "id": 1,
+          "title": "Guida ai farmaci 1",
+          "date": "10 Ago, 2025",
+          "category": "Medicina",
+          "image": "/images/blogimage.svg"
+        }
+      ]
+    }
+  },
+  "cartPage": {
+    "breadcrumb": "Il mio carrello",
+    "title": "Il mio carrello",
+    "total": "Totale carrello",
+    "applyCoupon": "Applica coupon:",
+    "bookPayStore": "Prenota e paga in negozio cliccato",
+    "youMightBeInterested": "Potrebbe interessarti",
+    "subtitle": "Scopri prodotti simili e correlati alla tua ricerca."
+  },
+  "cartSummary": {
+    "billSummary": "Riepilogo conto",
+    "cartTotal": "Totale carrello",
+    "platformFee": "Commissione piattaforma",
+    "totalDiscount": "Sconto totale",
+    "couponDiscount": "Sconto coupon",
+    "payableAmount": "Importo da pagare",
+    "youSave": "Risparmi",
+    "haveCoupon": "Hai un coupon?",
+    "enterCoupon": "Inserisci codice coupon",
+    "apply": "Applica",
+    "payReserve": "Paga e prenota",
+    "bookPayStore": "Prenota e paga in negozio"
+  },
+
+  "help": {
+    "title": "Siamo qui per aiutarti",
+    "subtitle": "Hai una domanda, bisogno di supporto o vuoi collaborare con noi?",
+    "selectCategory": "Seleziona una categoria",
+    "emailSupport": "Supporto Email",
+    "partnerSupport": "Supporto farmacia/showroom",
+    "headquarter": "Sede centrale",
+    "quickHelp": "Aiuto rapido",
+    "badges": {
+      "responseTime": "Risposta in 4 ore",
+      "gdpr": "Conforme GDPR",
+      "languages": "Italiano e Inglese"
+    },
+    "quick": {
+      "promote": "Promuovi su FarmaDoc",
+      "howItWorks": "Come funziona",
+      "faq": "Consulta le FAQ"
+    },
+    "form": {
+      "title": "Inviaci un messaggio",
+      "subtitle": "Compila il modulo e ti risponderemo al più presto.",
+      "fullName": "Nome completo *",
+      "fullNamePlaceholder": "nome completo",
+      "email": "Indirizzo email *",
+      "emailPlaceholder": "es. esempio@email.com",
+      "category": "Categoria supporto *",
+      "message": "Messaggio",
+      "messagePlaceholder": "Scrivi il messaggio qui...",
+      "disclaimer": "Inviando questo modulo accetti la nostra Privacy Policy.",
+      "submit": "Invia messaggio"
+    }
+  },
+
+  "bookable": {
+    "title": "Prenotabile vs. Showroom",
+    "subtitle": "FarmaDoc offre due tipi di annunci a seconda di come la farmacia vende.",
+
+    "pharmacy": {
+      "badge": "Visita in negozio",
+      "title": "Articoli in farmacia",
+      "description": "Scopri le offerte prima di visitare. Gli articoli sono visibili su FarmaDoc ma acquistati direttamente in farmacia — nessuna prenotazione necessaria.",
+      "list": {
+        "noBooking": "Nessuna prenotazione richiesta",
+        "payDirect": "Pagamento diretto in farmacia",
+        "fcfs": "Disponibilità primo arrivato",
+        "preview": "Prezzo visibile prima della visita"
+      }
+    },
+
+    "showroom": {
+      "badge": "Più popolare",
+      "title": "Articoli showroom",
+      "description": "Prenota online e blocca l’articolo per 72 ore. Può essere richiesto un acconto per confermare la prenotazione.",
+      "list": {
+        "hold": "Blocco garantito 72 ore",
+        "payment": "Pagamento online o in negozio",
+        "cancel": "Cancellazione gratuita fino a 2 ore prima",
+        "qr": "Conferma QR digitale"
+      }
+    }
+  },
+
+  "howItWorks": {
+    "journey": {
+      "label": "Il nostro percorso",
+      "title": "Un decennio di innovazione sanitaria",
+      "description": "Il motore di geo-discovery di FarmaDoc mostra in tempo reale le farmacie più vicine con le migliori offerte. Visualizziamo ciò che è disponibile entro 0,5 km, 1 km e 5 km dalla tua posizione."
+    },
+    "promises": {
+      "title": "Nessuna app richiesta. Funziona su qualsiasi dispositivo.",
+      "description": "FarmaDoc funziona direttamente dal browser su desktop o mobile. Nessun download o account richiesto per navigare.",
+      "button": "Trova un'offerta vicino a te",
+      "items": {
+        "noAccount": {
+          "title": "Nessun account richiesto per navigare",
+          "description": "Esplora le offerte in modo anonimo. Registrati solo quando vuoi prenotare."
+        },
+        "instant": {
+          "title": "Conferma immediata",
+          "description": "Prenota un’offerta e ricevi la conferma in meno di 30 secondi."
+        },
+        "inventory": {
+          "title": "Aggiornamenti in tempo reale",
+          "description": "La disponibilità si aggiorna in tempo reale per evitare sorprese."
+        }
+      }
+    },
+    "main": {
+      "title": "Dalla ricerca al ritiro in pochi minuti",
+      "description": "FarmaDoc rende facile scoprire, prenotare e ritirare prodotti farmaceutici scontati. Ecco esattamente come funziona.",
+      "button": "Scopri come funziona →"
+    },
+    "steps": {
+      "step1": {
+        "label": "Passo 1",
+        "title": "Cerca Sedi Vicine",
+        "desc": "Inserisci il tuo indirizzo o consenti l'accesso alla posizione per vedere immediatamente tutte le farmacie partner di FarmaDoc nella tua zona. Filtra per distanza, categoria o livello di sconto."
+      },
+      "step2": {
+        "label": "Passo 2",
+        "title": "Scopri Offerte e Promozioni",
+        "desc": "Sfoglia le offerte farmaceutiche curate dal team di FarmaDoc. Tutti i prodotti sono verificati, autentici e elencati con prezzi trasparenti e percentuali di sconto.."
+      },
+      "step3": {
+        "label": "Passo 3",
+        "title": "Prenota o Riserva",
+        "desc": "Scegli tra Articoli Prenotabili (riservati per 24 ore con un piccolo deposito) o Articoli da Showroom (visita la farmacia per acquistare). Nessun impegno richiesto per la consultazione."
+      },
+      "step4": {
+        "label": "Passo 4",
+        "title": "Paga Online o al Ritiro",
+        "desc": "Completa la tua transazione online tramite carta, oppure paga direttamente al banco della farmacia durante il ritiro. Entrambe le opzioni sono completamente supportate — a tua scelta."
+      },
+      "step5": {
+        "label": "Passo 5",
+        "title": "Ritira dalla Farmacia",
+        "desc": "Recati nella farmacia scelta e ritira i tuoi prodotti riservati al banco di ritiro dedicato di FarmaDoc. Mostra il tuo codice QR di conferma e hai finito."
+      }
+    }
+  },
+  "orders": {
+    "title": "I miei ordini",
+    "tabs": {
+      "all": "Tutti gli ordini",
+      "processing": "In elaborazione",
+      "completed": "Completati",
+      "cancelled": "Annullati"
+    },
+    "more": "+ altro",
+    "viewDetails": "Vedi dettagli",
+    "loading": "Caricamento altri ordini...",
+    "status": {
+      "completed": "Completato",
+      "processing": "In elaborazione",
+      "cancelled": "Annullato"
+    }
+  },
+
+  "orderDetails": {
+    "title": "Dettagli ordine",
+    "back": "Indietro",
+    "orderId": "ID ordine",
+    "copied": "Copiato!",
+    "billSummary": "Riepilogo",
+    "cartTotal": "Totale carrello",
+    "platformFee": "Commissione piattaforma",
+    "totalDiscount": "Sconto totale",
+    "couponDiscount": "Sconto coupon",
+    "paidAmount": "Importo pagato",
+    "direction": "Indicazioni",
+    "downloadInvoice": "Scarica fattura",
+    "contactSupport": "Contatta supporto",
+    "cancelOrder": "Annulla ordine"
+  },
+  "notifications": {
+    "title": "Notifiche",
+    "all": "Tutte",
+    "unread": "Non lette"
+  },
+
+  "privacy": {
+    "title": "Informativa sulla Privacy",
+    "date": "13 Marzo 2025",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "content": "Contenuto completo della tua informativa qui..."
+  },
+
+  "product": {
+    "loading": "Caricamento prodotto...",
+    "loadingInfo": "Caricamento informazioni prodotto...",
+    "loadingTabs": "Caricamento schede prodotto...",
+    "breadcrumb": "Prodotto"
+  },
+
+  "terms": {
+    "title": "Termini e Condizioni",
+    "date": "13 Marzo 2025",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "content": "Contenuto completo dei termini e condizioni qui..."
+  },
+
+  "whoWeAre": {
+    "heroTitle": "Salute accessibile a tutti",
+    "heroParagraph1": "FarmaDoc nasce da una semplice convinzione: l’accesso ai farmaci non dovrebbe essere un privilegio. Dal 2014 colmiamo il divario tra farmacie con scorte in eccesso e pazienti che necessitano di farmaci a prezzi accessibili.",
+    "heroParagraph2": "Quello che è iniziato come un piccolo esperimento a Milano è diventato il più grande marketplace farmaceutico in Italia — collegando 850+ farmacie con oltre 120.000 clienti che risparmiano ogni giorno.",
+
+    "sectionTitle": "Cosa ci guida ogni giorno",
+
+    "card1Title": "Il paziente al centro",
+    "card1Desc": "Ogni decisione è presa pensando all’accessibilità economica e alla salute del paziente.",
+
+    "card2Title": "Sostenibilità",
+    "card2Desc": "Ridurre gli sprechi farmaceutici è al centro di tutto ciò che costruiamo.",
+
+    "card3Title": "Fiducia e sicurezza",
+    "card3Desc": "Prodotti garantiti grazie alla filiera farmaceutica locale.",
+
+    "card4Title": "Impatto sulla comunità",
+    "card4Desc": "Farmacie locali, economie locali: crediamo nel rafforzamento delle comunità.",
+
+    "bottomTitle": "Costruire un’Italia più sana e sostenibile",
+    "bottomDescription": "Ogni transazione su FarmaDoc ha un doppio impatto: fa risparmiare i clienti e riduce gli sprechi farmaceutici. Questo è commercio consapevole.",
+
+    "ctaTitle": "Unisciti al movimento FarmaDoc",
+    "ctaDescription": "FarmaDoc punta a un doppio impatto: far risparmiare i clienti e ridurre gli sprechi farmaceutici.",
+
+    "badgeFounded": "Fondata nel 2024",
+    "badgeLocation": "Milano, Italia"
+  },
+
+  "cta": {
+    "find": "Trova Offerte Vicino a Te",
+    "partner": "Collabora con Noi"
+  },
+  
+  "showroom": {
+    "title": "FarmaDoc Vetrina",
+    "subtitle": "Trasforma la tua farmacia in una vetrina digitale premium e attira più clienti.",
+    "benefitsTitle": "Vantaggi Premium",
+    "benefit1": "Posizionamento prioritario nei risultati di ricerca e mappa",
+    "benefit2": "Badge farmacia in evidenza per maggiore fiducia",
+    "benefit3": "Prodotti evidenziati con tag promozionali",
+    "benefit4": "Maggiore visibilità ai clienti vicini",
+    "notOnTitle": "Non sei in Vetrina?",
+    "notOnDesc": "Nessun problema, puoi comunque registrarti come farmacia o parafarmacia gratuitamente.",
+    "joinBtn": "Unisciti a FarmaDoc"
+  },
+
+  "hero": {
+    "titleLine1": "Eliminare lo spreco farmaceutico.",
+    "titleLine2": "Democratizzare l'accesso alla salute.",
+    "description": "FarmaDoc nasce per risolvere due crisi interconnesse: il problema annuale da 500 milioni di euro dello spreco farmaceutico in Italia e il divario di accessibilità che rende i farmaci essenziali fuori portata per milioni di persone.",
+    "primaryCta": "Unisciti a FarmaDoc",
+    "secondaryCta": "La nostra storia"
+  },
+
+  "map": {
+    "title": "Dove ti trovi?",
+    "searchPlaceholder": "Cerca una posizione...",
+    "distanceRange": "Raggio di distanza",
+    "distance": "Distanza:",
+    "showProducts": "MOSTRA PRODOTTI VICINI",
+    "yourLocation": "La tua posizione",
+    "defaultLocation": "Country Club, Castel Maggiore, Italia",
+    "noResults": "Nessuna farmacia trovata nella tua zona. Prova ad aumentare il raggio di ricerca o inserire un'altra posizione.",
+    "operatingHours": "Orari di apertura",
+    "viewOffers": "Vedi tutte le offerte",
+    "loading": "Caricamento mappa...",
+    "errorLoading": "Errore nel caricamento della mappa"
+  },
+
+  "payment": {
+    "successTitle": "Pagamento riuscito!",
+    "failureTitle": "Pagamento fallito",
+    "summaryTitle": "Tutto pronto",
+
+    "successMessage": "La tua prenotazione è confermata",
+    "failureMessage": "Non siamo riusciti a elaborare il pagamento. Riprova o utilizza un altro metodo di pagamento.",
+    "summaryMessage": "Il nostro team esaminerà la tua richiesta e ti contatterà a breve.",
+    "summaryExtra": "Potremmo anche aggiungere la tua farmacia e le offerte basandoci su informazioni pubblicamente disponibili",
+
+    "orderId": "ID ordine",
+    "paidAmount": "Importo pagato",
+    "pickupFrom": "*Ritiro richiesto da",
+    "pharmacies": "farmacie",
+
+    "backHome": "Torna alla home",
+    "viewOrder": "Visualizza ordine",
+    "retry": "Riprova pagamento"
+  },
+
+  "policy": {
+    "effectiveDate": "Data di entrata in vigore"
+  },
+
+  "productinfo": {
+    "off": "25% DI SCONTO",
+    "boughtRecently": "Oltre 100K acquistati nell'ultimo mese",
+    "expiresOn": "Scade il",
+    "addToCart": "Aggiungi al carrello",
+    "bookNow": "Prenota ora",
+    "selectQuantity": "Seleziona una quantità prima di prenotare.",
+    "noReturns": "Resi non disponibili",
+    "authentic": "Prodotti 100% autentici",
+    "securePayment": "Pagamento sicuro"
+  },
+
+  "profiledrawer": {
+    "menu": "Menu",
+    "myOrders": "I miei ordini",
+    "savedItems": "Elementi salvati",
+    "notifications": "Notifiche",
+    "profileSettings": "Impostazioni profilo",
+    "logout": "Disconnettersi"
+  },
+
+  "reservation": {
+    "title": "Conferma i punti di ritiro",
+    "subtitle": "Controlla dove sono riservati i tuoi articoli prima di procedere.",
+    "unknownPharmacy": "Farmacia sconosciuta",
+    "defaultAddress": "Via Maple 12, Firenze, Italia",
+    "noItems": "Nessun articolo trovato nella prenotazione.",
+    "pickupNote": "*Dovrai ritirare gli articoli da tutte le farmacie selezionate",
+    "paymentNote": "*Il pagamento conferma la tua prenotazione. Gli articoli saranno disponibili per il ritiro nello showroom.",
+    "backToCart": "Torna al carrello",
+    "continuePayment": "Procedi al pagamento"
+  },
+
+  "submenu": {
+    "hotDeals": "Offerte sui farmaci",
+    "viewAll": "Vedi tutto",
+    "offerEndsIn": "Offerta termina tra",
+    "off": "di sconto"
+  },
+
+  "inside": {
+    "whoWeAre": "Chi siamo",
+    "mission": "La nostra missione",
+    "howItWorks": "Come funziona",
+    "faqs": "FAQ",
+    "contact": "Contattaci"
+  }
+
 }

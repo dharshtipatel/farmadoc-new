@@ -4,63 +4,68 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import FactoryCard from "@/components/FactoryCard";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
-const tabs = [
-  { id: "health-tips", label: "Health Tips" },
-  { id: "medicines-guide", label: "Medicines Guide" },
-  { id: "wellness", label: "Wellness" },
-  { id: "pharmacy-insights", label: "Pharmacy Insights" },
-  { id: "nutrition", label: "Nutrition" },
-  { id: "fitness", label: "Fitness" },
-  { id: "skincare", label: "Skincare" },
-  { id: "mentalhealth", label: "Mental Health" },
-  { id: "preventivecare", label: "Preventive Care" },
-  { id: "commonillness", label: "Common Illness" },
-  { id: "supplements", label: "Supplements" },
-];
+type Tab = {
+  id: string;
+  label: string;
+};
 
-const blogData: Record<string, any[]> = {
-  "health-tips": Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    title: `Health Tips Article ${i + 1}`,
-    date: "12 Aug, 2025",
-    category: "Health",
-    image: "/images/blogimage.svg",
-  })),
-  "medicines-guide": Array.from({ length: 15 }, (_, i) => ({
-    id: i,
-    title: `Medicines Guide ${i + 1}`,
-    date: "10 Aug, 2025",
-    category: "Medicine",
-    image: "/images/blogimage.svg",
-  })),
+type BlogItem = {
+  id: number;
+  title: string;
+  date: string;
+  category: string;
+  image: string;
 };
 
 export default function BlogMainPage() {
-  const [activeTabId, setActiveTabId] = useState(tabs[0].id);
+  const { t, get } = useAppTranslation();
+
+  // ✅ Safe translation data
+  const tabs: Tab[] = get<Tab[]>("blogPage.tabs", []);
+  const blogData: Record<string, BlogItem[]> =
+    get<Record<string, BlogItem[]>>("blogPage.blogData", {});
+
+  const [activeTabId, setActiveTabId] = useState<string>("");
   const [visibleCount, setVisibleCount] = useState(8);
 
   const loaderRef = useRef<HTMLDivElement | null>(null);
 
-  const activeData = useMemo(() => {
-    return blogData[activeTabId] || [];
-  }, [activeTabId]);
+  // ✅ Set default tab safely
+  useEffect(() => {
+    if (tabs.length > 0 && !activeTabId) {
+      setActiveTabId(tabs[0].id);
+    }
+  }, [tabs, activeTabId]);
 
-  const visibleData = activeData.slice(0, visibleCount);
-  const activeTab = useMemo(() => {
-    return tabs.find((tab) => tab.id === activeTabId);
-  }, [activeTabId]);
-
-  // reset when tab changes
+  // reset visible items on tab change
   useEffect(() => {
     setVisibleCount(8);
   }, [activeTabId]);
 
-  // infinite scroll logic
+  // active tab data
+  const activeData = useMemo(() => {
+    return blogData[activeTabId] || [];
+  }, [activeTabId, blogData]);
+
+  const visibleData = useMemo(() => {
+    return activeData.slice(0, visibleCount);
+  }, [activeData, visibleCount]);
+
+  const activeTab = useMemo(() => {
+    return tabs.find((tab) => tab.id === activeTabId);
+  }, [activeTabId, tabs]);
+
+  // ✅ Infinite scroll (fixed & stable)
   useEffect(() => {
+    const node = loaderRef.current;
+    if (!node) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const target = entries[0];
+
         if (target.isIntersecting) {
           setVisibleCount((prev) => {
             if (prev >= activeData.length) return prev;
@@ -69,16 +74,15 @@ export default function BlogMainPage() {
         }
       },
       {
-        threshold: 1,
+        threshold: 0.2,
+        rootMargin: "100px",
       }
     );
 
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
+    observer.observe(node);
 
     return () => observer.disconnect();
-  }, [activeData.length]);
+  }, [activeData.length, activeTabId]);
 
   return (
     <div>
@@ -90,11 +94,11 @@ export default function BlogMainPage() {
 
           {/* Heading */}
           <h1 className="text-[32px] font-medium text-[#1E3862] mt-20">
-            Stay Informed with Updates
+            {t("blogPage.heading")}
           </h1>
 
           <p className="text-[#6B6F72] mt-2 text-[18px] font-medium font-inter md:text-base">
-            Explore the latest articles and resources to stay ahead in the world of factory automation and engineering solutions.
+            {t("blogPage.description")}
           </p>
 
           {/* Tabs */}
@@ -113,17 +117,15 @@ export default function BlogMainPage() {
               </button>
             ))}
           </div>
-          
 
+          {/* Active Tab Title */}
           <div className="mt-10">
-            <div>
-              <h2 className="text-[24px] font-medium text-[#1E3862]">
-                {activeTab?.label}
-              </h2>
-            </div>
+            <h2 className="text-[24px] font-medium text-[#1E3862]">
+              {activeTab?.label || ""}
+            </h2>
           </div>
 
-          {/* Grid */}
+          {/* Blog Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             {visibleData.map((item) => (
               <FactoryCard
@@ -141,6 +143,7 @@ export default function BlogMainPage() {
             ))}
           </div>
 
+          {/* Infinite Scroll Trigger */}
           <div ref={loaderRef} className="h-10" />
 
         </div>

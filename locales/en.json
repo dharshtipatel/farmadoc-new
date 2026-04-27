@@ -3,5 +3,1031 @@
   "cart": "Cart",
   "search": "What are you looking for?",
   "profile": "Profile",
-  "welcome": "Welcome to FarmaDoc"
+  "welcome": "Welcome to FarmaDoc",
+  "header": {
+    "yourLocation": "Your Location",
+    "navItems": [
+      {
+        "label": "Self-Medication",
+        "categoriesData": [
+          {
+            "name": "Homeopathy",
+            "content": "Homeopathy related medicines"
+          },
+          {
+            "name": "Stomach & Intestine",
+            "content": "Digestive medicines"
+          }
+        ]
+      },
+      {
+        "label": "Supplements"
+      },
+      {
+        "label": "Personal Care"
+      },
+      {
+        "label": "Promote on FarmaDoc"
+      },
+      {
+        "label": "Inside Farma Doc"
+      }
+    ]
+  },
+  "footer": {
+    "stats": [
+      {
+        "value": "4,500+",
+        "label": "Verified Pharmacies",
+        "icon": "/images/verified.svg"
+      },
+      {
+        "value": "18,000+ Kg",
+        "label": "Fighting Pharmaceutical Waste",
+        "icon": "/images/delete.svg"
+      },
+      {
+        "value": "300+",
+        "label": "Helping Local Pharmacies Grow",
+        "icon": "/images/grow.svg"
+      },
+      {
+        "value": "4.8 Rating",
+        "label": "Trusted by Customers",
+        "icon": "/images/star.svg"
+      }
+    ],
+    "heading": "What Makes FarmaDoc Different",
+    "subheading": "Health can't wait. Prices shouldn't be an obstacle.",
+    "sections": [
+      {
+        "title": "Inside FarmaDoc",
+        "links": [
+          { "label": "Who we are" },
+          { "label": "Our Mission" },
+          { "label": "Join FarmaDoc" },
+          { "label": "How it Works", "href": "/how-it-works" },
+          { "label": "FAQ's", "href": "/faqs" },
+          { "label": "Blog Main", "href": "/blogmain" },
+          { "label": "Contact us" }
+        ]
+      },
+      {
+        "title": "Self-Medication",
+        "links": [
+          { "label": "Homeopathy" },
+          { "label": "Stomach & Intestine" },
+          { "label": "Eye & Sight" },
+          { "label": "Seasonal Remedies Winter" },
+          { "label": "Anti Pain" },
+          { "label": "Seasonal Remedies for Spring & Summer" }
+        ]
+      },
+      {
+        "title": "Personal Care",
+        "links": [
+          { "label": "Hair Hygiene & Care" },
+          { "label": "Intimacy" },
+          { "label": "Body Hygiene & Care" },
+          { "label": "Line & Well Being" },
+          { "label": "Oral Hygiene" },
+          { "label": "Soleri" },
+          { "label": "Dermo cosmetics" }
+        ]
+      },
+      {
+        "title": "Supplements",
+        "links": [
+          { "label": "Wellbeing & Energy" },
+          { "label": "Specific Supplements" },
+          { "label": "Pregnancy & Menopause" }
+        ]
+      }
+    ],
+    "followUs": "Follow Us",
+    "copyright": "© 2024 Farmadoc Srls - All rights reserved - Via Divisione Julia 7, 24121 Bergamo - VAT number 04796980169 - REA BG489983 - Share capital €1,000 fully paid-up",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "paymentMethods": "Payment Methods"
+  },
+  "loginModal": {
+    "close": "Close",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "fullName": "Full Name",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "streetAddress": "Street Address",
+    "city": "City",
+    "postalCode": "Postal Code",
+    "region": "Region",
+    "country": "Country",
+    "googleMapUrl": "Google Map URL",
+    "placeholders": {
+      "email": "example@email.com",
+      "phone": "+39 123 4567890",
+      "password": "Enter password",
+      "newPassword": "Enter new password",
+      "confirmPassword": "Confirm password",
+      "fullName": "Full Name",
+      "businessName": "Binnu Pharmacy",
+      "streetAddress": "Herbal",
+      "city": "City",
+      "postalCode": "Postal Code",
+      "region": "Region",
+      "country": "Italy",
+      "googleMapUrl": "URL"
+    },
+    "steps": {
+      "login": {
+        "title": "Welcome to FarmaDoc",
+        "description": "Find and reserve medicines near you",
+        "button": "Log in"
+      },
+      "forgot": {
+        "title": "Forgot Password?",
+        "description": "Enter your email to reset your password",
+        "button": "Continue"
+      },
+      "otp": {
+        "title": "Verify Your Email",
+        "description": "We've sent a verification code to your Email.",
+        "button": "Verify & Continue"
+      },
+      "reset": {
+        "title": "Reset Your Password",
+        "description": "Reset password to regain access to your account.",
+        "button": "Reset Password"
+      },
+      "customerSignup": {
+        "title": "Create Your Account",
+        "description": "Sign up and get your meds on high discount",
+        "button": "Continue"
+      },
+      "pharmacySignup": {
+        "title": "List Your Pharmacy on FarmaDoc",
+        "description": "Promote your pharmacy offers and reach customers nearby",
+        "button": "Continue"
+      },
+      "pharmacyDetails": {
+        "title": "Tell Us About Your Pharmacy",
+        "description": "Share a few details and we'll take care of the rest",
+        "button": "Continue"
+      }
+    },
+    "didNotReceiveCode": "Didn't receive Code?",
+    "resend": "Resend",
+    "termsIntro": "By Continue, You are continue with",
+    "termsAndConditions": "Terms & Conditions",
+    "representPharmacy": "I confirm I represent this pharmacy",
+    "captchaAlert": "Please verify that you are not a robot",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot Password?",
+    "or": "OR",
+    "continueWithGoogle": "Continue with Google",
+    "alreadyHaveAccount": "Already have an account?",
+    "rememberPassword": "Remember Password?",
+    "dontHaveAccount": "Don't have an account?",
+    "signUp": "Sign Up",
+    "logIn": "Log in",
+    "pharmacyBusinessName": "Pharmacy / Business Name"
+  },
+  "missionPage": {
+    "quote": "\"Every package promoted is one less in the trash and one more in the hands of those who need it.\"",
+    "founderName": "Marco Fiorani",
+    "founderRole": "Founder & CEO",
+    "promisesTitle": "Promises we keep",
+    "promisesDescription": "Our mission isn't just words...",
+    "promisesButton": "Upgrade to Premium →",
+    "promisesItems": [
+      {
+        "icon": "/images/featured-placement.svg",
+        "title": "Constant Waste Reduction",
+        "description": "Our goal is to progressively reduce pharmaceutical waste within our network, increasing the number of products saved each year."
+      },
+      {
+        "icon": "/images/priority-map-visibility.svg",
+        "title": "Expansion of the Sustainable Network",
+        "description": "We are working to involve more and more businesses in the recovery cycle, extending the positive impact throughout the country."
+      },
+      {
+        "icon": "/images/verified-badge.svg",
+        "title": "Education on Zero Waste",
+        "description": "We raise awareness among businesses and consumers about the importance of reducing pharmaceutical waste, creating a culture of sustainability."
+      }
+    ],
+    "ctaTitle": "Together, we can end pharmaceutical waste",
+    "ctaDescription": "Every purchase you make on FarmaDoc is a vote for a more sustainable, equitable healthcare system."
+  },
+  "purposeSection": {
+    "title": "The foundation of our purpose",
+    "description": "Every product on FarmaDoc actively reduces pharmaceutical waste and makes healthcare more accessible. We are committed to promoting ethical trade, ensuring that health and environmental responsibility go hand in hand.",
+    "cards": {
+      "sustainability": {
+        "title": "Sustainability",
+        "tag": "Zero Pharma Waste",
+        "description": "Italy discards an estimated €500 million worth of pharmaceutical products annually due to surplus stock and near-expiry dates. FarmaDoc intercepts this waste by creating a market for it. Every product promoted on our platform is a product that doesn't end up in a landfill."
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "tag": "Healthcare for Everyone",
+        "description": "Medication affordability is a real barrier for millions of Italian families. FarmaDoc brings discounts of up to 70% on authentic pharmaceutical products, making health products accessible to those who need them most, regardless of income."
+      },
+      "efficiency": {
+        "title": "Efficiency",
+        "tag": "Streamlined Commerce",
+        "description": "Traditional pharmaceutical retail is fragmented, slow, and opaque. FarmaDoc centralizes geo-based discovery, booking, and in-store pickup — creating a friction-free loop between inventory and patient. Our platform manages everything so pharmacies can focus on care."
+      }
+    }
+  },
+
+  "banner": {
+    "title": "Save Before Waste, Affordable Pharmacy Deals Near You",
+    "subtitle": "Discover discounted pharmacy products available for local pick-up only",
+    "searchPlaceholder": "Search products or ailments here...",
+    "howItWorks": {
+      "title": "How it Works",
+      "step1": "Set Your Location",
+      "step2": "Explore Nearby Deals",
+      "step3": "Pick Up In-Store"
+    }
+  },
+
+  "productCard": {
+    "offerEnds": "Offer ends in 2d",
+    "expiry": "Exp",
+    "details": "Details",
+    "viewAllDeals": "View all Deals"
+  },
+
+  "pharmaBenefits": {
+    "left": {
+      "title": "We help reduce pharmaceutical waste.",
+      "description": "FarmaDoc is the marketplace where we help users find quality products at great prices at pharmacies and drugstores.",
+      "cta": "Explore more"
+    },
+    "affordable": {
+      "title": "Affordable Prices",
+      "description": "Access exclusive discounts on medicines & over the counter products"
+    },
+    "waste": {
+      "title": "Reduce Waste",
+      "description": "Help the environment by reducing waste and the planet will thank you!"
+    },
+    "proximity": {
+      "title": "Proximity",
+      "description": "Not just online shopping, real pharmacies, real professionals."
+    }
+  },
+
+  "pharmacyBanner": {
+    "badge": "Exclusive Health Deals",
+    "title": {
+      "line1": "Up to 50% Off on",
+      "line2": "Essential Medicines Near You!"
+    },
+    "description": "Save more on verified pharmacy stock, reserve online and pick up in-store today.",
+    "button": "Find Pharmacy Near You",
+    "note": "*Pay at pickup"
+  },
+
+  "pharmaMovement": {
+    "badge": "Promote on FarmaDoc",
+    "title": "Join the Movement Against Pharmaceutical Waste",
+    "description": "Join Italy's leading marketplace for surplus and near-expiry pharmacy products. Reduce waste, increase revenue, and reach new customers in your area.",
+    "button": "Register Your Store",
+    "benefits": {
+      "stock": "List your surplus stock easily",
+      "losses": "Reduce losses from unsold inventory",
+      "customers": "Attract new local customers"
+    }
+  },
+
+  "whyChoose": {
+    "title": "Why Choose FarmaDoc?",
+    "description": "All products on FarmaDoc come directly from licensed pharmacies and remain fully safe, effective, and compliant until their expiry date. Each item is carefully stored and handled under strict pharmacy standards.",
+    "features": {
+      "waste": "Reduce pharmaceutical waste",
+      "save": "Save on Trusted pharmacy products",
+      "pickup": "Pick-up locally & find Trusted",
+      "pharmacist": "Pharmacist for personalized advice",
+      "transparent": "Transparent offers, Real availability"
+    }
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know, from reservations to pickups, all in one place.",
+    "empty": "No FAQs available for this section right now.",
+    "items": {
+      "q1": {
+        "question": "Are near-expiry medicines safe to use?",
+        "answer": "Yes. All medicines listed on FarmaDoc are approved, sealed, and sourced directly from licensed pharmacies."
+      },
+      "q2": {
+        "question": "Why are these medicines available at lower prices?",
+        "answer": "Pharmacies sell surplus or near-expiry inventory at discounted prices."
+      }
+    }
+  },
+
+  "carousel": {
+    "viewAll": "View All",
+    "bestDeals": {
+      "title": "Best Deals",
+      "subtitle": "Top discounted products for you"
+    },
+    "expiring": {
+      "title": "Save Before Waste, Expiring Soon",
+      "subtitle": "Don't miss out on these soon-to-expire medicines."
+    },
+    "pharmacies": {
+      "title": "Popular Pharmacies Near You",
+      "subtitle": "Discover trusted pharmacies nearby offering exclusive health and wellness deals."
+    },
+    "brands": {
+      "title": "Brands in your area",
+      "subtitle": "Explore Premium Brands in your nearby stores"
+    },
+    "favourites": {
+      "title": "Favourites For You",
+      "subtitle": "Explore a curated selection of medications tailored to your health needs."
+    },
+    "articles": {
+      "title": "Health Insights & Pharmacy News",
+      "subtitle": "Stay updated with expert tips, healthcare trends, and sustainable pharmacy stories."
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "subtitle": "Real stories from people who saved money, reduced waste, and discovered trusted pharmacies through FarmaDoc."
+    }
+  },
+
+  "articleCard": {
+    "readMore": "Read more"
+  },
+
+  "pharmacyCard": {
+    "deals": "Deals",
+    "viewOffers": "View Offers"
+  },
+
+  "home": {
+    "topDeals": [
+      { "id": 1, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" },
+      { "id": 2, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi2.png", "type": "Pharmacy" },
+      { "id": 3, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi3.png", "type": "Pharmacy" },
+      { "id": 4, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi4.png", "type": "Pharmacy" },
+      { "id": 5, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" }
+    ],
+    "favourites": [
+      { "id": 1, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" },
+      { "id": 2, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi2.png", "type": "Pharmacy" },
+      { "id": 3, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi3.png", "type": "Pharmacy" },
+      { "id": 4, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi4.png", "type": "Pharmacy" },
+      { "id": 5, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" }
+    ],
+    "expiringSoonDeals": [
+      { "id": 1, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" },
+      { "id": 2, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi2.png", "type": "Pharmacy" },
+      { "id": 3, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi3.png", "type": "Pharmacy" },
+      { "id": 4, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi4.png", "type": "Pharmacy" },
+      { "id": 5, "name": "Paracet 500", "pharmacy": "Herba Salus Parapharmacy", "price": 213.2, "oldPrice": 220, "discount": "25% Off", "distance": "1.5Km", "expiry": "20 Feb, 2026", "image": "/images/medi1.png", "type": "Pharmacy" }
+    ],
+    "pharmacies": [
+      { "image": "/images/1.png", "name": "Farmacia Centrale - Milan", "address": "Herba Salus Parapharmacy, Via Gram...", "deals": 5, "distance": 1.5, "starBadge": "/images/star_badge.png", "type": "Pharmacy" },
+      { "image": "/images/2.png", "name": "Farmacia Roma - Rome", "address": "Via Nazionale 123, Rome", "deals": 3, "distance": 2.2, "starBadge": "/images/star_badge.png", "type": "Pharmacy" },
+      { "image": "/images/2.png", "name": "Farmacia Torino - Turin", "address": "Piazza Castello 5, Turin", "deals": 8, "distance": 0.9, "starBadge": "/images/star_badge.png", "type": "Pharmacy" },
+      { "image": "/images/3.png", "name": "Farmacia Torino - Turin", "address": "Piazza Castello 5, Turin", "deals": 8, "distance": 0.9, "starBadge": "/images/star_badge.png", "type": "Pharmacy" },
+      { "image": "/images/3.png", "name": "Farmacia Torino - Turin", "address": "Piazza Castello 5, Turin", "deals": 8, "distance": 0.9, "starBadge": "/images/star_badge.png", "type": "Pharmacy" }
+    ],
+    "articles": [
+      { "id": 1, "imageSrc": "/images/h1.jpg", "category": "Sustainability", "title": "Why Buying Near-Expiry Medicines Is Safe and Smart", "author": "Dr. Elisa Romano", "date": "16 Dec, 2025" },
+      { "id": 2, "imageSrc": "/images/h2.jpg", "category": "Pharmacy Trends", "title": "Top Pharmacy Innovations to Watch in 2026", "author": "Dr. John Smith", "date": "05 Jan, 2026" },
+      { "id": 3, "imageSrc": "/images/h3.jpg", "category": "Health Tips", "title": "5 Simple Ways to Boost Your Immune System", "author": "Dr. Alice Lee", "date": "22 Nov, 2025" },
+      { "id": 4, "imageSrc": "/images/h4.jpg", "category": "Sustainability", "title": "Eco-Friendly Packaging in Pharmacies", "author": "Dr. Mark Davis", "date": "30 Oct, 2025" }
+    ],
+    "testimonials": [
+      { "id": 1, "title": "Huge Savings Without Compromise", "quote": "I saved almost EUR40 on supplements that were still months away from expiry. Pickup was smooth and the pharmacy staff were very friendly.", "author": "Laura M., Milano", "rating": 5, "quotationIconSrc": "/images/quotation-mark.svg" },
+      { "id": 2, "title": "Quick and Convenient", "quote": "The online reservation and pickup system is so easy! I got my medicines without waiting in long queues.", "author": "Marco T., Rome", "rating": 4, "quotationIconSrc": "/images/quotation-mark.svg" },
+      { "id": 3, "title": "Trusted and Safe", "quote": "I was initially skeptical about near-expiry medicines, but FarmaDoc ensures everything is safe and verified by licensed pharmacies.", "author": "Elena R., Turin", "rating": 5, "quotationIconSrc": "/images/quotation-mark.svg" },
+      { "id": 4, "title": "Fantastic Customer Support", "quote": "Their customer service answered all my questions promptly. I feel confident ordering from FarmaDoc again.", "author": "Giovanni L., Florence", "rating": 5, "quotationIconSrc": "/images/quotation-mark.svg" },
+      { "id": 5, "title": "Saves Time and Money", "quote": "I discovered great deals on supplements and medications near me. It really helps reduce waste and saves me money.", "author": "Sara P., Naples", "rating": 4, "quotationIconSrc": "/images/quotation-mark.svg" }
+    ]
+  },
+  "common": {
+    "product": "Product",
+    "pharmacy": "Pharmacy"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "checkboxFilter": {
+    "showLess": "Show less",
+    "more": "more"
+  },
+  "rangeFilter": {
+    "km": "KM"
+  },
+  "filters": {
+    "title": "Filters",
+    "clearAll": "Clear all",
+    "distance": "Distance",
+    "price": "Price",
+    "productFilters": [
+      { "title": "Product Availability", "type": "checkbox", "options": [ { "label": "Book now & collect", "value": "book_collect" }, { "label": "Pay & Collect in store", "value": "pay_collect" } ] },
+      { "title": "Distance Range", "type": "range" },
+      { "title": "Price Range", "type": "price" },
+      { "title": "Category & Type", "type": "checkbox", "options": [ { "label": "Vitamins", "value": "vitamins" }, { "label": "Pain Relief", "value": "pain_relief" }, { "label": "Cold & Flu", "value": "cold_flu" } ] },
+      { "title": "Discounts & Promotions", "type": "checkbox", "options": [ { "label": "15% Discounted", "value": "15dis" }, { "label": "20% Discounted", "value": "20dis" } ] },
+      { "title": "Brand", "type": "checkbox", "options": [ { "label": "Brand A", "value": "brand_a" }, { "label": "Brand B", "value": "brand_b" } ] }
+    ],
+    "pharmacyFilters": [
+      { "title": "Pharmacy Type", "type": "checkbox", "options": [ { "label": "Showroom+ (Premium)", "value": "showroom" }, { "label": "Parapharmacy", "value": "para" }, { "label": "Pharmacy", "value": "pharmacy" } ] },
+      { "title": "Distance Range", "type": "range" },
+      { "title": "Discounts & Promotions", "type": "checkbox", "options": [ { "label": "15% Discounted", "value": "15dis" }, { "label": "20% Discounted", "value": "20dis" } ] },
+      { "title": "Services", "type": "checkbox", "options": [ { "label": "ECG", "value": "ecg" }, { "label": "Blood Pressure Check", "value": "pressure" }, { "label": "Vaccinations", "value": "vaccinations" } ] },
+      { "title": "Pharmacies", "type": "checkbox", "options": [ { "label": "Farmacia Centrale (Roma)", "value": "roma" }, { "label": "Farmacia del Cambio (Firenze)", "value": "firenze" }, { "label": "Farmacia Internazionale (Milano)", "value": "milano" } ] }
+    ]
+  },
+  "dealsHeader": {
+    "sortBy": "Sort by:",
+    "sortOptions": ["Relevance", "Nearest Pharmacy", "Best Discount", "Price: Low to High", "Expiring Soon", "Longer Expiry First"]
+  },
+  "topDealsPage": {
+    "breadcrumb": "Top Deals",
+    "defaultTitle": "Top Deals",
+    "defaultSubtitle": "Top Deals",
+    "pharmacyTitle": "Pharmacies Near You",
+    "pharmacySubtitle": "Find exclusive deals on medications and health essentials.",
+    "filtersButton": "Filters",
+    "loadingMore": "Loading more...",
+    "loadingDeals": "Loading deals...",
+    "addressFor": "Address for"
+  },
+  "topDealsComponent": {
+    "title": "Deals",
+    "loadingMore": "Loading more..."
+  },
+  "savedItemsPage": {
+    "title": "Saved Items",
+    "products": "Products",
+    "services": "Services",
+    "loadingMoreProducts": "Loading more products...",
+    "noSavedServices": "No saved services yet."
+  },
+  "productDetailsPage": {
+    "breadcrumb": "Showroom & Pharmacies",
+    "loadingProductDetails": "Loading product details...",
+    "banner": {
+      "name": "Dell'Orso Pharmacy",
+      "city": "Milan",
+      "address": "Bear Street, 1, Milan, ME, 20121",
+      "distance": "1.5 Km",
+      "phone": "+391234567890",
+      "operatingHours": {
+        "Thu": "10:00 AM - 02:00 PM",
+        "Fri": "09:00 AM - 01:00 PM",
+        "Sat": "Closed",
+        "Sun": "Closed"
+      }
+    }
+  },
+  "pharmacyBannerCard": {
+    "direction": "Direction",
+    "operatingHours": "Operating Hours",
+    "call": "Call",
+    "whatsApp": "WhatsApp",
+    "reserveBookAvailable": "Reserve/Book available",
+    "payOnlinePayInStore": "Pay Online/Pay in Store",
+    "pickupFromStoreOnly": "Pickup from Store only",
+    "closed": "Closed",
+    "days": { "Mon": "Mon", "Tue": "Tue", "Wed": "Wed", "Thu": "Thu", "Fri": "Fri", "Sat": "Sat", "Sun": "Sun" }
+  },
+  "productTabs": {
+    "tabs": {
+      "deals": "Deals",
+      "services": "Services",
+      "info": "Info",
+      "description": "Description",
+      "aboutShowroom": "About Showroom",
+      "faqs": "FAQ's",
+      "topSellers": "Top Sellers",
+      "map": "Map"
+    },
+    "youMightBeInterestedIn": "You Might be Interested in",
+    "discoverRelatedItems": "Discover items related to your search and similar products."
+  },
+  "infoSection": {
+    "title": "Info",
+    "aboutShowroom": "About Showroom",
+    "aboutPharmacy": "About Pharmacy",
+    "loyaltyCardAccepted": "Loyalty Card Accepted",
+    "paymentMethods": "Payment Methods",
+    "paymentOptionsAvailable": "The following payment options are available:",
+    "reservationPickupPolicy": "Reservation & Pickup Policy"
+  },
+  "descriptionTab": {
+    "title": "Description",
+    "empty": "No description available."
+  },
+  "serviceCard": {
+    "off": "Off",
+    "bookOnline": "Book Online"
+  },
+  "showroomCard": {
+    "aboutShowroom": "About Showroom",
+    "direction": "Direction",
+    "deals": "Deals",
+    "viewAllOffers": "View all Offers",
+    "availableDealsAtShowroom": "Available deals at Showroom"
+  },
+  "topSellers": {
+    "title": "Top Sellers",
+    "sellers": "Sellers",
+    "priceDiscount": "Price/Discount",
+    "distance": "Distance",
+    "direction": "Direction",
+    "more": "more",
+    "showLess": "Show Less"
+  },
+  "mapView": {
+    "title": "Map",
+    "map": "Map",
+    "satellite": "Satellite"
+  },
+  "profileSettingsPage": {
+    "profileManagement": "Profile Management",
+    "editProfile": "Edit Profile",
+    "changePassword": "Change Password",
+    "deleteAccount": "Delete Account",
+    "personalInformation": "Personal Information",
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "email": "Email",
+    "updateProfile": "Update Profile",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "enterCurrentPassword": "Enter current password",
+    "enterNewPassword": "Enter new password",
+    "confirmNewPasswordPlaceholder": "Confirm new password",
+    "updatePassword": "Update Password",
+    "deleteWarning": "This will permanently erase your FarmaDoc account and all associated information. Please note that this process is irreversible.",
+    "deactivateAccountTitle": "Deactivate Account?",
+    "deactivateAccountDescription": "This action will permanently erase your profile, along with your associated data. This action is irreversible.",
+    "whyAreYouLeaving": "Why are you leaving?",
+    "reason": "Reason",
+    "characterLimit": "250 character limit",
+    "tellUsMore": "Tell us more...",
+    "goBack": "Go Back",
+    "deactivate": "Deactivate",
+    "requestAccountDeletionTitle": "Request Account Deletion?",
+    "requestAccountDeletionDescription": "Please enter your password to permanently delete your account and all associated data. This action cannot be undone.",
+    "enterPassword": "Enter Password",
+    "enterPasswordPlaceholder": "Enter your password",
+    "hidePassword": "Hide password",
+    "showPassword": "Show password",
+    "reasons": ["Found a better alternative", "Privacy concerns", "Service is too expensive", "Unsatisfactory experience", "Other"]
+  },
+  "promotePage": {
+    "hero": {
+      "title": "Promote Without Managing Anything",
+      "description": "Join Italy's leading pharmaceutical marketplace and start moving surplus inventory today. FarmaDoc's admin team handles everything from product uploads to promotions. You just show up.",
+      "primaryButton": "Join FarmaDoc",
+      "secondaryButton": "Talk to Our Team",
+      "badges": ["No setup required", "We manage listings"]
+    },
+    "stats": [
+      { "value": "4500+", "label": "Pharmacies onboarded" },
+      { "value": "48h", "label": "Average time to go live" },
+      { "value": "50%", "label": "Reduction of up to 50% of surplus stock" },
+      { "value": "4.8", "label": "Partner satisfaction score" }
+    ],
+    "work": {
+      "title": "We do the work. You get the clients.",
+      "description": "Unlike traditional marketplaces, FarmaDoc's team manages everything. No dashboards to learn, no listings to maintain.",
+      "cards": [
+        { "icon": "/images/logo1.svg", "title": "We Upload Your Products", "description": "Our admin team handles all product uploads, descriptions, and categorization. You just provide the inventory list." },
+        { "icon": "/images/logo2.svg", "title": "We Manage Your Offers", "description": "FarmaDoc creates and optimizes discount offers to maximize sales and reach." },
+        { "icon": "/images/logo3.svg", "title": "We Handle Visibility", "description": "Strategic placement in search results, maps, and featured sections." },
+        { "icon": "/images/logo4.svg", "title": "You Get Results", "description": "Monthly reports on sales, visibility, and customer reach." }
+      ]
+    },
+    "premium": {
+      "title": "Stand out with Premium visibility",
+      "description": "Unlike traditional marketplaces, FarmaDoc's team manages everything. No dashboards to learn, no listings to maintain.",
+      "features": [
+        { "icon": "/images/feature-placement.svg", "title": "Featured Placement", "description": "Your pharmacy appears at the top of search results and on the homepage deals section." },
+        { "icon": "/images/priority-visibility.svg", "title": "Priority Map Visibility", "description": "Highlighted pin on the geo-discovery map, visible above standard listings in your area." },
+        { "icon": "/images/boosted-offer.svg", "title": "Boosted Offers", "description": "Promotional banner on high-traffic deal pages. Increase visibility during key sales periods." },
+        { "icon": "/images/verified_badge.svg", "title": "Verified Badge", "description": "Premium verification badge builds customer trust and increases conversion rates by up to 40%." }
+      ],
+      "button": "Upgrade to Premium"
+    },
+    "comparison": {
+      "title": "Traditional Marketplace vs. FarmaDoc",
+      "subtitle": "See the difference a fully managed model makes.",
+      "headers": ["Feature", "Traditional", "FarmaDoc"],
+      "rows": [
+        { "feature": "Product listing management", "traditional": { "type": "icon", "value": "cross" }, "farmadoc": { "type": "icon", "label": "Fully managed by FarmaDoc team" } },
+        { "feature": "Tech skills required", "traditional": { "type": "icon", "value": "check" }, "farmadoc": { "type": "badge", "label": "Zero tech knowledge needed" } },
+        { "feature": "Offer & discount creation", "traditional": { "type": "badge", "value": "Manual" }, "farmadoc": { "type": "icon", "label": "Automatically optimized" } },
+        { "feature": "Search & map visibility", "traditional": { "type": "badge", "value": "Limited" }, "farmadoc": { "type": "icon", "label": "Priority placement guaranteed" } }
+      ]
+    }
+  },
+
+  "blogDetailsPage": {
+    "breadcrumb": "Blog Details",
+    "defaultLabel": "Health Tips",
+    "defaultDate": "12 Aug, 2025",
+    "defaultCategory": "Health",
+    "contentPlaceholder": "Content",
+    "shareArticle": "Share this article",
+    "loading": "Loading..."
+  },
+
+  "blogPage": {
+    "heading": "Stay Informed with Updates",
+    "description": "Explore the latest articles and resources to stay ahead in the world of factory automation and engineering solutions.",
+    "tabs": [
+      { "id": "health-tips", "label": "Health Tips" },
+      { "id": "medicines-guide", "label": "Medicines Guide" },
+      { "id": "wellness", "label": "Wellness" },
+      { "id": "pharmacy-insights", "label": "Pharmacy Insights" }
+    ],
+    "blogData": {
+      "health-tips": [
+        {
+          "id": 1,
+          "title": "Health Tips Article 1",
+          "date": "12 Aug, 2025",
+          "category": "Health",
+          "image": "/images/blogimage.svg"
+        }
+      ],
+      "medicines-guide": [
+        {
+          "id": 1,
+          "title": "Medicines Guide 1",
+          "date": "10 Aug, 2025",
+          "category": "Medicine",
+          "image": "/images/blogimage.svg"
+        }
+      ]
+    }
+  },
+
+  "cartPage": {
+  "breadcrumb": "My Cart",
+  "title": "My Cart",
+  "total": "Cart Total",
+  "applyCoupon": "Apply coupon:",
+  "bookPayStore": "Book & Pay in Store clicked",
+  "youMightBeInterested": "You Might be interested in",
+  "subtitle": "Discover items related to your search and similar products."
+},
+
+"cartSummary": {
+  "billSummary": "Bill Summary",
+  "cartTotal": "Cart Total",
+  "platformFee": "Platform Fee",
+  "totalDiscount": "Total Discount",
+  "couponDiscount": "Coupon Code Discount",
+  "payableAmount": "Payable Amount",
+  "youSave": "You Save",
+  "haveCoupon": "Have a Coupon?",
+  "enterCoupon": "Enter Coupon Code",
+  "apply": "Apply",
+  "payReserve": "Pay & Reserve",
+  "bookPayStore": "Book & Pay in Store"
+},
+
+  "help": {
+    "title": "We're here to help",
+    "subtitle": "Have a question, need support, or want to partner with us?",
+    "selectCategory": "Select a category",
+    "emailSupport": "Email Support",
+    "partnerSupport": "Pharmacy/showroom Support",
+    "headquarter": "Headquarter",
+    "quickHelp": "Quick Help",
+    "badges": {
+      "responseTime": "4h response time",
+      "gdpr": "GDPR compliant",
+      "languages": "Italian & English"
+    },
+    "quick": {
+      "promote": "Promote on FarmaDoc",
+      "howItWorks": "How it works",
+      "faq": "Browse the FAQ's"
+    },
+    "form": {
+      "title": "Send us a message",
+      "subtitle": "Fill in the form below and we'll get back to you shortly.",
+      "fullName": "Full Name *",
+      "fullNamePlaceholder": "full name",
+      "email": "Email Address *",
+      "emailPlaceholder": "e.g. example@email.com",
+      "category": "Support Category *",
+      "message": "Message",
+      "messagePlaceholder": "Type message here...",
+      "disclaimer": "By submitting this form, you agree to our Privacy Policy.",
+      "submit": "Send Message"
+    }
+  },
+
+  "bookable": {
+    "title": "Bookable vs. Showroom",
+    "subtitle": "FarmaDoc offers two types of listings depending on how the pharmacy chooses to sell.",
+
+    "pharmacy": {
+      "badge": "Browse In-Person",
+      "title": "Pharmacy Items",
+      "description": "Discovered deals before visiting. Pharmacy items are visible on FarmaDoc but purchased directly at the pharmacy counter — no reservation needed.",
+      "list": {
+        "noBooking": "No booking required",
+        "payDirect": "Pay directly at the pharmacy",
+        "fcfs": "First-come, first-served availability",
+        "preview": "Preview pricing before visiting"
+      }
+    },
+
+    "showroom": {
+      "badge": "Most Popular",
+      "title": "Showroom Items",
+      "description": "Reserve your item online and have it held exclusively for you at the pharmacy for 72 hours. A full payment deposit may apply to confirm booking.",
+      "list": {
+        "hold": "72-hour hold guaranteed",
+        "payment": "Online or in-store payment",
+        "cancel": "Free cancellation up to 2h before",
+        "qr": "Digital QR confirmation"
+      }
+    }
+  },
+  
+  "howItWorks": {
+    "journey": {
+      "label": "Our Journey",
+      "title": "A decade of healthcare innovation",
+      "description": "FarmaDoc's geo-discovery engine surfaces the closest pharmacies with the best deals in real time. We show you what's available within 0.5km, 1km, and 5km of your location."
+    },
+    "promises": {
+      "title": "No app required. Works on any device.",
+      "description": "FarmaDoc works fully from your browser on desktop or mobile. No downloads, no accounts required to browse — just find deals and save.",
+      "button": "Find a Deal near You",
+      "items": {
+        "noAccount": {
+          "title": "No account needed to browse",
+          "description": "Explore deals anonymously. Only sign up when you want to book."
+        },
+        "instant": {
+          "title": "Instant confirmation",
+          "description": "Book a deal and receive your pickup confirmation in under 30 seconds."
+        },
+        "inventory": {
+          "title": "Real-time inventory updates",
+          "description": "Stock levels update live so you're never disappointed at pickup."
+        }
+      }
+    },
+    "main": {
+      "title": "From search to pickup in minutes",
+      "description": "FarmaDoc makes discovering, reserving, and collecting discounted pharmaceutical products effortless. Here's exactly how it works.",
+      "button": "See How It Works →"
+    },
+    "steps": {
+      "step1": {
+        "label": "Step 1",
+        "title": "Search Nearby Pharmacies",
+        "desc": "Enter your address or allow location access to instantly see all FarmaDoc-partnered pharmacies in your area. Filter by distance, category, or discount level."
+      },
+      "step2": {
+        "label": "Step 2",
+        "title": "Discover Deals & Offers",
+        "desc": "Browse curated pharmaceutical deals managed by the FarmaDoc team. All products are verified, and listed with transparent pricing and discount percentages."
+      },
+      "step3": {
+        "label": "Step 3",
+        "title": "Reserve or Book",
+        "desc": "Choose between Bookable items (hold for 24h with a small deposit) or Showroom items (visit the pharmacy to purchase). No commitment required for browsing."
+      },
+      "step4": {
+        "label": "Step 4",
+        "title": "Pay Online or at Pickup",
+        "desc": "Complete your transaction online via card, or pay directly at the pharmacy counter during pickup. Both options are fully supported — your choice."
+      },
+      "step5": {
+        "label": "Step 5",
+        "title": "Collect from the Pharmacy",
+        "desc": "Head to your chosen pharmacy and collect your reserved products at the dedicated FarmaDoc pickup counter. Show your confirmation QR code and you're done."
+      }
+    }
+  },
+
+  "orders": {
+    "title": "My Orders",
+    "tabs": {
+      "all": "All Orders",
+      "processing": "Processing",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "more": "+ more",
+    "viewDetails": "View Details",
+    "loading": "Loading more orders...",
+    "status": {
+      "completed": "Completed",
+      "processing": "Processing",
+      "cancelled": "Cancelled"
+    }
+  },
+  "orderDetails": {
+    "title": "Order Details",
+    "back": "Back",
+    "orderId": "Order ID",
+    "copied": "Copied!",
+    "billSummary": "Bill Summary",
+    "cartTotal": "Cart Total",
+    "platformFee": "Platform Fee",
+    "totalDiscount": "Total Discount",
+    "couponDiscount": "Coupon Code Discount",
+    "paidAmount": "Paid Amount",
+    "direction": "Direction",
+    "downloadInvoice": "Download Invoice",
+    "contactSupport": "Contact Support",
+    "cancelOrder": "Cancel Order"
+  },  
+  "notifications": {
+    "title": "Notifications",
+    "all": "All",
+    "unread": "Unread"
+  },
+
+  "privacy": {
+    "title": "Privacy Policy",
+    "date": "March 13, 2025",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "content": "Your full policy content here..."
+  },
+
+  "product": {
+    "loading": "Loading product...",
+    "loadingInfo": "Loading product info...",
+    "loadingTabs": "Loading product tabs...",
+    "breadcrumb": "Product"
+  },
+
+  "terms": {
+    "title": "Terms & Conditions",
+    "date": "March 13, 2025",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "content": "Your full terms and conditions content here..."
+  },
+
+  "whoWeAre": {
+    "heroTitle": "Health accessible to all",
+    "heroParagraph1": "FarmaDoc was built on a simple belief: pharmaceutical access shouldn’t be a privilege. Since 2014, we’ve been bridging the gap between pharmacies with surplus stock and patients who need affordable medication.",
+    "heroParagraph2": "What started as a small experiment in Milan has grown into Italy’s largest pharmaceutical marketplace — connecting 850+ pharmacies with 120,000+ customers who save every single day.",
+
+    "sectionTitle": "What drives us every day",
+
+    "card1Title": "Patient First",
+    "card1Desc": "Every decision is made with the patient’s affordability and health access in mind.",
+
+    "card2Title": "Sustainability",
+    "card2Desc": "Reducing pharmaceutical waste is at the core of everything we build.",
+
+    "card3Title": "Trust & Safety",
+    "card3Desc": "Products guaranteed thanks to the local pharmaceutical supply chain.",
+
+    "card4Title": "Community Impact",
+    "card4Desc": "Local pharmacies, local economies, we believe in strengthening communities.",
+
+    "bottomTitle": "Building a healthier, more sustainable Italy",
+    "bottomDescription": "Every transaction through FarmaDoc has a double impact: it saves customers money and prevents pharmaceutical waste from entering landfill. This is commerce with conscience.",
+
+    "ctaTitle": "Join the FarmaDoc movement",
+    "ctaDescription": "FarmaDoc aims to have a dual impact: saving customers money and reducing pharmaceutical waste.",
+
+    "badgeFounded": "Founded in 2024",
+    "badgeLocation": "Milano, Italia"
+  },
+
+  "cta": {
+    "find": "Find Deals Near You",
+    "partner": "Partner With Us"
+  },
+
+  "showroom": {
+    "title": "FarmaDoc Showroom",
+    "subtitle": "Turn your pharmacy into a premium digital showroom and attract more customers.",
+    "benefitsTitle": "Premium Benefits",
+    "benefit1": "Priority placement in search and map results",
+    "benefit2": "Featured pharmacy badge for higher trust",
+    "benefit3": "Highlighted product listings with promo tags",
+    "benefit4": "Increased visibility to nearby customers",
+    "notOnTitle": "Not on Showroom?",
+    "notOnDesc": "No worries, still you can register as pharmacy or Para pharmacy for free.",
+    "joinBtn": "Join FarmaDoc"
+  },
+
+  "hero": {
+    "titleLine1": "Eliminate pharmaceutical waste.",
+    "titleLine2": "Democratize healthcare access.",
+    "description": "FarmaDoc exists to solve two interconnected crises: the €500M annual pharmaceutical waste problem in Italy and the affordability gap that keeps essential medications out of reach for millions.",
+    "primaryCta": "Join FarmaDoc",
+    "secondaryCta": "Our Story"
+  },
+
+  "map": {
+    "title": "Where are you?",
+    "searchPlaceholder": "Search location...",
+    "distanceRange": "Distance Range",
+    "distance": "Distance:",
+    "showProducts": "SHOW PRODUCTS NEAR YOU",
+    "yourLocation": "Your Location",
+    "defaultLocation": "Country Club, Castel Maggiore, Italy",
+    "noResults": "No pharmacies found in your area. Try expanding your search radius or entering a different location.",
+    "operatingHours": "Operating Hours",
+    "viewOffers": "View all Offers",
+    "loading": "Loading Maps...",
+    "errorLoading": "Error loading maps"
+  },
+
+  "payment": {
+    "successTitle": "Payment Successful!",
+    "failureTitle": "Payment Failed",
+    "summaryTitle": "You’re All Set",
+
+    "successMessage": "Your reservation is confirmed",
+    "failureMessage": "We were unable to process your payment at this time. Please try again or use a different payment method.",
+    "summaryMessage": "Our team will review your request and contact you shortly.",
+    "summaryExtra": "We may also add your pharmacy and offers based on publicly available information",
+
+    "orderId": "Order ID",
+    "paidAmount": "Paid Amount",
+    "pickupFrom": "*Pickup Required from",
+    "pharmacies": "Pharmacies",
+
+    "backHome": "Back to Home",
+    "viewOrder": "View Order Details",
+    "retry": "Retry Payment"
+  },
+
+  "policy": {
+    "effectiveDate": "Effective Date"
+  },
+
+  "productinfo": {
+    "off": "25% OFF",
+    "boughtRecently": "100K+ bought in past month",
+    "expiresOn": "Expires on",
+    "addToCart": "Add to Cart",
+    "bookNow": "Book Now",
+    "selectQuantity": "Please select quantity before booking.",
+    "noReturns": "Returns not available",
+    "authentic": "100% Authentic Products",
+    "securePayment": "Secure Payment"
+  },
+
+  "profiledrawer": {
+    "menu": "Menu",
+    "myOrders": "My Orders",
+    "savedItems": "Saved Items",
+    "notifications": "Notifications",
+    "profileSettings": "Profile Settings",
+    "logout": "Log Out"
+  },
+
+  "reservation": {
+    "title": "Confirm Your Pickup Locations",
+    "subtitle": "Review where your items are reserved before proceeding.",
+    "unknownPharmacy": "Unknown Pharmacy",
+    "defaultAddress": "Maple Avenue 12, Florence, ME 20123, Italy",
+    "noItems": "No items found in the reservation.",
+    "pickupNote": "*You will need to collect items from all selected pharmacies",
+    "paymentNote": "*Payment confirms your reservation. Items will be held for pickup at the Showroom.",
+    "backToCart": "Back to Cart",
+    "continuePayment": "Continue to Payment"
+  },
+
+  "submenu": {
+    "hotDeals": "Hot Medicine Deals",
+    "viewAll": "View All",
+    "offerEndsIn": "Offer ends in",
+    "off": "Off"
+  },
+
+  "inside": {
+    "whoWeAre": "Who we are",
+    "mission": "Our Mission",
+    "howItWorks": "How it Works",
+    "faqs": "FAQs",
+    "contact": "Contact Us"
+  }
+
+
+
 }

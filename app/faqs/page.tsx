@@ -17,13 +17,13 @@ const tabs: FAQTab[] = [
     label: "How to book Medicine",
     faqs: [
       {
-        question: "How do I search for a medicine on FarmaDoc?",
-        answer:
+        questionKey: "How do I search for a medicine on FarmaDoc?",
+        answerKey:
           "Use the search bar to find your medicine, open the product page, and review price, expiry, and pharmacy details before adding it to your cart.",
       },
       {
-        question: "Do I need a prescription before placing the order?",
-        answer:
+        questionKey: "Do I need a prescription before placing the order?",
+        answerKey:
           "Prescription medicines require a valid prescription during checkout, while OTC medicines can be ordered directly.",
       },
     ],
@@ -33,13 +33,13 @@ const tabs: FAQTab[] = [
     label: "Order Pick up",
     faqs: [
       {
-        question: "How will I know when my order is ready for pickup?",
-        answer:
+        questionKey: "How will I know when my order is ready for pickup?",
+        answerKey:
           "You will receive a confirmation once the pharmacy accepts the order and another update when it is ready for collection.",
       },
       {
-        question: "What should I carry for pickup?",
-        answer:
+        questionKey: "What should I carry for pickup?",
+        answerKey:
           "Bring your order confirmation and any required prescription so the pharmacy can verify the order quickly.",
       },
     ],
@@ -49,13 +49,13 @@ const tabs: FAQTab[] = [
     label: "Cart Check Out",
     faqs: [
       {
-        question: "Can I review my medicines before payment?",
-        answer:
+        questionKey: "Can I review my medicines before payment?",
+        answerKey:
           "Yes, your cart shows the selected medicines, quantity, pricing, and pickup details before you complete checkout.",
       },
       {
-        question: "What payment options are available at checkout?",
-        answer:
+        questionKey: "What payment options are available at checkout?",
+        answerKey:
           "Available payment methods depend on the pharmacy setup and may include online payment or pay-at-pickup options.",
       },
     ],
@@ -65,13 +65,13 @@ const tabs: FAQTab[] = [
     label: "Become a Partner",
     faqs: [
       {
-        question: "How can a pharmacy join FarmaDoc as a partner?",
-        answer:
+        questionKey: "How can a pharmacy join FarmaDoc as a partner?",
+        answerKey:
           "A pharmacy can apply through the partner onboarding flow and submit the required business and license details for verification.",
       },
       {
-        question: "What are the benefits of becoming a FarmaDoc partner?",
-        answer:
+        questionKey: "What are the benefits of becoming a FarmaDoc partner?",
+        answerKey:
           "Partners can list inventory, reduce medicine waste, reach more customers, and manage near-expiry stock more efficiently.",
       },
     ],
@@ -81,13 +81,13 @@ const tabs: FAQTab[] = [
     label: "How it works",
     faqs: [
       {
-        question: "What is the FarmaDoc process from order to pickup?",
-        answer:
+        questionKey: "What is the FarmaDoc process from order to pickup?",
+        answerKey:
           "Customers browse discounted medicines, place an order, receive confirmation from the pharmacy, and collect the order from the selected pickup location.",
       },
       {
-        question: "Why are medicines listed at discounted prices?",
-        answer:
+        questionKey: "Why are medicines listed at discounted prices?",
+        answerKey:
           "FarmaDoc helps pharmacies sell surplus or near-expiry inventory responsibly, which lets customers access lower prices.",
       },
     ],

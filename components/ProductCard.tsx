@@ -3,6 +3,7 @@
 import { Heart, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type ProductCardProps = {
   id: number; 
@@ -35,6 +36,7 @@ export default function ProductCard({
   const encodeType = (value: string) => {
       return value;
   };
+  const { t } = useAppTranslation();
   
   return (
     <div className="bg-white rounded-xl p-4 w-full max-w-xs relative border border-gray-200">
@@ -50,10 +52,10 @@ export default function ProductCard({
       {/* Badges */}
       <div className="absolute top-3 right-3 flex flex-col gap-1 items-end">
         <div className="text-xs bg-[#E5F6FF] text-[#1192E8] px-2 py-1 rounded">
-          Offer ends in 2d
+          {t("productCard.offerEnds")}
         </div>
         <div className="text-xs font-bold bg-[#EDF2FB] text-[#1E3862] px-2 py-1 rounded">
-          Exp: {expiry}
+          {t("productCard.expiry")}: {expiry}
         </div>
       </div>
 
@@ -104,7 +106,7 @@ export default function ProductCard({
             router.push(`/product?id=${id}&type=${encodedType}`);
           }}
         >
-          Details
+          {t("productCard.details")}
         </button>
 
         {type.toLowerCase() !== "pharmacy" && (
@@ -115,7 +117,7 @@ export default function ProductCard({
               router.push(`/productdetails?type=${encodedType}`);
             }}
           >
-            View all Deals
+            {t("productCard.viewAllDeals")}
           </button>
         )}
       </div>

@@ -3,6 +3,7 @@
 import Header from '@/components/Header';
 import { useState } from 'react';
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type Notification = {
   id: string;
@@ -46,80 +47,86 @@ const notificationsData: Notification[] = [
 export default function NotificationsPage() {
   const [tab, setTab] = useState<'all' | 'unread'>('all');
 
+  const { t } = useAppTranslation();
+
   const filtered = notificationsData.filter((n) => {
-  if (tab === 'unread') return !n.read;
-  return true;
-});
+    if (tab === 'unread') return !n.read;
+    return true;
+  });
 
   return (
     <div>
-        {/* Fixed Header */}
-        <Header />
-        <div className="pt-[80px] sm:pt-[135px]"></div>
-        <div className="max-w-[847px] mx-auto p-6">
-        {/* Heading */}
-        <h1 className="text-[16px] font-semibold mb-4 font-inter">Notifications</h1>
+      <Header />
+      <div className="pt-[80px] sm:pt-[135px]"></div>
 
-        {/* Tabs */}
+      <div className="max-w-[847px] mx-auto p-6">
+
+        {/* TITLE (ONLY LABEL CHANGE) */}
+        <h1 className="text-[16px] font-semibold mb-4 font-inter">
+          {t("notifications.title")}
+        </h1>
+
+        {/* TABS (ONLY LABEL CHANGE) */}
         <div className="flex gap-6 mb-4 text-[14px]">
-            <button
+          <button
             onClick={() => setTab('all')}
             className={`pb-2 ${
-                tab === 'all'
+              tab === 'all'
                 ? 'border-b-2 border-[#1E3862] text-[#1E3862] font-medium'
                 : 'text-gray-500'
             }`}
-            >
-            All
-            </button>
+          >
+            {t("notifications.all")}
+          </button>
 
-            <button
+          <button
             onClick={() => setTab('unread')}
             className={`pb-2 ${
-                tab === 'unread'
+              tab === 'unread'
                 ? 'border-b-2 border-[#1E3862] text-[#1E3862] font-medium'
                 : 'text-gray-500'
             }`}
-            >
-            Unread
-            </button>
+          >
+            {t("notifications.unread")}
+          </button>
         </div>
 
-        {/* Notifications List */}
+        {/* LIST (NO CHANGE) */}
         <div className="border-[#EEF2F5] border rounded-md max-w-[847px]">
-            {filtered.map((item) => (
+          {filtered.map((item) => (
             <div
-                key={item.id}
-                className={`flex items-start justify-between p-4 transition ${
-                    item.read
-                    ? 'bg-white'
-                    : 'bg-[#F6F9FF] hover:bg-[#EEF2F5]'
-                }`}
-                >
-                {/* LEFT SIDE (image + text) */}
-                <div className="flex items-start gap-3 font-inter">
-                    <Image
-                    src="/images/medi1.png"
-                    alt="My Order"
-                    width={44}
-                    height={36}
-                    className='border border-gray-300 rounded'
-                    />
+              key={item.id}
+              className={`flex items-start justify-between p-4 transition ${
+                item.read ? 'bg-white' : 'bg-[#F6F9FF] hover:bg-[#EEF2F5]'
+              }`}
+            >
+              <div className="flex items-start gap-3 font-inter">
+                <Image
+                  src="/images/medi1.png"
+                  alt="My Order"
+                  width={44}
+                  height={36}
+                  className="border border-gray-300 rounded"
+                />
 
-                    <div>
-                    <h2 className="font-semibold text-[#1A1A1F]">{item.title}</h2>
-                    <p className="text-sm text-[#8C8C94]">{item.message}</p>
-                    </div>
+                <div>
+                  <h2 className="font-semibold text-[#1A1A1F]">
+                    {item.title}
+                  </h2>
+                  <p className="text-sm text-[#8C8C94]">
+                    {item.message}
+                  </p>
                 </div>
+              </div>
 
-                {/* RIGHT SIDE (time) */}
-                <span className="text-xs text-gray-500 whitespace-nowrap">
-                    {item.time}
-                </span>
+              <span className="text-xs text-gray-500 whitespace-nowrap">
+                {item.time}
+              </span>
             </div>
-            ))}
+          ))}
         </div>
-        </div>
+
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import CarouselSection from "./CarouselSection";
 import ProductCard from "./ProductCard";
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 const topDeals = [
   { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/medicine.png", type: "Pharmacy" },
@@ -20,12 +21,13 @@ type Showroom = {
 };
 
 export default function ShowroomCard({ showroom }: { showroom: Showroom }) {
+  const { t } = useAppTranslation();
   if (!showroom) return null;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 space-y-4">
 
-      <h2 className="text-2xl font-semibold">About Showroom</h2>
+      <h2 className="text-2xl font-semibold">{t("showroomCard.aboutShowroom")}</h2>
 
       {/* Responsive Showroom Card */}
       <div className="flex flex-col md:flex-row gap-4 bg-white">
@@ -55,7 +57,7 @@ export default function ShowroomCard({ showroom }: { showroom: Showroom }) {
               className="flex items-center gap-1 text-[#1192E8] text-sm hover:underline"
             >
               <Image src="/images/direction.svg" alt="direction" width={14} height={14} />
-              Direction
+              {t("showroomCard.direction")}
             </a>
           </div>
 
@@ -63,7 +65,7 @@ export default function ShowroomCard({ showroom }: { showroom: Showroom }) {
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mt-2">
             <div className="flex items-center gap-1">
               <Image src="/images/deals.svg" alt="deals" width={20} height={20} />
-              <span>{showroom.deals} Deals</span>
+              <span>{showroom.deals} {t("showroomCard.deals")}</span>
             </div>
             <div className="flex items-center gap-1">
               <Image src="/images/direction_icon.svg" alt="distance" width={20} height={20} />
@@ -74,7 +76,7 @@ export default function ShowroomCard({ showroom }: { showroom: Showroom }) {
           {/* Button */}
           <div className="mt-3">
             <button className="text-sm w-full sm:w-40 h-10 border border-gray-300 rounded-md hover:bg-gray-100 transition text-[#1E3862]">
-              View all Offers
+              {t("showroomCard.viewAllOffers")}
             </button>
           </div>
 
@@ -83,7 +85,7 @@ export default function ShowroomCard({ showroom }: { showroom: Showroom }) {
 
       {/* Carousel Section */}
       <CarouselSection
-        title="Available deals at Showroom"
+        title="showroomCard.availableDealsAtShowroom"
         deals={topDeals}
         CardComponent={ProductCard}
         cardsPerPage={4}

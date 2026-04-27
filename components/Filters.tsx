@@ -1,8 +1,10 @@
 "use client";
-import { useState } from "react";
+
+import { useCallback, useMemo, useState } from "react";
 import PriceRange from "./PriceRange";
 import CheckboxFilter from "./CheckboxFilter";
 import RangeFilter from "./RangeFilter";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type FilterConfig = {
   title: string;
@@ -14,7 +16,18 @@ type FiltersProps = {
   filter_title?: string;
 };
 
-function FilterSection({ title, children }: any) {
+type FilterItem = {
+  type: string;
+  label: string;
+};
+
+function FilterSection({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -25,147 +38,115 @@ function FilterSection({ title, children }: any) {
       >
         <h6 className="font-bold">{title}</h6>
         <span className="text-xl w-6 h-6 flex items-center justify-center border border-gray-400 rounded">
-          {isOpen ? "−" : "+"}
+          {isOpen ? "-" : "+"}
         </span>
       </button>
 
-      {isOpen && (
-        <div className="mt-2 text-gray-600 text-sm">{children}</div>
-      )}
+      {isOpen && <div className="mt-2 text-gray-600 text-sm">{children}</div>}
     </div>
   );
 }
 
 export default function Filters({ filter_title }: FiltersProps) {
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [distance, setDistance] = useState(2);
+  const { get, t } = useAppTranslation();
 
-  const isPharmacyView = filter_title
-    ?.toLowerCase()
-    .includes("pharmacies near you");
+  const [selectedFilters, setSelectedFilters] = useState<FilterItem[]>([]);
 
-  const productFilters: FilterConfig[] = [
-    {
-      title: "Product Availability",
-      type: "checkbox",
-      options: [
-        { label: "Book now & collect", value: "book_collect" },
-        { label: "Pay & Collect in store", value: "pay_collect" },
-      ],
-    },
-    { title: "Distance Range", type: "range" },
-    { title: "Price Range", type: "price" },
-    {
-      title: "Category & Type",
-      type: "checkbox",
-      options: [
-        { label: "Vitamins", value: "vitamins" },
-        { label: "Pain Relief", value: "pain_relief" },
-        { label: "Cold & Flu", value: "cold_flu" },
-      ],
-    },
-    {
-      title: "Discounts & Promotions",
-      type: "checkbox",
-      options: [
-        { label: "15% Discounted", value: "15dis" },
-        { label: "20% Discounted", value: "20dis" },
-      ],
-    },
-    {
-      title: "Brand",
-      type: "checkbox",
-      options: [
-        { label: "Brand A", value: "brand_a" },
-        { label: "Brand B", value: "brand_b" },
-      ],
-    },
-  ];
+  // ✅ NEW: controlled price state
+  const [priceRange, setPriceRange] = useState({ min: 100, max: 400 });
 
-  const pharmacyFilters: FilterConfig[] = [
-    {
-      title: "Pharmacy Type",
-      type: "checkbox",
-      options: [
-        { label: "Showroom+ (Premium)", value: "showroom" },
-        { label: "Parapharmacy", value: "para" },
-        { label: "Pharmacy", value: "pharmacy" },
-      ],
-    },
-    { title: "Distance Range", type: "range" },
-    {
-      title: "Discounts & Promotions",
-      type: "checkbox",
-      options: [
-        { label: "15% Discounted", value: "15dis" },
-        { label: "20% Discounted", value: "20dis" },
-      ],
-    },
-    {
-      title: "Services",
-      type: "checkbox",
-      options: [
-        { label: "ECG", value: "vitamins" },
-        { label: "Blood Pressure Check", value: "pain_relief" },
-        { label: "Vaccinations", value: "cold_flu" },
-      ],
-    },
-    {
-      title: "Pharmacies",
-      type: "checkbox",
-      options: [
-        { label: "Farmacia Centrale (Roma)", value: "vitamins" },
-        { label: "Farmacia del Cambio (Firenze)", value: "pain_relief" },
-        { label: "Farmacia Internazionale (Milano)", value: "cold_flu" },
-      ],
-    },
-  ];
+  const distance = 2;
 
-  const filterConfig = isPharmacyView
-    ? pharmacyFilters
-    : productFilters;
+  const isPharmacyView =
+    filter_title?.toLowerCase().includes("pharm") ||
+    filter_title?.toLowerCase().includes("farmac");
 
-  const handleCheckboxChange = (label: string, checked: boolean) => {
-    setSelectedFilters((prev) =>
-      checked ? [...prev, label] : prev.filter((f) => f !== label)
-    );
-  };
+  const productFilters = get<FilterConfig[]>("filters.productFilters", []);
+  const pharmacyFilters = get<FilterConfig[]>("filters.pharmacyFilters", []);
+  const filterConfig = isPharmacyView ? pharmacyFilters : productFilters;
 
-  const handleSingleReplace = (prefix: string, label: string) => {
+  const handleCheckboxChange = useCallback(
+    (label: string, checked: boolean) => {
+      setSelectedFilters((prev) =>
+        checked
+          ? [...prev.filter((item) => item.label !== label), { type: label, label }]
+          : prev.filter((item) => item.label !== label)
+      );
+    },
+    []
+  );
+
+  const handleSingleReplace = useCallback((type: string, label: string) => {
     setSelectedFilters((prev) => {
-      const filtered = prev.filter((f) => !f.startsWith(prefix));
-      return [...filtered, label];
+      const existing = prev.find((item) => item.type === type);
+      if (existing?.label === label) return prev;
+
+      const filtered = prev.filter((item) => item.type !== type);
+      return [...filtered, { type, label }];
     });
-  };
+  }, []);
 
-  const removeFilter = (filter: string) => {
-    setSelectedFilters((prev) => prev.filter((f) => f !== filter));
-  };
+  const removeFilter = useCallback((type: string) => {
+    setSelectedFilters((prev) => prev.filter((item) => item.type !== type));
+  }, []);
 
-  const clearAll = () => setSelectedFilters([]);
+  // ✅ UPDATED clearAll
+  const clearAll = useCallback(() => {
+    setSelectedFilters([]);
+    setPriceRange({ min: 100, max: 400 });
+  }, []);
+
+  const distanceLabel = t("filters.distance");
+  const priceLabel = t("filters.price");
+  const kmLabel = t("rangeFilter.km");
+
+  const selectedCheckboxLabels = useMemo(
+    () =>
+      selectedFilters
+        .filter((item) => item.type === item.label)
+        .map((item) => item.label),
+    [selectedFilters]
+  );
+
+  const handleDistanceChange = useCallback(
+    (value: number) => {
+      handleSingleReplace("distance", `${distanceLabel}: ${value} ${kmLabel}`);
+    },
+    [distanceLabel, handleSingleReplace, kmLabel]
+  );
+
+  // ✅ UPDATED price handler
+  const handlePriceChange = useCallback(
+    (min: number, max: number) => {
+      setPriceRange({ min, max });
+      handleSingleReplace(
+        priceLabel,
+        `${priceLabel} : EUR${min} - EUR${max}`
+      );
+    },
+    [handleSingleReplace, priceLabel]
+  );
 
   return (
     <aside className="px-6 flex flex-col">
       <div className="w-full max-w-[273px] font-medium text-black">
-        {/* Header */}
         <div className="flex justify-between items-center mb-3">
-          <h3 className="font-bold text-lg">Filters</h3>
+          <h3 className="font-bold text-lg">{t("filters.title")}</h3>
           {selectedFilters.length > 0 && (
             <button onClick={clearAll} className="text-red-500 text-sm">
-              Clear all
+              {t("filters.clearAll")}
             </button>
           )}
         </div>
 
-        {/* Selected Filters */}
         <div className="flex flex-wrap gap-2 mb-2">
           {selectedFilters.map((filter) => (
             <div
-              key={filter}
+              key={filter.type}
               className="flex items-center gap-2 bg-[#DCE8F2] text-[#1E3862] px-3 py-2 rounded-md text-sm"
             >
-              {filter}
-              <button onClick={() => removeFilter(filter)}>✕</button>
+              {filter.label}
+              <button onClick={() => removeFilter(filter.type)}>x</button>
             </div>
           ))}
         </div>
@@ -175,24 +156,27 @@ export default function Filters({ filter_title }: FiltersProps) {
             {section.type === "checkbox" && section.options && (
               <CheckboxFilter
                 options={section.options}
-                selected={selectedFilters}
+                selected={selectedCheckboxLabels}
                 onChange={handleCheckboxChange}
               />
             )}
 
             {section.type === "range" && (
               <RangeFilter
-                title="Distance"
+                title={distanceLabel}
                 min={1}
                 max={10}
                 value={distance}
-                onChange={(label) => handleSingleReplace("Distance", label)}
+                onChange={handleDistanceChange}
               />
             )}
 
+            {/* ✅ FIXED PRICE RANGE */}
             {section.type === "price" && (
               <PriceRange
-                onPriceChange={(label) => handleSingleReplace("Price", label)}
+                minPrice={priceRange.min}
+                maxPrice={priceRange.max}
+                onChange={handlePriceChange}
               />
             )}
           </FilterSection>

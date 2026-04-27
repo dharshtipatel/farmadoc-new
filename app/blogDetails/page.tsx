@@ -6,13 +6,23 @@ import Header from "@/components/Header";
 import Breadcrumb from "../../components/Breadcrumb";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 function BlogDetailsContent() {
+  const { t, get } = useAppTranslation();
   const searchParams = useSearchParams();
 
-  const label = searchParams.get("label") || "Health Tips";
-  const date = searchParams.get("date") || "12 Aug, 2025";
-  const category = searchParams.get("category") || "Health";
+  const label =
+    searchParams.get("label") ||
+    t("blogDetailsPage.defaultLabel");
+
+  const date =
+    searchParams.get("date") ||
+    t("blogDetailsPage.defaultDate");
+
+  const category =
+    searchParams.get("category") ||
+    t("blogDetailsPage.defaultCategory");
 
   const socials = [
     { icon: "/images/linkedin_icon.svg", alt: "LinkedIn" },
@@ -26,7 +36,7 @@ function BlogDetailsContent() {
       <Header showSearch={false} />
 
       <div className="pt-[80px] sm:pt-[135px]">
-        <Breadcrumb currentPage={"Blog Details"} />
+        <Breadcrumb currentPage={t("blogDetailsPage.breadcrumb")} />
       </div>
 
       <section className="mx-auto max-w-7xl px-6">
@@ -42,14 +52,16 @@ function BlogDetailsContent() {
           </div>
         </div>
 
-        <div className="mt-10">Content</div>
+        <div className="mt-10">
+          {t("blogDetailsPage.contentPlaceholder")}
+        </div>
 
         <div className="mt-10">
           <div className="border-t border-gray-300 mb-4" />
 
           <div className="flex items-center justify-between">
             <span className="font-semibold text-[16px]">
-              Share this article
+              {t("blogDetailsPage.shareArticle")}
             </span>
 
             <div className="flex items-center gap-4 mb-5">
@@ -74,8 +86,16 @@ function BlogDetailsContent() {
 }
 
 export default function BlogDetails() {
+  const { t } = useAppTranslation();
+
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense
+      fallback={
+        <p className="text-center p-10">
+          {t("blogDetailsPage.loading")}
+        </p>
+      }
+    >
       <BlogDetailsContent />
     </Suspense>
   );

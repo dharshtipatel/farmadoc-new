@@ -1,56 +1,74 @@
 "use client";
-import Image from 'next/image'
-import { useState } from 'react';
-import LoginModal from './LoginModal';
-import { useRouter } from 'next/navigation';
+
+import Image from "next/image";
+import { useState } from "react";
+import LoginModal from "./LoginModal";
+import { useRouter } from "next/navigation";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 export default function FarmaDocShowroom() {
   const [openLogin, setOpenLogin] = useState(false);
   const router = useRouter();
+  const { t } = useAppTranslation();
+
   return (
     <div className="flex flex-col sm:flex-row max-w-3xl mx-auto my-8 p-6 rounded-lg bg-white gap-6 items-start font-sans text-gray-700 font-inter">
       
       {/* Text Section */}
       <div className="flex-1 w-full sm:max-w-[calc(100%-350px)]">
+        
         <h3 className="text-2xl font-bold text-[#1E3862] mb-2">
-          FarmaDoc Showroom
+          {t("showroom.title")}
         </h3>
 
         <p className="mb-4 text-sm sm:text-base break-words text-[#6B6F72]">
-          Turn your pharmacy into a premium digital showroom <br /> and attract more customers.
+          {t("showroom.subtitle")}
         </p>
 
-        <h4 className="text-lg font-semibold text-black mb-2">Premium Benefits</h4>
+        <h4 className="text-lg font-semibold text-black mb-2">
+          {t("showroom.benefitsTitle")}
+        </h4>
+
         <ul className="list-disc list-inside mb-4 text-[#6B6F72] space-y-1 marker:text-yellow-400">
-          <li>Priority placement in search and map results</li>
-          <li>Featured pharmacy badge for higher trust</li>
-          <li>Highlighted product listings with promo tags</li>
-          <li>Increased visibility to nearby customers</li>
+          <li>{t("showroom.benefit1")}</li>
+          <li>{t("showroom.benefit2")}</li>
+          <li>{t("showroom.benefit3")}</li>
+          <li>{t("showroom.benefit4")}</li>
         </ul>
 
-        <h4 className="text-lg font-semibold text-black mb-2">Not on Showroom ?</h4>
+        <h4 className="text-lg font-semibold text-black mb-2">
+          {t("showroom.notOnTitle")}
+        </h4>
+
         <p className="mb-4 text-sm sm:text-base break-words text-[#6B6F72]">
-          No worries, Still you can register as pharmacy <br /> or Para pharmacy for Free.
+          {t("showroom.notOnDesc")}
         </p>
 
-        <button onClick={() => router.push('/promote-on-farmadoc')} className="bg-[#33B1FF] hover:bg-blue-700 text-white font-semibold px-28 py-3 rounded transition-colors duration-300">
-          Join FarmaDoc
+        <button
+          onClick={() => router.push("/promote-on-farmadoc")}
+          className="bg-[#33B1FF] hover:bg-blue-700 text-white font-semibold px-28 py-3 rounded transition-colors duration-300"
+        >
+          {t("showroom.joinBtn")}
         </button>
       </div>
 
-      {/* Image Section */}
+      {/* Image Section (UNCHANGED) */}
       <div className="w-full sm:w-[350px] h-[350px] rounded-md overflow-hidden relative flex-shrink-0">
         <Image
           src="/images/farmashowroom.png"
           alt="FarmaDoc Showroom"
           fill
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: "contain" }}
           priority
         />
       </div>
+
       {openLogin && (
-        <LoginModal onClose={() => setOpenLogin(false)} initialStep="pharmacySignup" />
+        <LoginModal
+          onClose={() => setOpenLogin(false)}
+          initialStep="pharmacySignup"
+        />
       )}
     </div>
-  )
+  );
 }

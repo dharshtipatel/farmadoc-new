@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type ArticleCardProps = {
   imageSrc: string;
@@ -17,6 +18,8 @@ export default function ArticleCard({
   date,
   onReadMore,
 }: ArticleCardProps) {
+  const { t } = useAppTranslation();
+
   return (
     <div className="max-w-sm bg-white rounded-lg overflow-hidden border border-gray-200">
       {/* Image */}
@@ -75,7 +78,7 @@ export default function ArticleCard({
           onClick={onReadMore}
           className="text-[#33B1FF] inline-flex items-center"
         >
-          Read more
+          {t("articleCard.readMore")}
           <svg
             className="w-4 h-4 ml-1"
             fill="none"

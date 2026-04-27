@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 interface Deal {
   id: number;
@@ -23,8 +25,9 @@ interface SubMenuProps {
 }
 
 export default function SubMenu({ categoriesData }: SubMenuProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const { t } = useAppTranslation();
 
+  const [activeIndex, setActiveIndex] = useState(0);
   const activeCategory = categoriesData[activeIndex];
 
   return (
@@ -57,12 +60,14 @@ export default function SubMenu({ categoriesData }: SubMenuProps) {
 
       {/* RIGHT COLUMN */}
       <div className="w-full md:max-w-[480px] pl-4 md:pl-6 bg-[#F8FCFF] py-4 px-4 md:px-6 mt-4 md:mt-0">
+        
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-sm font-semibold flex items-center gap-1 text-gray-800">
-            🔥 Hot Medicine Deals
+            🔥 {t("submenu.hotDeals")}
           </h4>
+
           <span className="text-sm text-blue-600 cursor-pointer">
-            View All →
+            {t("submenu.viewAll")} →
           </span>
         </div>
 
@@ -72,11 +77,11 @@ export default function SubMenu({ categoriesData }: SubMenuProps) {
               key={deal.id}
               className="border rounded-md p-2 hover:shadow-md cursor-pointer"
             >
-              {/* IMAGE CONTAINER */}
+              
+              {/* IMAGE */}
               <div className="relative w-full h-20 mb-2">
-                {/* OFFER BADGE */}
                 <span className="absolute top-1 right-1 text-xs bg-[#E5F6FF] text-[#1192E8] px-2 py-0.5 rounded-md z-10">
-                  Offer ends in {deal.offerEndsIn}
+                  {t("submenu.offerEndsIn")} {deal.offerEndsIn}
                 </span>
 
                 <Image
@@ -90,14 +95,27 @@ export default function SubMenu({ categoriesData }: SubMenuProps) {
               {/* TITLE */}
               <p className="text-xs font-medium">{deal.title}</p>
 
-              {/* PRICES */}
+              {/* PRICE */}
               <div className="flex items-center gap-2 mt-1">
-                <p className="text-sm font-semibold">€{deal.price}</p>
-                <p className="text-xs line-through text-gray-400">€{deal.oldPrice}</p>
+                <p className="text-sm font-semibold">
+                  {new Intl.NumberFormat(undefined, {
+                    style: "currency",
+                    currency: "EUR",
+                  }).format(deal.price)}
+                </p>
+
+                <p className="text-xs line-through text-gray-400">
+                  {new Intl.NumberFormat(undefined, {
+                    style: "currency",
+                    currency: "EUR",
+                  }).format(deal.oldPrice)}
+                </p>
+
                 <p className="text-xs text-red-500 bg-[#FBE7E7] rounded p-1 font-bold">
-                  {deal.discountPercent}% Off
+                  {deal.discountPercent}% {t("submenu.off")}
                 </p>
               </div>
+
             </div>
           ))}
         </div>

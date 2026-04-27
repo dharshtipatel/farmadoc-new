@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type CarouselSectionProps<T> = {
   title: string;
@@ -41,6 +42,8 @@ export default function CarouselSection<T>({
     ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-6"
     : "grid-cols-1 sm:grid-cols-2 md:grid-cols-4";
 
+  const { t } = useAppTranslation();
+
   return (
     <section className={
     className
@@ -51,18 +54,21 @@ export default function CarouselSection<T>({
       <div className="h-[67px] flex items-center justify-between">
         <div>
         <h2 className={`text-2xl font-semibold ${titleClassName || ""}`}>
-          {title}
+          {t(title)}
         </h2>
-        <span className="text-sm text-gray-500 mt-4">{subtitle}</span>
+        <span className="text-sm text-gray-500 mt-4">{subtitle ? t(subtitle) : ""}</span>
         </div>
         <Link
           href={{
             pathname: viewAllLink,
-            query: { title: title, subtitle: subtitle },
+            query: {
+            title: t(title ?? ""),
+            subtitle: t(subtitle ?? ""),
+          }
           }}
           className="flex items-center gap-1 text-sm text-[#1192E8] font-medium hover:underline"
         >
-          View All
+          {t("carousel.viewAll")}
           <svg
             className="w-4 h-4"
             fill="none"

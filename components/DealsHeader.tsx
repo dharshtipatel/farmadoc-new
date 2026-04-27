@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 interface DealsHeaderProps {
   title: string;
@@ -8,22 +9,27 @@ interface DealsHeaderProps {
   subtitle: string;
 }
 
-const sortOptions = [
-  "Relevance",
-  "Nearest Pharmacy",
-  "Best Discount",
-  "Price: Low to High",
-  "Expiring Soon",
-  "Longer Expiry First",
-];
-
 export default function DealsHeader({
   title,
   count,
   subtitle,
 }: DealsHeaderProps) {
+  const { get, t } = useAppTranslation();
+  const sortOptions = get("dealsHeader.sortOptions", [
+    "Relevance",
+    "Nearest Pharmacy",
+    "Best Discount",
+    "Price: Low to High",
+    "Expiring Soon",
+    "Longer Expiry First",
+  ]);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(sortOptions[0]);
+
+  useEffect(() => {
+    setSelected(sortOptions[0]);
+  }, [sortOptions]);
+
   return (
     <div className="flex items-start justify-between pb-3">
       
@@ -50,7 +56,7 @@ export default function DealsHeader({
       >
         <div className="flex items-center gap-2">
           <span className="text-[14px] text-gray-500 whitespace-nowrap">
-            Sort by:
+            {t("dealsHeader.sortBy")}
           </span>
 
           <span className="text-[14px] text-[#1E3862]">

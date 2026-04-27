@@ -2,35 +2,32 @@
 import { Search } from "lucide-react";
 import { useState } from "react";
 import { HowItWorksCard } from "./HowItWorksCard";
-
-const howItWorksData = [
-  {
-    id: 1,
-    imageSrc: "/images/Frame.svg",
-    altText: "location",
-    title: "Set Your Location",
-  },
-  {
-    id: 2,
-    imageSrc: "/images/medicine_icon.svg",
-    altText: "deals",
-    title: "Explore Nearby Deals",
-  },
-  {
-    id: 3,
-    imageSrc: "/images/pick_up.svg",
-    altText: "pickup",
-    title: "Pick Up In-Store",
-  },
-];
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 export default function Banner() {
   const [searchQuery, setSearchQuery] = useState("");
+  const { t } = useAppTranslation();
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);    
-    setSearchQuery(e.target.value);
-  };
+  const howItWorksData = [
+    {
+      id: 1,
+      imageSrc: "/images/Frame.svg",
+      altText: "location",
+      title: t("banner.howItWorks.step1"),
+    },
+    {
+      id: 2,
+      imageSrc: "/images/medicine_icon.svg",
+      altText: "deals",
+      title: t("banner.howItWorks.step2"),
+    },
+    {
+      id: 3,
+      imageSrc: "/images/pick_up.svg",
+      altText: "pickup",
+      title: t("banner.howItWorks.step3"),
+    },
+  ];
 
   return (
     <section className="w-full py-10">
@@ -40,11 +37,11 @@ export default function Banner() {
         <div className="mx-auto max-w-4xl text-center">
           
           <h1 className="font-bold text-[#1E3862] text-[32px]">
-            Save Before Waste, Affordable Pharmacy Deals Near You
+            {t("banner.title")}
           </h1>
 
           <p className="text-[#6B6F72] mt-2 text-[20px] font-inter">
-            Discover discounted pharmacy products available for local pick-up only
+            {t("banner.subtitle")}
           </p>
 
           {/* Search Bar */}
@@ -56,8 +53,8 @@ export default function Banner() {
               <input
                 type="text"
                 value={searchQuery}
-                onChange={handleSearchChange}
-                placeholder="Search products or ailments here..."
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t("banner.searchPlaceholder")}
                 className="w-full outline-none text-gray-600 text-lg"
               />
             </div>
@@ -67,7 +64,9 @@ export default function Banner() {
 
         {/* How It Works Section */}
         <div className="mt-2">
-          <h3 className="text-gray-600 font-medium mb-5">How it Works</h3>
+          <h3 className="text-gray-600 font-medium mb-5">
+            {t("banner.howItWorks.title")}
+          </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
             {howItWorksData.map((card) => (

@@ -15,23 +15,36 @@ import PharmaMovement from "@/components/PharmaMovement";
 import WhyChooseFarmaDoc from "@/components/WhyChooseFarmaDoc";
 import TestimonialCard from "@/components/TestimonialCard";
 import ChatBot from "@/components/ChatBot";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
-const topDeals = [
-  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }
+const defaultTopDeals = [
+  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" },
+  { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" },
+  { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" },
+  { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" },
+  { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" },
 ];
 
-const favourites = [
-  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }
+const defaultFavourites = [
+  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" },
+  { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" },
+  { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" },
+  { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" },
+  { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" },
 ];
 
-const expiringSoonDeals = [
- { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }, { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" }, { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" }, { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" }, { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" }
+const defaultExpiringSoonDeals = [
+  { id: 1, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" },
+  { id: 2, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi2.png", type: "Pharmacy" },
+  { id: 3, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi3.png", type: "Pharmacy" },
+  { id: 4, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi4.png", type: "Pharmacy" },
+  { id: 5, name: "Paracet 500", pharmacy: "Herba Salus Parapharmacy", price: 213.2, oldPrice: 220, discount: "25% Off", distance: "1.5Km", expiry: "20 Feb, 2026", image: "/images/medi1.png", type: "Pharmacy" },
 ];
 
-const pharmacies = [
+const defaultPharmacies = [
   {
     image: "/images/1.png",
-    name: "Farmacia Centrale – Milano",
+    name: "Farmacia Centrale - Milano",
     address: "Herba Salus Parapharmacy, Via Gram...",
     deals: 5,
     distance: 1.5,
@@ -40,7 +53,7 @@ const pharmacies = [
   },
   {
     image: "/images/2.png",
-    name: "Farmacia Roma – Rome",
+    name: "Farmacia Roma - Rome",
     address: "Via Nazionale 123, Roma",
     deals: 3,
     distance: 2.2,
@@ -49,7 +62,7 @@ const pharmacies = [
   },
   {
     image: "/images/2.png",
-    name: "Farmacia Torino – Turin",
+    name: "Farmacia Torino - Turin",
     address: "Piazza Castello 5, Torino",
     deals: 8,
     distance: 0.9,
@@ -58,7 +71,7 @@ const pharmacies = [
   },
   {
     image: "/images/3.png",
-    name: "Farmacia Torino – Turin",
+    name: "Farmacia Torino - Turin",
     address: "Piazza Castello 5, Torino",
     deals: 8,
     distance: 0.9,
@@ -67,7 +80,7 @@ const pharmacies = [
   },
   {
     image: "/images/3.png",
-    name: "Farmacia Torino – Turin",
+    name: "Farmacia Torino - Turin",
     address: "Piazza Castello 5, Torino",
     deals: 8,
     distance: 0.9,
@@ -85,7 +98,8 @@ const brands = [
   { id: 6, image: "/images/brand1.png", alt: "GSK", showBadge: false },
   { id: 7, image: "/images/brand2.png", alt: "GSK", showBadge: true },
 ];
-const article = [
+
+const defaultArticles = [
   {
     id: 1,
     imageSrc: "/images/h1.jpg",
@@ -117,14 +131,14 @@ const article = [
     title: "Eco-Friendly Packaging in Pharmacies",
     author: "Dr. Mark Davis",
     date: "30 Oct, 2025",
-  }
+  },
 ];
 
-const comments = [
+const defaultComments = [
   {
     id: 1,
     title: "Huge Savings Without Compromise",
-    quote: "I saved almost €40 on supplements that were still months away from expiry. Pickup was smooth and the pharmacy staff were very friendly.",
+    quote: "I saved almost EUR40 on supplements that were still months away from expiry. Pickup was smooth and the pharmacy staff were very friendly.",
     author: "Laura M., Milano",
     rating: 5,
     quotationIconSrc: "/images/quotation-mark.svg",
@@ -164,17 +178,27 @@ const comments = [
 ];
 
 export default function Home() {
+  const { get } = useAppTranslation();
+  const topDeals = get("home.topDeals", defaultTopDeals);
+  const favourites = get("home.favourites", defaultFavourites);
+  const expiringSoonDeals = get("home.expiringSoonDeals", defaultExpiringSoonDeals);
+  const pharmacies = get("home.pharmacies", defaultPharmacies);
+  const articles = get("home.articles", defaultArticles);
+  const comments = get("home.testimonials", defaultComments);
+
   return (
     <div className="bg-gradient-to-b from-[#E5F6FF] to-white">
       <Header showSearch={false} />
+
       <div className="pt-[80px] sm:pt-[135px] p-2"></div>
+
       <div className="max-w-7xl mx-auto">
         <Banner />
       </div>
 
       <CarouselSection
-        title="Top Deals"
-        subtitle="Discover unbeatable deals on top-rated products."
+        title="carousel.bestDeals.title"
+        subtitle="carousel.bestDeals.subtitle"
         deals={topDeals}
         CardComponent={ProductCard}
         cardsPerPage={4}
@@ -182,8 +206,8 @@ export default function Home() {
       />
 
       <CarouselSection
-        title="Save Before Waste, Expiring Soon"
-        subtitle="Don't miss out on these soon-to-expire medicines."
+        title="carousel.expiring.title"
+        subtitle="carousel.expiring.subtitle"
         deals={expiringSoonDeals}
         CardComponent={ProductCard}
         cardsPerPage={4}
@@ -191,38 +215,37 @@ export default function Home() {
       />
 
       <PharmaBenefits />
+
       <CarouselSection
-        title="Popular Pharmacies Near You"
-        subtitle="Discover trusted pharmacies nearby offering exclusive health and wellness deals."
+        title="carousel.pharmacies.title"
+        subtitle="carousel.pharmacies.subtitle"
         deals={pharmacies}
         CardComponent={PharmacyCard}
         cardsPerPage={4}
         viewAllLink="/top_deals"
       />
+
       <PharmacyBanner
         image="/images/Banner.png"
-        badge="Exclusive Health Deals"
-        title={
-          <>
-            Up to 50% Off on <br /> Essential Medicines Near You!
-          </>
-        }
-        description="Save more on verified pharmacy stock, reserve online and pick up in-store today."
-        buttonText="Find Pharmacy Near You"
-        note="*Pay at pickup"
+        badgeKey="pharmacyBanner.badge"
+        titleLine1Key="pharmacyBanner.title.line1"
+        titleLine2Key="pharmacyBanner.title.line2"
+        descriptionKey="pharmacyBanner.description"
+        buttonTextKey="pharmacyBanner.button"
+        noteKey="pharmacyBanner.note"
       />
 
       <CarouselSection
-        title="Brands in your area"
-        subtitle="Explore Premium Brands in your nearby stores"
+        title="carousel.brands.title"
+        subtitle="carousel.brands.subtitle"
         deals={brands}
         CardComponent={BrandCard}
         cardsPerPage={6}
       />
 
       <CarouselSection
-        title="Favourites For You"
-        subtitle="Explore a curated selection of medications tailored to your health needs."
+        title="carousel.favourites.title"
+        subtitle="carousel.favourites.subtitle"
         deals={favourites}
         CardComponent={ProductCard}
         cardsPerPage={4}
@@ -230,9 +253,9 @@ export default function Home() {
       />
 
       <CarouselSection
-        title="Health Insights & Pharmacy News"
-        subtitle="Stay updated with expert tips, healthcare trends, and sustainable pharmacy stories."
-        deals={article}
+        title="carousel.articles.title"
+        subtitle="carousel.articles.subtitle"
+        deals={articles}
         CardComponent={ArticleCard}
         cardsPerPage={4}
       />
@@ -240,10 +263,10 @@ export default function Home() {
       <PharmaMovement />
 
       <WhyChooseFarmaDoc />
-        
+
       <CarouselSection
-        title="What Our Customers Say"
-        subtitle="Real stories from people who saved money, reduced waste, and discovered trusted pharmacies through FarmaDoc."
+        title="carousel.testimonials.title"
+        subtitle="carousel.testimonials.subtitle"
         deals={comments}
         CardComponent={TestimonialCard}
         cardsPerPage={4}

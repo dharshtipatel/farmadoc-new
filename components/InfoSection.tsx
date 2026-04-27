@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useAppTranslation } from "@/lib/useAppTranslation";
 
 type PaymentMethod = {
   name: string;
@@ -20,13 +23,17 @@ export default function InfoSection({
   paymentMethods,
   policies,
 }: InfoSectionProps) {
+  const { t } = useAppTranslation();
   // Determine heading dynamically based on type
-  const aboutHeading = type === "showroom" ? "About Showroom" : "About Pharmacy";
+  const aboutHeading =
+    type === "showroom"
+      ? t("infoSection.aboutShowroom")
+      : t("infoSection.aboutPharmacy");
 
   return (
     <div className="w-full font-inter max-w-[900px]">
       {/* Title */}
-      <h2 className="text-2xl font-semibold mb-4">Info</h2>
+      <h2 className="text-2xl font-semibold mb-4">{t("infoSection.title")}</h2>
 
       {/* About */}
       {about && (
@@ -39,7 +46,7 @@ export default function InfoSection({
       {/* Loyalty */}
       {loyaltyInfo && (
         <div className="mb-6">
-          <h3 className="font-bold text-[18px] mb-1">Loyalty Card Accepted</h3>
+          <h3 className="font-bold text-[18px] mb-1">{t("infoSection.loyaltyCardAccepted")}</h3>
           <p className="text-sm text-[#6B6F72] leading-relaxed">{loyaltyInfo}</p>
         </div>
       )}
@@ -47,9 +54,9 @@ export default function InfoSection({
       {/* Payment Methods */}
       {paymentMethods && paymentMethods.length > 0 && (
         <div className="mb-6">
-          <h3 className="font-bold text-[18px] mb-3">Payment Methods</h3>
+          <h3 className="font-bold text-[18px] mb-3">{t("infoSection.paymentMethods")}</h3>
           <p className="text-sm text-gray-500 mb-4">
-            The following payment options are available:
+            {t("infoSection.paymentOptionsAvailable")}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 max-w-full overflow-x-auto">
@@ -77,7 +84,7 @@ export default function InfoSection({
       {/* Policies */}
       {policies && policies.length > 0 && (
         <div>
-          <h3 className="font-bold text-[18px] mb-3">Reservation & Pickup Policy</h3>
+          <h3 className="font-bold text-[18px] mb-3">{t("infoSection.reservationPickupPolicy")}</h3>
           <ul className="list-disc pl-5 space-y-1">
             {policies.map((policy, index) => (
               <li key={index} className="text-sm text-[#6B6F72]">
