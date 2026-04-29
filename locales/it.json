@@ -123,7 +123,7 @@
     "postalCode": "CAP",
     "region": "Regione",
     "country": "Paese",
-    "googleMapUrl": "URL Google Map",
+    "googleMapUrl": "YOUR WEBSITE/WHATSAPP N°",
     "placeholders": {
       "email": "example@email.com",
       "phone": "+39 123 4567890",
@@ -142,7 +142,7 @@
     "steps": {
       "login": {
         "title": "Benvenuto su FarmaDoc",
-        "description": "Trova e prenota medicinali vicino a te",
+        "description": "Trova e prenota prodotti vicino a te",
         "button": "Accedi"
       },
       "forgot": {
@@ -166,12 +166,12 @@
         "button": "Continua"
       },
       "pharmacySignup": {
-        "title": "Inserisci la tua farmacia su FarmaDoc",
-        "description": "Promuovi le offerte della tua farmacia e raggiungi i clienti vicini",
+        "title": "Inserisci la tua attività su FarmaDoc farmacia su FarmaDoc",
+        "description": "Promuovi i prodotti e raggiungi più clienti.",
         "button": "Continua"
       },
       "pharmacyDetails": {
-        "title": "Raccontaci della tua farmacia",
+        "title": "Raccontaci della tua attività",
         "description": "Condividi qualche dettaglio e al resto pensiamo noi",
         "button": "Continua"
       }
@@ -180,7 +180,7 @@
     "resend": "Invia di nuovo",
     "termsIntro": "Continuando, accetti i nostri",
     "termsAndConditions": "Termini e condizioni",
-    "representPharmacy": "Confermo di rappresentare questa farmacia",
+    "representPharmacy": "Confermo di rappresentare questa attività",
     "captchaAlert": "Verifica di non essere un robot",
     "rememberMe": "Ricordami",
     "forgotPassword": "Password dimenticata?",
@@ -191,7 +191,7 @@
     "dontHaveAccount": "Non hai un account?",
     "signUp": "Registrati",
     "logIn": "Accedi",
-    "pharmacyBusinessName": "Nome farmacia / attività"
+    "pharmacyBusinessName": "Nome della azienda"
   },
   "missionPage": {
     "quote": "\"Ogni confezione promossa è una in meno nei rifiuti e una in più nelle mani di chi ne ha bisogno.\"",
@@ -244,7 +244,7 @@
 
   "banner": {
     "title": "Prodotti per la salute. Vicino a te.",
-    "subtitle": "Scopri prodotti farmaceutici scontati disponibili solo per il ritiro locale",
+    "subtitle": "Scopri i prodotti in promozione disponibili solo per il ritiro locale",
     "searchPlaceholder": "Cerca qui prodotti o disturbi..",
     "howItWorks": {
       "title": "Come funziona",
@@ -294,7 +294,7 @@
 
   "pharmaMovement": {
     "badge": "Promuovi su FarmaDoc",
-    "title": "Unisciti al movimento contro gli sprechi farmaceutici",
+    "title": "Unisciti al movimento contro lo spreco farmaceutico",
     "description": "Unisciti al principale marketplace italiano per prodotti farmaceutici in surplus e in prossimità della scadenza. Riduci gli sprechi, aumenta le entrate e raggiungi nuovi clienti nella tua zona.",
     "button": "Registra la tua attività",
     "benefits": {
@@ -619,7 +619,7 @@
       "title": "Distinguiti con visibilita Premium",
       "description": "A differenza dei marketplace tradizionali, il team di FarmaDoc gestisce tutto. Nessuna dashboard da imparare, nessun listing da mantenere.",
       "features": [
-        { "icon": "/images/feature-placement.svg", "title": "Posizionamento in evidenza", "description": "La tua farmacia appare in cima ai risultati di ricerca e nella sezione offerte della homepage." },
+        { "icon": "/images/feature-placement.svg", "title": "Posizionamento in evidenza", "description": "La tua attività appare in cima ai risultati di ricerca e nella sezione delle offerte in homepage." },
         { "icon": "/images/priority-visibility.svg", "title": "Visibilita prioritaria sulla mappa", "description": "Pin evidenziato sulla mappa geolocalizzata, visibile sopra gli annunci standard nella tua area." },
         { "icon": "/images/boosted-offer.svg", "title": "Offerte potenziate", "description": "Banner promozionale nelle pagine offerte ad alto traffico. Aumenta la visibilita nei momenti chiave." },
         { "icon": "/images/verified_badge.svg", "title": "Badge verificato", "description": "Il badge premium aumenta la fiducia dei clienti e puo migliorare le conversioni fino al 40%." }
@@ -689,7 +689,7 @@
     "subtitle": "Scopri prodotti simili e correlati alla tua ricerca."
   },
   "cartSummary": {
-    "billSummary": "Riepilogo conto",
+    "billSummary": "Riepilogo d'ordine",
     "cartTotal": "Totale carrello",
     "platformFee": "Commissione piattaforma",
     "totalDiscount": "Sconto totale",
@@ -738,15 +738,15 @@
 
   "bookable": {
     "title": "Prenotabile vs. Showroom",
-    "subtitle": "FarmaDoc offre due tipi di annunci a seconda di come la farmacia vende.",
+    "subtitle": "FarmaDoc offre due tipi di annunci a seconda di come la l'attività sceglie di promuovere.",
 
     "pharmacy": {
       "badge": "Visita in negozio",
-      "title": "Articoli in farmacia",
-      "description": "Scopri le offerte prima di visitare. Gli articoli sono visibili su FarmaDoc ma acquistati direttamente in farmacia — nessuna prenotazione necessaria.",
+      "title": "Articoli Showroom",
+      "description": "Scopri le offerte prima di visitare. Gli articoli della attività sono visibili su FarmaDoc in acquistabili direttamente al ritiro - nessuna prenotazione necessaria",
       "list": {
         "noBooking": "Nessuna prenotazione richiesta",
-        "payDirect": "Pagamento diretto in farmacia",
+        "payDirect": "Paga direttamente al ritiro",
         "fcfs": "Disponibilità primo arrivato",
         "preview": "Prezzo visibile prima della visita"
       }
@@ -755,9 +755,9 @@
     "showroom": {
       "badge": "Più popolare",
       "title": "Articoli showroom",
-      "description": "Prenota online e blocca l’articolo per 72 ore. Può essere richiesto un acconto per confermare la prenotazione.",
+      "description": "Prenota il tuo articolo online e fallo tenere esclusivamente per te. Potrebbe essere richiesto un deposito di pagamento completo per confermare la tua prenotazione.",
       "list": {
-        "hold": "Blocco garantito 72 ore",
+        "hold": "Prenotazione garantita 72 ore",
         "payment": "Pagamento online o in negozio",
         "cancel": "Cancellazione gratuita fino a 2 ore prima",
         "qr": "Conferma QR digitale"
@@ -768,8 +768,8 @@
   "howItWorks": {
     "journey": {
       "label": "Il nostro percorso",
-      "title": "Un decennio di innovazione sanitaria",
-      "description": "Il motore di geo-discovery di FarmaDoc mostra in tempo reale le farmacie più vicine con le migliori offerte. Visualizziamo ciò che è disponibile entro 0,5 km, 1 km e 5 km dalla tua posizione."
+      "title": "Innovazione sanitaria",
+      "description": "Il motore di geo-scoperta di FarmaDoc mostra le sedi più vicine con le migliori offerte in tempo reale. Ti mostriamo cosa è disponibile entro 0,5 km, 1 km e 5 km dalla tua posizione."
     },
     "promises": {
       "title": "Nessuna app richiesta. Funziona su qualsiasi dispositivo.",
@@ -799,27 +799,27 @@
       "step1": {
         "label": "Passo 1",
         "title": "Cerca Sedi Vicine",
-        "desc": "Inserisci il tuo indirizzo o consenti l'accesso alla posizione per vedere immediatamente tutte le farmacie partner di FarmaDoc nella tua zona. Filtra per distanza, categoria o livello di sconto."
+        "desc": "Inserisci il tuo indirizzo o consenti l'accesso alla posizione per vedere immediatamente tutte le attività su FarmaDoc nella tua zona. Filtra per distanza, categoria o livello di sconto."
       },
       "step2": {
         "label": "Passo 2",
         "title": "Scopri Offerte e Promozioni",
-        "desc": "Sfoglia le offerte farmaceutiche curate dal team di FarmaDoc. Tutti i prodotti sono verificati, autentici e elencati con prezzi trasparenti e percentuali di sconto.."
+        "desc": "Sfoglia le offerte curate dal team di FarmaDoc. Tutti i prodotti sono verificati, autentici e elencati con prezzi trasparenti e percentuali di sconto.."
       },
       "step3": {
         "label": "Passo 3",
-        "title": "Prenota o Riserva",
-        "desc": "Scegli tra Articoli Prenotabili (riservati per 24 ore con un piccolo deposito) o Articoli da Showroom (visita la farmacia per acquistare). Nessun impegno richiesto per la consultazione."
+        "title": "Visualizza o Prenota",
+        "desc": "Scegli tra Articoli Prenotabili o Articoli da Showroom (paga direttamente al ritiro). Nessun impegno richiesto per la consultazione."
       },
       "step4": {
         "label": "Passo 4",
         "title": "Paga Online o al Ritiro",
-        "desc": "Completa la tua transazione online tramite carta, oppure paga direttamente al banco della farmacia durante il ritiro. Entrambe le opzioni sono completamente supportate — a tua scelta."
+        "desc": "Completa la tua transazione online tramite carta, oppure paga direttamente al ritiro della farmacia durante il ritiro. Entrambe le opzioni sono completamente supportate — a tua scelta."
       },
       "step5": {
         "label": "Passo 5",
-        "title": "Ritira dalla Farmacia",
-        "desc": "Recati nella farmacia scelta e ritira i tuoi prodotti riservati al banco di ritiro dedicato di FarmaDoc. Mostra il tuo codice QR di conferma e hai finito."
+        "title": "Ritira direttamente in negozio",
+        "desc": "Recati presso la sede scelta e ritira i prodotti prenotati. Mostra il tuo codice QR di conferma e hai finito."
       }
     }
   },
@@ -853,7 +853,7 @@
     "couponDiscount": "Sconto coupon",
     "paidAmount": "Importo pagato",
     "direction": "Indicazioni",
-    "downloadInvoice": "Scarica fattura",
+    "downloadInvoice": "Scarica Ordine",
     "contactSupport": "Contatta supporto",
     "cancelOrder": "Annulla ordine"
   },
@@ -944,7 +944,7 @@
     "searchPlaceholder": "Cerca una posizione...",
     "distanceRange": "Raggio di distanza",
     "distance": "Distanza:",
-    "showProducts": "MOSTRA PRODOTTI VICINI",
+    "showProducts": "Trova offerte vicino a me",
     "yourLocation": "La tua posizione",
     "defaultLocation": "Country Club, Castel Maggiore, Italia",
     "noResults": "Nessuna farmacia trovata nella tua zona. Prova ad aumentare il raggio di ricerca o inserire un'altra posizione.",
@@ -962,15 +962,15 @@
     "successMessage": "La tua prenotazione è confermata",
     "failureMessage": "Non siamo riusciti a elaborare il pagamento. Riprova o utilizza un altro metodo di pagamento.",
     "summaryMessage": "Il nostro team esaminerà la tua richiesta e ti contatterà a breve.",
-    "summaryExtra": "Potremmo anche aggiungere la tua farmacia e le offerte basandoci su informazioni pubblicamente disponibili",
+    "summaryExtra": "",
 
     "orderId": "ID ordine",
     "paidAmount": "Importo pagato",
     "pickupFrom": "*Ritiro richiesto da",
-    "pharmacies": "farmacie",
+    "pharmacies": "attività",
 
     "backHome": "Torna alla home",
-    "viewOrder": "Visualizza ordine",
+    "viewOrder": "Visualizza dettagli dell'ordine",
     "retry": "Riprova pagamento"
   },
 
@@ -1001,12 +1001,12 @@
 
   "reservation": {
     "title": "Conferma i punti di ritiro",
-    "subtitle": "Controlla dove sono riservati i tuoi articoli prima di procedere.",
+    "subtitle": "Controlla dove sono prenotati i tuoi articoli prima di procedere.",
     "unknownPharmacy": "Farmacia sconosciuta",
     "defaultAddress": "Via Maple 12, Firenze, Italia",
     "noItems": "Nessun articolo trovato nella prenotazione.",
-    "pickupNote": "*Dovrai ritirare gli articoli da tutte le farmacie selezionate",
-    "paymentNote": "*Il pagamento conferma la tua prenotazione. Gli articoli saranno disponibili per il ritiro nello showroom.",
+    "pickupNote": "*Dovrai ritirare gli articoli da tutte le attività selezionate",
+    "paymentNote": "*Gli articoli sono prenotati presso le sedi selezionate.",
     "backToCart": "Torna al carrello",
     "continuePayment": "Procedi al pagamento"
   },

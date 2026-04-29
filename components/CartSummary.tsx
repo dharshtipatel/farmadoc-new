@@ -43,10 +43,10 @@ export default function CartSummary({
             <span>€{cartTotal.toFixed(2)}</span>
           </div>
 
-          <div className="flex justify-between pt-2 pb-2">
+          {/* <div className="flex justify-between pt-2 pb-2">
             <span>{t("cartSummary.platformFee")}</span>
             <span>€{platformFee.toFixed(2)}</span>
-          </div>
+          </div> */}
 
           <div className="flex justify-between pt-2 pb-2">
             <span>{t("cartSummary.totalDiscount")}</span>

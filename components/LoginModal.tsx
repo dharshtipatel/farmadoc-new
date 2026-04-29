@@ -6,6 +6,7 @@ import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
 import PaymentModal from "./PaymentModel";
 import { useAppTranslation } from "@/lib/useAppTranslation";
+import { handleCustomerRegister, handleVerifyOtp, handleLogin, handleForgotPassword, handleVerifyForgotOtp, handleResetPassword, handleResendOtp } from "@/lib/api/hooks/authcontroller";
 
 type Props = {
   onClose: () => void;
@@ -22,7 +23,7 @@ type Props = {
     | "pharmacyDetails";
 };
 
-type Step =
+export type Step =
   | "login"
   | "forgot"
   | "otp"
@@ -94,6 +95,34 @@ export default function LoginModal({
     return "";
   };
 
+  const [customerData, setCustomerData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
+  });
+
+  const [otp, setOtp] = useState("");
+  const [emailForOtp, setEmailForOtp] = useState("");
+
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [resetToken, setResetToken] = useState("");
+  const [resetData, setResetData] = useState({
+    newPassword: "",
+    confirmNewPassword: "",
+  });
+
+  const finalEmail =
+  emailForOtp ||
+  loginData.email ||
+  customerData.email;
+
+  const [otpPurpose, setOtpPurpose] = useState<"signup" | "forgot" | null>(null);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 px-3 sm:px-4"
@@ -134,10 +163,17 @@ export default function LoginModal({
             <div className="mt-1 mb-4 flex items-center rounded-md border px-3 py-3">
               <Mail size={16} className="mr-2" />
               <input
-                type="email"
-                placeholder={t("loginModal.placeholders.email")}
-                className="w-full text-sm outline-none"
-              />
+              type="email"
+              value={loginData.email}
+              onChange={(e) =>
+                setLoginData((prev) => ({
+                  ...prev,
+                  email: e.target.value,
+                }))
+              }
+              placeholder={t("loginModal.placeholders.email")}
+              className="w-full text-sm outline-none"
+            />
             </div>
           )}
 
@@ -150,7 +186,15 @@ export default function LoginModal({
                     maxLength={1}
                     className="h-12 w-10 rounded-md border text-center outline-none focus:border-blue-500"
                     onChange={(e) => {
-                      if (e.target.value && e.target.nextSibling) {
+                      const value = e.target.value;
+
+                      setOtp((prev) => {
+                        const arr = prev.split("");
+                        arr[i] = value;
+                        return arr.join("");
+                      });
+
+                      if (value && e.target.nextSibling) {
                         (e.target.nextSibling as HTMLInputElement).focus();
                       }
                     }}
@@ -160,7 +204,22 @@ export default function LoginModal({
 
               <p className="text-sm text-gray-500">
                 {t("loginModal.didNotReceiveCode")}{" "}
-                <span className="cursor-pointer text-blue-600">
+                <span
+                  className="cursor-pointer text-blue-600"
+                  onClick={() => {
+                    if (!finalEmail) {
+                      alert("Email missing");
+                      return;
+                    }
+
+                    handleResendOtp(
+                      finalEmail,
+                      (msg) => alert(msg),
+                      (err) => alert(err),
+                      setResetToken
+                    );
+                  }}
+                >
                   {t("loginModal.resend")}
                 </span>
               </p>
@@ -180,6 +239,13 @@ export default function LoginModal({
                 />
                 <input
                   type="text"
+                  value={customerData.name}
+                  onChange={(e) =>
+                    setCustomerData((prev) => ({
+                      ...prev,
+                      name: e.target.value,
+                    }))
+                  }
                   placeholder={t("loginModal.placeholders.fullName")}
                   className="w-full text-sm outline-none"
                 />
@@ -190,6 +256,13 @@ export default function LoginModal({
                 <Mail size={23} className="mr-2" />
                 <input
                   type="email"
+                  value={customerData.email}
+                  onChange={(e) =>
+                    setCustomerData((prev) => ({
+                      ...prev,
+                      email: e.target.value,
+                    }))
+                  }
                   placeholder={t("loginModal.placeholders.email")}
                   className="w-full text-sm outline-none"
                 />
@@ -199,6 +272,13 @@ export default function LoginModal({
               <div className="mt-1 mb-4 flex items-center rounded-md border px-3 py-3">
                 <input
                   type="text"
+                  value={customerData.phone}
+                  onChange={(e) =>
+                    setCustomerData((prev) => ({
+                      ...prev,
+                      phone: e.target.value,
+                    }))
+                  }
                   placeholder={t("loginModal.placeholders.phone")}
                   className="w-full text-sm outline-none"
                 />
@@ -215,6 +295,13 @@ export default function LoginModal({
                 />
                 <input
                   type={newCustomerPassword ? "text" : "password"}
+                  value={customerData.password}
+                  onChange={(e) =>
+                    setCustomerData((prev) => ({
+                      ...prev,
+                      password: e.target.value,
+                    }))
+                  }
                   placeholder={t("loginModal.placeholders.password")}
                   className="w-full text-sm outline-none"
                 />
@@ -389,6 +476,13 @@ export default function LoginModal({
                 />
                 <input
                   type={newPassword ? "text" : "password"}
+                  value={resetData.newPassword}
+                  onChange={(e) =>
+                    setResetData((prev) => ({
+                      ...prev,
+                      newPassword: e.target.value,
+                    }))
+                  }
                   placeholder={t("loginModal.placeholders.newPassword")}
                   className="w-full text-sm outline-none"
                 />
@@ -412,6 +506,13 @@ export default function LoginModal({
                 />
                 <input
                   type={confirmPassword ? "text" : "password"}
+                  value={resetData.confirmNewPassword}
+                  onChange={(e) =>
+                    setResetData((prev) => ({
+                      ...prev,
+                      confirmNewPassword: e.target.value,
+                    }))
+                  }
                   placeholder={t("loginModal.placeholders.confirmPassword")}
                   className="w-full text-sm outline-none"
                 />
@@ -451,6 +552,13 @@ export default function LoginModal({
 
               <input
                 type={showPassword ? "text" : "password"}
+                value={loginData.password}
+                onChange={(e) =>
+                  setLoginData((prev) => ({
+                    ...prev,
+                    password: e.target.value,
+                  }))
+                }
                 placeholder={t("loginModal.placeholders.password")}
                 className="w-full text-sm outline-none"
               />
@@ -501,13 +609,84 @@ export default function LoginModal({
               } else if (step === "pharmacyDetails") {
                 setStep("otp");
               } else if (step === "login") {
-                onLoginSuccess?.();
-              } else if (step === "forgot" || step === "customerSignup") {
+                if (!loginData.email || !loginData.password) {
+                  alert("Please enter email and password");
+                  return;
+                }
+
+                handleLogin(
+                  loginData,
+                  setStep,
+                  (msg) => alert(msg),
+                  () => {
+                    onLoginSuccess?.();
+                    onClose();
+                  }
+                );
+              } else if (step === "forgot") {
+                if (!loginData.email) {
+                  alert("Please enter email");
+                  return;
+                }
+                setOtpPurpose("forgot");
+                setEmailForOtp(loginData.email);
+
+                handleForgotPassword(
+                  { email: loginData.email },
+                  setStep,
+                  (msg) => alert(msg)
+                );
+              } else if (step === "reset") {
+                handleResetPassword(
+                  resetData,
+                  setStep,
+                  (msg) => alert(msg),
+                  resetToken,
+                  () => {
+                    alert("Password reset successful");
+                    onLoginSuccess?.();
+                    onClose();
+                  }
+                );
+              } else if (step === "customerSignup") {
+                if (
+                  !customerData.name ||
+                  !customerData.email ||
+                  !customerData.password ||
+                  !customerData.phone
+                ) {
+                  alert("Please fill all fields");
+                  return;
+                }
+                setOtpPurpose("signup");
+                handleCustomerRegister(customerData, setStep, (msg) => alert(msg), setEmailForOtp);
                 setStep("otp");
               } else if (step === "otp") {
-                setShowPayment(true);
-              } else if (step === "reset") {
-                onLoginSuccess?.();
+                if (otpPurpose === "forgot") {
+                  handleVerifyForgotOtp(
+                    {
+                      email: finalEmail,
+                      otp,
+                    },
+                    () => {
+                      setStep("reset"); // ✅ THIS IS YOUR REQUIRED FIX
+                    },
+                    (msg) => alert(msg),
+                    setResetToken,
+                  );
+                } else {
+                  handleVerifyOtp(
+                    {
+                      email: finalEmail,
+                      otp,
+                    },
+                    () => {
+                      onLoginSuccess?.();
+                      onClose();
+                    },
+                    (msg) => console.error(msg)
+                  );
+                }
               }
             }}
           >
