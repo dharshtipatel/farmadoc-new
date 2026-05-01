@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useAppTranslation } from "@/lib/useAppTranslation";
 
 function BlogDetailsContent() {
-  const { t, get } = useAppTranslation();
+  const { t } = useAppTranslation();
   const searchParams = useSearchParams();
 
   const label =
