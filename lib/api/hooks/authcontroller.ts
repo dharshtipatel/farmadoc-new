@@ -1,5 +1,44 @@
-import { registerCustomer, verifyOtp, loginUser, forgotPassword, verifyForgotPasswordOtp, resetPassword, ResetPasswordPayload, resendOtp, type RegisterPayload, VerifyOtpPayload, LoginPayload, ForgotPasswordPayload,  } from "./authservice";
+import {
+  registerCustomer,
+  verifyOtp,
+  loginUser,
+  forgotPassword,
+  verifyForgotPasswordOtp,
+  resetPassword,
+  resendOtp,
+  type ResetPasswordPayload,
+  type RegisterPayload,
+  type VerifyOtpPayload,
+  type LoginPayload,
+  type ForgotPasswordPayload,
+} from "./authservice";
 import type { Step } from "../../../components/LoginModal";
+import { persistAuthSession } from "@/lib/auth/session";
+
+type AuthUser = {
+  _id?: string;
+  name?: string;
+  email?: string;
+};
+
+type LoginResponse = {
+  data?: {
+    user?: AuthUser;
+    token?: {
+      access?: { token?: string };
+      refresh?: { token?: string };
+    };
+  };
+  message?: string;
+};
+
+function getErrorMessage(error: unknown, fallback: string) {
+  if (error instanceof Error && error.message) {
+    return error.message;
+  }
+
+  return fallback;
+}
 
 export function handleCustomerRegister(
   data: RegisterPayload,
@@ -9,7 +48,7 @@ export function handleCustomerRegister(
 ) {
   return registerCustomer(data, {
     onNext: (step) => {
-      setEmailForOtp(data.email); // ✅ correct place
+      setEmailForOtp(data.email);
       setStep(step);
     },
     onError: showError,
@@ -26,14 +65,14 @@ export async function handleVerifyOtp(
     const res = await verifyOtp(data);
 
     if (otpPurpose === "forgot") {
-      setStep("reset");   // ✅ your requirement
+      setStep("reset");
     } else {
-      setStep("login");   // signup or default
+      setStep("login");
     }
 
     return res;
-  } catch (err: any) {
-    showError(err.message);
+  } catch (err: unknown) {
+    showError(getErrorMessage(err, "OTP verification failed"));
     throw err;
   }
 }
@@ -42,12 +81,10 @@ export async function handleLogin(
   data: LoginPayload,
   setStep: (step: Step) => void,
   showError: (msg: string) => void,
-  onSuccess?: (res: any) => void
+  onSuccess?: (res: LoginResponse) => void
 ) {
   try {
-    const res: any = await loginUser(data);
-
-    // ✅ correct access (ONLY ONE data level)
+    const res = (await loginUser(data)) as LoginResponse;
     const user = res.data?.user;
     const accessToken = res.data?.token?.access?.token;
     const refreshToken = res.data?.token?.refresh?.token;
@@ -56,18 +93,18 @@ export async function handleLogin(
       throw new Error("Invalid login response");
     }
 
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken || "");
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("userId", user._id);
+    persistAuthSession({
+      user,
+      accessToken,
+      refreshToken,
+    });
 
     onSuccess?.(res);
-
     setStep("login");
 
     return res;
-  } catch (err: any) {
-    showError(err.message || "Login failed");
+  } catch (err: unknown) {
+    showError(getErrorMessage(err, "Login failed"));
     throw err;
   }
 }
@@ -78,14 +115,12 @@ export async function handleForgotPassword(
   showError: (msg: string) => void
 ) {
   try {
-    const res: any = await forgotPassword(data);
-
-    // optional: move to OTP step
+    const res = await forgotPassword(data);
     setStep("otp");
 
     return res;
-  } catch (err: any) {
-    showError(err.message || "Failed to send reset email");
+  } catch (err: unknown) {
+    showError(getErrorMessage(err, "Failed to send reset email"));
     throw err;
   }
 }
@@ -95,22 +130,23 @@ export async function handleVerifyForgotOtp(
   setStep: (step: Step) => void,
   showError: (msg: string) => void,
   setResetToken: (token: string) => void,
-  onSuccess?: () => void,
+  onSuccess?: () => void
 ) {
   try {
-    const res: any = await verifyForgotPasswordOtp(data);
-
+    const res = (await verifyForgotPasswordOtp(data)) as LoginResponse;
     const token = res?.data?.token?.access?.token;
 
-    if (!token) throw new Error("Reset token missing");
+    if (!token) {
+      throw new Error("Reset token missing");
+    }
 
     setResetToken(token);
     setStep("reset");
-
     onSuccess?.();
+
     return res;
-  } catch (err: any) {
-    showError(err.message || "OTP verification failed");
+  } catch (err: unknown) {
+    showError(getErrorMessage(err, "OTP verification failed"));
     throw err;
   }
 }
@@ -126,11 +162,11 @@ export async function handleResetPassword(
     const res = await resetPassword(data, token);
 
     onSuccess?.();
-    setStep("login"); // or close modal
+    setStep("login");
 
     return res;
-  } catch (err: any) {
-    showError(err.message || "Reset password failed");
+  } catch (err: unknown) {
+    showError(getErrorMessage(err, "Reset password failed"));
     throw err;
   }
 }
@@ -142,19 +178,18 @@ export async function handleResendOtp(
   setResetToken?: (token: string) => void
 ) {
   try {
-    const res: any = await resendOtp({ email });
-
+    const res = (await resendOtp({ email })) as LoginResponse;
     showSuccess(res?.message || "OTP resent");
 
-      const token = res?.data?.token?.access?.token;
+    const token = res?.data?.token?.access?.token;
 
-      if (token && setResetToken) {
-        setResetToken(token);
-      }
+    if (token && setResetToken) {
+      setResetToken(token);
+    }
 
     return res;
-  } catch (err: any) {
-    showError(err.message || "Failed to resend OTP");
+  } catch (err: unknown) {
+    showError(getErrorMessage(err, "Failed to resend OTP"));
     throw err;
   }
 }

@@ -12,6 +12,7 @@ import ProfileDrawer from "./ProfileDrawer";
 import MapCard from "./MapCard";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAppTranslation } from "@/lib/useAppTranslation";
+import { useAuthSession } from "@/lib/auth/session";
 
 interface Deal {
   id: number;
@@ -87,13 +88,13 @@ export default function Header({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [openProfileDrawer, setOpenProfileDrawer] = useState(false);
   const [openMapPopup, setOpenMapPopup] = useState(false);
 
   const router = useRouter();
   const { setLang } = useLanguage();
   const { lang, t, get } = useAppTranslation();
+  const { isLoggedIn } = useAuthSession();
 
   const translatedNavItems = get(
     "header.navItems",
@@ -123,7 +124,6 @@ export default function Header({
   }, [openMapPopup]);
 
   const handleLoginSuccess = () => {
-    setIsLoggedIn(true);
     setOpenLogin(false);
   };
 

@@ -1,10 +1,11 @@
 'use client';
 
 import Header from '@/components/Header';
-import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import Image from 'next/image';
 import { useAppTranslation } from '@/lib/useAppTranslation';
+import { handleGetUserById } from "@/lib/api/hooks/usercontroller";
+import { useEffect, useState } from "react";
 
 export default function ProfilePage() {
   const { get, t } = useAppTranslation();
@@ -34,6 +35,17 @@ export default function ProfilePage() {
       setSelectedReasons([...selectedReasons, reason]);
     }
   };
+
+  const [userData, setUserData] = useState<any>(null);
+  useEffect(() => {
+  handleGetUserById(
+    (err) => console.error(err),
+    (data) => {
+      setUserData(data);
+      console.log(data);
+    }
+  );
+}, []);
 
   return (
     <div>
@@ -81,17 +93,29 @@ export default function ProfilePage() {
               <div className="max-w-[521px] space-y-5">
                 <div>
                   <label className="block text-[14px] mb-1 text-medium text-[#000000]">{t('profileSettingsPage.fullName')}</label>
-                  <input type="text" defaultValue="Mahavir Singh" className="w-full border border-[#D6DADD] text-[#1E3862] text-[14px] rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[#1E3862]" />
+                  <input type="text" value={userData?.name || ""} className="w-full border border-[#D6DADD] text-[#1E3862] text-[14px] rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[#1E3862]"
+                  onChange={(e) =>
+                    setUserData((prev: any) => ({
+                      ...prev,
+                      name: e.target.value,
+                    }))
+                  } />
                 </div>
 
                 <div>
                   <label className="block text-[14px] mb-1 text-medium text-[#000000]">{t('profileSettingsPage.phoneNumber')}</label>
-                  <input type="text" defaultValue="+39 1234567890" className="w-full border border-[#D6DADD] text-[#1E3862] text-[14px] rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[#1E3862]" />
+                  <input type="text" value={userData?.phone || ""} className="w-full border border-[#D6DADD] text-[#1E3862] text-[14px] rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[#1E3862]"
+                  onChange={(e) =>
+                    setUserData((prev: any) => ({
+                      ...prev,
+                      phone: e.target.value,
+                    }))
+                  } />
                 </div>
 
                 <div>
                   <label className="block text-[14px] mb-1 text-medium text-[#000000]">{t('profileSettingsPage.email')}</label>
-                  <input type="email" defaultValue="mahavir@examplemail.com" className="w-full bg-[#F6F9FF] border border-[#D6DADD] text-[#1E3862] text-[14px] rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[#1E3862]" disabled />
+                  <input type="email" value={userData?.email || ""} className="w-full bg-[#F6F9FF] border border-[#D6DADD] text-[#1E3862] text-[14px] rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[#1E3862]" disabled />
                 </div>
 
                 <div className="pt-4 flex justify-end">
